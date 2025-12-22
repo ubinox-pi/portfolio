@@ -15,8 +15,37 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ramjee Prasad | Portfolio",
-  description: "Backend Engineer & Android Developer specializing in Java, Spring Boot, and Distributed Systems.",
+  title: "Ramjee Prasad | Backend Developer & Java Expert",
+  description: "Backend Engineer specializing in Java, Spring Boot, Microservices, and Distributed Systems. Building scalable, high-performance applications.",
+  keywords: ["Backend Developer", "Java Developer", "Spring Boot", "Microservices", "REST API", "Docker", "Kubernetes", "Portfolio"],
+  authors: [{ name: "Ramjee Prasad" }],
+  creator: "Ramjee Prasad",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://ramjeeprasad.dev",
+    title: "Ramjee Prasad | Backend Developer & Java Expert",
+    description: "Backend Engineer specializing in Java, Spring Boot, Microservices, and Distributed Systems.",
+    siteName: "Ramjee Prasad Portfolio",
+    images: [
+      {
+        url: "/ramjee_passport.png",
+        width: 800,
+        height: 800,
+        alt: "Ramjee Prasad - Backend Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ramjee Prasad | Backend Developer & Java Expert",
+    description: "Backend Engineer specializing in Java, Spring Boot, Microservices, and Distributed Systems.",
+    images: ["/ramjee_passport.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
   },
@@ -32,6 +61,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
       >
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
         <JavaBackground />
 
         <div className="relative z-10">

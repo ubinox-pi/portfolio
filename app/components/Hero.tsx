@@ -2,8 +2,25 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Download } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Hero() {
+    const [displayText, setDisplayText] = useState("");
+    const fullText = "Hello, I'm Ramjee Prasad!";
+
+    useEffect(() => {
+        let index = 0;
+        const timer = setInterval(() => {
+            if (index <= fullText.length) {
+                setDisplayText(fullText.slice(0, index));
+                index++;
+            } else {
+                clearInterval(timer);
+            }
+        }, 50);
+        return () => clearInterval(timer);
+    }, []);
+
     return (
         <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-20">
             <div className="absolute inset-0 z-0 opacity-20">
@@ -38,7 +55,9 @@ export default function Hero() {
                                 transition={{ delay: 0.2 }}
                             >
                                 <span className="text-gray-400">// Career Objective</span>
-                                <div className="text-green-400">System.out.println(<span className="text-orange-300">"Hello, I'm Ramjee Prasad!"</span>);</div>
+                                <div className="text-green-400">
+                                    System.out.println(<span className="text-orange-300">"{displayText}<span className="animate-pulse">|</span>"</span>);
+                                </div>
                             </motion.div>
 
                             <motion.div

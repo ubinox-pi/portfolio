@@ -50,8 +50,8 @@ export default function JavaBackground() {
             constructor() {
                 this.x = Math.random() * width;
                 this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
+                this.vx = (Math.random() - 0.5) * 1.2;
+                this.vy = (Math.random() - 0.5) * 1.2;
                 this.text = javaKeywords[Math.floor(Math.random() * javaKeywords.length)];
                 this.size = Math.random() * 12 + 10;
             }
@@ -87,7 +87,7 @@ export default function JavaBackground() {
         window.addEventListener("mousemove", handleMouseMove);
 
         let lastTime = 0;
-        const fps = 30;
+        const fps = 60;
         const frameInterval = 1000 / fps;
 
         const animate = (currentTime: number) => {
