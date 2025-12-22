@@ -12,28 +12,47 @@ const springGreen = "#6db33f";
 function CodeBlock({ code, language = "java" }: { code: string; language?: string }) {
     const [copied, setCopied] = useState(false);
 
-    const copyCode = () => {
-        navigator.clipboard.writeText(code);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
+    const copyCode = async () => {
+        try {
+            // Try modern clipboard API first
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(code);
+            } else {
+                // Fallback for mobile/non-secure contexts
+                const textArea = document.createElement("textarea");
+                textArea.value = code;
+                textArea.style.position = "fixed";
+                textArea.style.left = "-999999px";
+                textArea.style.top = "-999999px";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                document.execCommand("copy");
+                textArea.remove();
+            }
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        } catch (err) {
+            console.error("Failed to copy:", err);
+        }
     };
 
     return (
-        <div className="relative group my-6">
+        <div className="relative group my-4 md:my-6">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-[#6db33f]/30 to-[#6db33f]/10 rounded-lg blur opacity-50 group-hover:opacity-75 transition" />
             <div className="relative bg-[#0d1117] rounded-lg border border-white/10 overflow-hidden">
-                <div className="flex items-center justify-between px-4 py-2 border-b border-white/10 bg-white/5">
-                    <span className="text-xs text-gray-400 font-mono">{language}</span>
+                <div className="flex items-center justify-between px-3 md:px-4 py-2 border-b border-white/10 bg-white/5">
+                    <span className="text-[10px] md:text-xs text-gray-400 font-mono">{language}</span>
                     <button
                         onClick={copyCode}
-                        className="flex items-center gap-1 text-xs text-gray-400 hover:text-white transition-colors"
+                        className="flex items-center gap-1 text-[10px] md:text-xs text-gray-400 hover:text-white transition-colors active:scale-95"
                     >
-                        {copied ? <Check size={14} className="text-green-400" /> : <Copy size={14} />}
+                        {copied ? <Check size={12} className="text-green-400" /> : <Copy size={12} />}
                         {copied ? "Copied!" : "Copy"}
                     </button>
                 </div>
-                <pre className="p-4 overflow-x-auto text-sm">
-                    <code className="text-gray-300 font-mono">{code}</code>
+                <pre className="p-3 md:p-4 overflow-x-auto text-[11px] md:text-sm">
+                    <code className="text-gray-300 font-mono whitespace-pre-wrap break-words md:whitespace-pre">{code}</code>
                 </pre>
             </div>
         </div>
@@ -61,32 +80,32 @@ function AnnotationSection({
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="border border-white/10 rounded-lg overflow-hidden mb-4 hover:border-[#6db33f]/50 transition-colors"
+            className="border border-white/10 rounded-lg overflow-hidden mb-3 md:mb-4 hover:border-[#6db33f]/50 transition-colors"
         >
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex items-center justify-between p-4 bg-white/5 hover:bg-white/10 transition-colors text-left"
+                className="w-full flex items-center justify-between p-3 md:p-4 bg-white/5 hover:bg-white/10 transition-colors text-left gap-2"
             >
-                <div className="flex items-center gap-3">
-                    <span className="text-[#6db33f] font-mono font-bold text-lg">{annotation}</span>
-                    <span className="text-gray-400">-</span>
-                    <span className="text-white">{title}</span>
+                <div className="flex items-center gap-2 md:gap-3 flex-wrap min-w-0">
+                    <span className="text-[#6db33f] font-mono font-bold text-sm md:text-lg break-all">{annotation}</span>
+                    <span className="text-gray-400 hidden md:inline">-</span>
+                    <span className="text-white text-sm md:text-base hidden md:inline">{title}</span>
                 </div>
-                {isOpen ? <ChevronUp className="text-gray-400" /> : <ChevronDown className="text-gray-400" />}
+                {isOpen ? <ChevronUp className="text-gray-400 flex-shrink-0" size={18} /> : <ChevronDown className="text-gray-400 flex-shrink-0" size={18} />}
             </button>
 
             {isOpen && (
                 <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
-                    className="p-4 bg-zinc-900/50"
+                    className="p-3 md:p-4 bg-zinc-900/50"
                 >
-                    <p className="text-gray-400 mb-4">{description}</p>
+                    <p className="text-sm md:text-base text-gray-400 mb-3 md:mb-4">{description}</p>
                     <CodeBlock code={example} />
                     {tips && tips.length > 0 && (
-                        <div className="mt-4 p-3 bg-[#6db33f]/10 border border-[#6db33f]/30 rounded-lg">
-                            <h4 className="text-[#6db33f] font-bold mb-2 text-sm">💡 Pro Tips:</h4>
-                            <ul className="text-sm text-gray-400 space-y-1">
+                        <div className="mt-3 md:mt-4 p-2 md:p-3 bg-[#6db33f]/10 border border-[#6db33f]/30 rounded-lg">
+                            <h4 className="text-[#6db33f] font-bold mb-2 text-xs md:text-sm">💡 Pro Tips:</h4>
+                            <ul className="text-xs md:text-sm text-gray-400 space-y-1">
                                 {tips.map((tip, i) => (
                                     <li key={i}>• {tip}</li>
                                 ))}
@@ -292,28 +311,28 @@ export default function SpringBootAnnotationsPost() {
         <main className="min-h-screen bg-[#0a0a0a] text-white">
             {/* Header */}
             <div className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/5">
-                <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+                <div className="max-w-4xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
                     <Link
                         href="/#blog"
-                        className="flex items-center gap-2 text-gray-400 hover:text-[#6db33f] transition-colors"
+                        className="flex items-center gap-1 md:gap-2 text-gray-400 hover:text-[#6db33f] transition-colors"
                     >
-                        <ArrowLeft size={20} />
-                        <span>Back to Portfolio</span>
+                        <ArrowLeft size={18} />
+                        <span className="text-sm md:text-base">Back</span>
                     </Link>
                     <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-[#6db33f]/20 flex items-center justify-center">
+                        <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#6db33f]/20 flex items-center justify-center">
                             <span className="text-[#6db33f] text-xs font-bold">S</span>
                         </div>
-                        <span className="text-sm font-mono text-[#6db33f]">Spring Boot</span>
+                        <span className="text-xs md:text-sm font-mono text-[#6db33f]">Spring Boot</span>
                     </div>
                 </div>
             </div>
 
             {/* Hero Section */}
-            <section className="pt-32 pb-16 px-6 relative overflow-hidden">
+            <section className="pt-24 md:pt-32 pb-10 md:pb-16 px-4 md:px-6 relative overflow-hidden">
                 <div className="absolute inset-0 z-0">
-                    <div className="absolute top-20 left-10 w-96 h-96 bg-[#6db33f]/10 rounded-full blur-[150px]" />
-                    <div className="absolute bottom-20 right-10 w-64 h-64 bg-[#6db33f]/5 rounded-full blur-[100px]" />
+                    <div className="absolute top-20 left-10 w-64 md:w-96 h-64 md:h-96 bg-[#6db33f]/10 rounded-full blur-[150px]" />
+                    <div className="absolute bottom-20 right-10 w-48 md:w-64 h-48 md:h-64 bg-[#6db33f]/5 rounded-full blur-[100px]" />
                 </div>
 
                 <div className="max-w-4xl mx-auto relative z-10">
@@ -322,37 +341,36 @@ export default function SpringBootAnnotationsPost() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <div className="flex items-center gap-3 mb-6">
-                            <span className="px-3 py-1 bg-[#6db33f]/20 text-[#6db33f] rounded-full text-sm font-mono">
-                                Spring Framework
+                        <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+                            <span className="px-2 md:px-3 py-1 bg-[#6db33f]/20 text-[#6db33f] rounded-full text-xs md:text-sm font-mono">
+                                Spring
                             </span>
-                            <span className="px-3 py-1 bg-white/5 text-gray-400 rounded-full text-sm">
+                            <span className="px-2 md:px-3 py-1 bg-white/5 text-gray-400 rounded-full text-xs md:text-sm">
                                 Backend
                             </span>
                         </div>
 
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                        <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight">
                             Mastering <span className="text-[#6db33f]">Spring Boot</span> Annotations
                         </h1>
 
-                        <p className="text-xl text-gray-400 mb-8 leading-relaxed">
-                            A comprehensive guide to the most essential annotations that power
-                            modern Spring Boot applications. From <span className="text-[#6db33f]">@SpringBootApplication</span> to
-                            <span className="text-[#6db33f]"> @Repository</span>, master them all.
+                        <p className="text-base md:text-xl text-gray-400 mb-6 md:mb-8 leading-relaxed">
+                            A comprehensive guide to essential annotations that power
+                            modern Spring Boot apps.
                         </p>
 
-                        <div className="flex flex-wrap items-center gap-6 text-sm text-gray-500">
-                            <div className="flex items-center gap-2">
-                                <User size={16} />
+                        <div className="flex flex-wrap items-center gap-3 md:gap-6 text-xs md:text-sm text-gray-500">
+                            <div className="flex items-center gap-1 md:gap-2">
+                                <User size={14} />
                                 <span>Ramjee Prasad</span>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <Calendar size={16} />
-                                <span>December 22, 2025</span>
+                            <div className="flex items-center gap-1 md:gap-2">
+                                <Calendar size={14} />
+                                <span>Dec 22, 2025</span>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <Clock size={16} />
-                                <span>10 min read</span>
+                            <div className="flex items-center gap-1 md:gap-2">
+                                <Clock size={14} />
+                                <span>10 min</span>
                             </div>
                         </div>
                     </motion.div>
@@ -360,16 +378,16 @@ export default function SpringBootAnnotationsPost() {
             </section>
 
             {/* Table of Contents */}
-            <section className="py-8 px-6 border-y border-white/5 bg-white/[0.02]">
+            <section className="py-6 md:py-8 px-4 md:px-6 border-y border-white/5 bg-white/[0.02]">
                 <div className="max-w-4xl mx-auto">
-                    <h2 className="text-lg font-bold text-white mb-4">📑 What You'll Learn</h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <h2 className="text-base md:text-lg font-bold text-white mb-3 md:mb-4">📑 What You'll Learn</h2>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
                         {annotations.map((ann, i) => (
                             <div
                                 key={i}
-                                className="px-3 py-2 bg-white/5 rounded-lg border border-white/10 hover:border-[#6db33f]/50 transition-colors cursor-pointer"
+                                className="px-2 md:px-3 py-1.5 md:py-2 bg-white/5 rounded-lg border border-white/10 hover:border-[#6db33f]/50 transition-colors cursor-pointer"
                             >
-                                <span className="text-[#6db33f] font-mono text-sm">{ann.annotation}</span>
+                                <span className="text-[#6db33f] font-mono text-[10px] md:text-sm break-all">{ann.annotation}</span>
                             </div>
                         ))}
                     </div>
