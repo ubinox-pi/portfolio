@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function About() {
     return (
@@ -43,9 +44,12 @@ export default function About() {
 
                     <div className="relative">
                         <div className="aspect-square rounded-lg bg-gray-800 border-2 border-accent relative overflow-hidden group">
-                            <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-black hover:from-gray-700 hover:to-gray-900 transition-colors flex items-center justify-center">
-                                <span className="text-6xl">👨‍💻</span>
-                            </div>
+                            <Image
+                                src="/ramjee_passport.png"
+                                alt="Ramjee Prasad"
+                                fill
+                                className="object-cover object-top scale-110 group-hover:scale-105 transition-transform duration-500"
+                            />
                             <div className="absolute inset-0 bg-accent/10 group-hover:bg-transparent transition-colors duration-300" />
                         </div>
                     </div>

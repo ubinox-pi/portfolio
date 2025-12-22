@@ -6,8 +6,8 @@ import { Folder, Github, ExternalLink } from "lucide-react";
 const projects = [
     {
         title: "Vertex",
-        description: "A comprehensive backend project focusing on distributed systems and high-performance architecture.",
-        tech: ["Java", "Distributed Systems", "Backend"],
+        description: "A production-ready Android application featuring Firebase integration for authentication, real-time data sync, and cloud-based user management. Built with scalable architecture for seamless backend communication.",
+        tech: ["Android", "Java", "Firebase", "Gradle"],
         github: "https://github.com/ubinox-pi/Vertex",
         link: "#"
     },

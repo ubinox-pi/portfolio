@@ -73,7 +73,7 @@ export default function JavaBackground() {
         }
 
         const particles: Particle[] = [];
-        const particleCount = Math.min(30, Math.floor((width * height) / 25000));
+        const particleCount = Math.min(50, Math.floor((width * height) / 20000));
 
         for (let i = 0; i < particleCount; i++) {
             particles.push(new Particle());
@@ -86,43 +86,54 @@ export default function JavaBackground() {
         };
         window.addEventListener("mousemove", handleMouseMove);
 
-        const animate = () => {
+        let lastTime = 0;
+        const fps = 30;
+        const frameInterval = 1000 / fps;
+
+        const animate = (currentTime: number) => {
             if (!ctx) return;
-            ctx.clearRect(0, 0, width, height);
 
-            particles.forEach((p, index) => {
-                p.update();
-                p.draw();
+            const deltaTime = currentTime - lastTime;
 
-                for (let j = index + 1; j < particles.length; j++) {
-                    const p2 = particles[j];
-                    const dx = p.x - p2.x;
-                    const dy = p.y - p2.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
+            if (deltaTime >= frameInterval) {
+                lastTime = currentTime - (deltaTime % frameInterval);
 
-                    if (distance < 150) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(250, 204, 21, ${0.15 - distance / 1000})`;
-                        ctx.lineWidth = 1;
-                        ctx.stroke();
+                ctx.clearRect(0, 0, width, height);
+
+                particles.forEach((p, index) => {
+                    p.update();
+                    p.draw();
+
+                    for (let j = index + 1; j < particles.length; j++) {
+                        const p2 = particles[j];
+                        const dx = p.x - p2.x;
+                        const dy = p.y - p2.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < 150) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(250, 204, 21, ${0.15 - distance / 1000})`;
+                            ctx.lineWidth = 1;
+                            ctx.stroke();
+                        }
                     }
-                }
 
-                const dx = p.x - mouse.x;
-                const dy = p.y - mouse.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < 200) {
-                    ctx.beginPath();
-                    ctx.strokeStyle = `rgba(250, 204, 21, ${0.4 - distance / 500})`;
-                    ctx.lineWidth = 1.5;
-                    ctx.moveTo(p.x + 10, p.y - 5);
-                    ctx.lineTo(mouse.x, mouse.y);
-                    ctx.stroke();
+                    const dx = p.x - mouse.x;
+                    const dy = p.y - mouse.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 200) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(250, 204, 21, ${0.4 - distance / 500})`;
+                        ctx.lineWidth = 1.5;
+                        ctx.moveTo(p.x + 10, p.y - 5);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
 
-                    p.x -= dx * 0.01;
-                    p.y -= dy * 0.01;
-                }
-            });
+                        p.x -= dx * 0.01;
+                        p.y -= dy * 0.01;
+                    }
+                });
+            }
 
             requestAnimationFrame(animate);
         };
@@ -142,9 +153,9 @@ export default function JavaBackground() {
     }, []);
 
     return (
-        <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="fixed inset-0 pointer-events-none z-0" style={{ willChange: 'transform' }}>
             <div className="absolute inset-0 bg-gradient-to-b from-black via-[#050505] to-[#0a0a0a] opacity-90" />
-            <canvas ref={canvasRef} className="absolute inset-0 block" />
+            <canvas ref={canvasRef} className="absolute inset-0 block" style={{ willChange: 'transform', transform: 'translateZ(0)' }} />
         </div>
     );
 }
