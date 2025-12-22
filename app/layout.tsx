@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://ramjeeprasad.dev",
+    url: "https://portfolio-three-azure-84.vercel.app/",
     title: "Ramjee Prasad | Backend Developer & Java Expert",
     description: "Backend Engineer specializing in Java, Spring Boot, Microservices, and Distributed Systems.",
     siteName: "Ramjee Prasad Portfolio",
@@ -47,7 +47,14 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+    icon: [
+      { url: "/java.png", sizes: "32x32", type: "image/png" },
+      { url: "/java.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: "/java.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/java.png",
   },
 };
 
