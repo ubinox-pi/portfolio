@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import JavaBackground from "./components/JavaBackground";
+import JsonLd from "./components/JsonLd";
 import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
@@ -68,7 +69,6 @@ export const metadata: Metadata = {
     title: "Ramjee Prasad | Backend Developer & Java Expert",
     description: "Ramjee Prasad - Backend Engineer specializing in Java, Spring Boot, Microservices, and Distributed Systems.",
     images: ["/ramjee_passport.png"],
-    site: "https://www.linkedin.com/in/ramjee-prasad-6b26b4349",
   },
   robots: {
     index: true,
@@ -116,6 +116,7 @@ export default function RootLayout({
             gtag('config', 'G-8T2L676SSV');
           `}
         </Script>
+        <JsonLd />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
