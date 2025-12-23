@@ -77,11 +77,11 @@ export default function ResumePage() {
                         </span>
                         <a href="https://github.com/ubinox-pi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 md:gap-2 hover:text-white transition-colors">
                             <Github size={14} className="flex-shrink-0" />
-                            <span>GitHub</span>
+                            <span>github.com/ubinox-pi</span>
                         </a>
                         <a href="https://www.linkedin.com/in/ramjee-prasad-6b26b4349" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 md:gap-2 hover:text-white transition-colors col-span-2 md:col-span-1">
                             <Linkedin size={14} className="flex-shrink-0" />
-                            <span>LinkedIn</span>
+                            <span>linkedin.com/in/ramjeeprasad</span>
                         </a>
                     </div>
                 </header>
