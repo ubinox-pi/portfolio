@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function Hero() {
@@ -94,13 +94,12 @@ export default function Hero() {
                             View Projects <ArrowRight size={18} />
                         </motion.a>
                         <motion.a
-                            href="/resume.pdf"
-                            download="Ramjee_Prasad_Resume.pdf"
+                            href="/resume"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="flex items-center justify-center gap-2 border border-accent text-accent px-6 py-3 rounded-md font-bold hover:bg-accent/10 transition-colors"
                         >
-                            Download Resume <Download size={18} />
+                            View Resume <ExternalLink size={18} />
                         </motion.a>
                     </div>
                 </motion.div>
