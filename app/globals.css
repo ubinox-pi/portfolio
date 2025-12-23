@@ -49,13 +49,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Smooth scroll optimization for sections */
-section,
-div,
-main {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
+/* GPU acceleration for specific animations only - don't apply globally as it breaks fixed positioning */
 
 /* Custom Scrollbar for Terminal Feel */
 ::-webkit-scrollbar {

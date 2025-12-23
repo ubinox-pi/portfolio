@@ -10,7 +10,7 @@ export default function Navbar() {
         { name: "home", path: "/", icon: Terminal },
         { name: "about", path: "#about", icon: User },
         { name: "skills", path: "#skills", icon: Cpu },
-        { name: "projects", path: "#projects", icon: Code }, // Using Code icon for projects
+        { name: "projects", path: "#projects", icon: Code },
         { name: "experience", path: "#experience", icon: Briefcase },
         { name: "contact", path: "#contact", icon: Mail },
     ];
