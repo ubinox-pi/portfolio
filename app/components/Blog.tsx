@@ -57,7 +57,7 @@ export default function Blog() {
                             viewport={{ once: true }}
                             className="group"
                         >
-                            <Link href={`/blog/${post.slug}`}>
+                            <Link href={`/blog/${post.slug}`} scroll={true}>
                                 <div className="relative bg-zinc-900/30 backdrop-blur-md rounded-lg border border-white/5 overflow-hidden hover:border-opacity-50 transition-all duration-300 h-full" style={{ borderColor: `${post.color}30` }}>
                                     {/* Glow effect */}
                                     <div

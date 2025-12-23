@@ -8,14 +8,34 @@ export default function Contact() {
     const [copiedEmail, setCopiedEmail] = useState(false);
     const [copiedPhone, setCopiedPhone] = useState(false);
 
-    const handleCopy = (text: string, type: 'email' | 'phone') => {
-        navigator.clipboard.writeText(text);
-        if (type === 'email') {
-            setCopiedEmail(true);
-            setTimeout(() => setCopiedEmail(false), 2000);
-        } else {
-            setCopiedPhone(true);
-            setTimeout(() => setCopiedPhone(false), 2000);
+    const handleCopy = async (text: string, type: 'email' | 'phone') => {
+        try {
+            // Try modern clipboard API first
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(text);
+            } else {
+                // Fallback for mobile/non-secure contexts
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                textArea.style.left = "-999999px";
+                textArea.style.top = "-999999px";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                document.execCommand("copy");
+                textArea.remove();
+            }
+
+            if (type === 'email') {
+                setCopiedEmail(true);
+                setTimeout(() => setCopiedEmail(false), 2000);
+            } else {
+                setCopiedPhone(true);
+                setTimeout(() => setCopiedPhone(false), 2000);
+            }
+        } catch (err) {
+            console.error("Failed to copy:", err);
         }
     };
 
@@ -79,30 +99,33 @@ export default function Contact() {
                     href="mailto:ashish23481@gmail.com"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-block px-10 py-4 bg-accent text-black font-bold rounded-full shadow-[0_0_20px_rgba(250,204,21,0.3)] hover:shadow-[0_0_30px_rgba(250,204,21,0.5)] transition-shadow"
+                    className="inline-flex items-center gap-2 px-10 py-4 bg-accent text-black font-bold rounded-full shadow-[0_0_20px_rgba(250,204,21,0.3)] hover:shadow-[0_0_30px_rgba(250,204,21,0.5)] transition-shadow"
                 >
-                    Say Hello 👋
+                    Say Hello <span role="img" aria-label="wave" className="text-xl">👋</span>
                 </motion.a>
 
-                <div className="mt-20 border-t border-white/10 pt-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-sm text-gray-500 font-mono">
-                    <div className="flex flex-col items-center gap-3 group">
-                        <div className="p-2 bg-white/5 rounded-full group-hover:text-white transition-colors"><MapPin size={18} /></div> Jamshedpur
+                <div className="mt-16 border-t border-white/10 pt-8 flex flex-wrap justify-center gap-6 md:gap-10 text-sm text-gray-500 font-mono">
+                    <div className="flex flex-col items-center gap-2 group">
+                        <div className="p-2 bg-white/5 rounded-full group-hover:text-white transition-colors"><MapPin size={18} /></div>
+                        <span>Jamshedpur</span>
                     </div>
-                    <a href="https://github.com/ubinox-pi" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 group hover:text-accent transition-colors">
-                        <div className="p-2 bg-white/5 rounded-full group-hover:text-accent transition-colors"><Github size={18} /></div> GitHub
+                    <a href="https://github.com/ubinox-pi" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 group hover:text-accent transition-colors">
+                        <div className="p-2 bg-white/5 rounded-full group-hover:text-accent transition-colors"><Github size={18} /></div>
+                        <span>GitHub</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/ramjee-prasad-6b26b4349" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 group hover:text-accent transition-colors">
-                        <div className="p-2 bg-white/5 rounded-full group-hover:text-accent transition-colors"><Linkedin size={18} /></div> LinkedIn
+                    <a href="https://www.linkedin.com/in/ramjee-prasad-6b26b4349" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 group hover:text-accent transition-colors">
+                        <div className="p-2 bg-white/5 rounded-full group-hover:text-accent transition-colors"><Linkedin size={18} /></div>
+                        <span>LinkedIn</span>
                     </a>
-                    <a href="https://discord.com/users/ashishkushwaha_" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 group hover:text-accent transition-colors">
+                    <a href="https://discord.com/users/ashishkushwaha_" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 group hover:text-accent transition-colors">
                         <div className="p-2 bg-white/5 rounded-full group-hover:text-accent transition-colors">
                             <svg width="18" height="18" viewBox="0 0 127.14 96.36" className="fill-current"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.11,77.11,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.82,105.82,0,0,0,126.6,80.22c2.91-27.61-4.15-51.48-18.9-72.15ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z" /></svg>
-                        </div> Discord
+                        </div>
+                        <span>Discord</span>
                     </a>
-                    <div className="flex flex-col items-center gap-3">
-                        <div className="p-2 bg-white/5 rounded-full">©</div> 2024 Ramjee
-                    </div>
                 </div>
+
+                <p className="mt-8 text-xs text-gray-600 font-mono">© 2024 Ramjee Prasad</p>
             </motion.div>
 
             {/* Toast Notification */}

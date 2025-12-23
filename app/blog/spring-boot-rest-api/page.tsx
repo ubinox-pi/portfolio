@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, Clock, User, Copy, Check, ChevronDown, ChevronUp, Layers, Database, Shield, Settings } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BackToTop from "../../components/BackToTop";
 
 const springGreen = "#6db33f";
@@ -104,6 +104,21 @@ function Section({
 }
 
 export default function SpringBootRestApiPost() {
+    // Scroll to top on page load
+    useEffect(() => {
+        // Immediate scroll
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+
+        // Delayed scroll as backup
+        const timer = setTimeout(() => {
+            window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+        }, 100);
+
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <main className="min-h-screen bg-[#0a0a0a] text-white">
             {/* Header */}
