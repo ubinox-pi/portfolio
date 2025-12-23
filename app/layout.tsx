@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     title: "Ramjee Prasad | Backend Developer & Java Expert",
     description: "Ramjee Prasad - Backend Engineer specializing in Java, Spring Boot, Microservices, and Distributed Systems.",
     images: ["/ramjee_passport.png"],
-    creator: "@ramjeeprasad",
+    site: "https://www.linkedin.com/in/ramjee-prasad-6b26b4349",
   },
   robots: {
     index: true,
