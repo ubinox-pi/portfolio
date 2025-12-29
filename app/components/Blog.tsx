@@ -133,7 +133,7 @@ export default function Blog() {
                                             {post.description}
                                         </p>
 
-                                        <div className="flex items-center justify-between text-[10px] md:text-xs text-gray-500">
+                                        <div className="flex items-center justify-between text-[10px] md:text-xs text-gray-400">
                                             <div className="flex items-center gap-3 md:gap-4">
                                                 <span className="flex items-center gap-1">
                                                     <Calendar size={10} />

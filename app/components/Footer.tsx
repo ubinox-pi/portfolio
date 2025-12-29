@@ -64,10 +64,10 @@ export default function Footer() {
                 </div>
 
                 <div className="border-t border-white/10 pt-6 text-center">
-                    <p className="text-gray-500 text-sm">
+                    <p className="text-gray-400 text-sm">
                         © {new Date().getFullYear()} Ramjee Prasad. All rights reserved.
                     </p>
-                    <p className="text-gray-600 text-xs mt-2">
+                    <p className="text-gray-400 text-xs mt-2">
                         <Link href="https://ramjeeprasad.online" className="hover:text-accent">ramjeeprasad.online</Link>
                     </p>
                 </div>

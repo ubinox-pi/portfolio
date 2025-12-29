@@ -38,7 +38,7 @@ export default function Hero() {
                     <div className="absolute -top-20 -right-20 w-60 h-60 bg-accent/20 rounded-full blur-[100px] pointer-events-none" />
                     <div className="flex items-center justify-between mb-6 border-b border-white/5 pb-4">
                         <div className="flex space-x-2">
-                            <span className="text-xs text-gray-500">Main.java</span>
+                            <span className="text-xs text-gray-400">Main.java</span>
                         </div>
                         <div className="text-xs text-gray-600">Ramjee Prasad - Portfolio</div>
                     </div>

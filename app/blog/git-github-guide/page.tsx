@@ -25,23 +25,23 @@ function CodeBlock({ code, language = "bash", title }: CodeBlockProps) {
     };
 
     return (
-        <div className="relative group my-4">
+        <div className="relative group my-3 md:my-4">
             {title && (
-                <div className="bg-zinc-800 text-gray-400 text-xs px-4 py-2 rounded-t-lg border-b border-zinc-700 font-mono">
+                <div className="bg-zinc-800 text-gray-400 text-xs px-3 md:px-4 py-2 rounded-t-lg border-b border-zinc-700 font-mono truncate">
                     {title}
                 </div>
             )}
             <div className="absolute top-2 right-2 z-10">
                 <button
                     onClick={copyToClipboard}
-                    className="p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors"
+                    className="p-1.5 md:p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors"
                     title="Copy code"
                 >
-                    {copied ? <Check size={16} className="text-green-400" /> : <Copy size={16} className="text-gray-400" />}
+                    {copied ? <Check size={14} className="text-green-400" /> : <Copy size={14} className="text-gray-400" />}
                 </button>
             </div>
-            <pre className={`bg-[#1e1e1e] ${title ? 'rounded-b-lg' : 'rounded-lg'} p-4 overflow-x-auto border border-zinc-700`}>
-                <code className="text-sm text-gray-300 font-mono">{code}</code>
+            <pre className={`bg-[#1e1e1e] ${title ? 'rounded-b-lg' : 'rounded-lg'} p-3 md:p-4 overflow-x-auto border border-zinc-700`}>
+                <code className="text-xs md:text-sm text-gray-300 font-mono whitespace-pre-wrap break-words md:whitespace-pre md:break-normal">{code}</code>
             </pre>
         </div>
     );
@@ -56,10 +56,10 @@ interface CommandCardProps {
 
 function CommandCard({ title, command, description, color = gitColor }: CommandCardProps) {
     return (
-        <div className="bg-zinc-900/50 border rounded-lg p-4 hover:border-opacity-50 transition-colors" style={{ borderColor: `${color}30` }}>
-            <h4 className="font-semibold mb-2" style={{ color }}>{title}</h4>
+        <div className="bg-zinc-900/50 border rounded-lg p-3 md:p-4 hover:border-opacity-50 transition-colors" style={{ borderColor: `${color}30` }}>
+            <h4 className="font-semibold mb-2 text-sm md:text-base" style={{ color }}>{title}</h4>
             <CodeBlock code={command} />
-            <p className="text-gray-400 text-sm">{description}</p>
+            <p className="text-gray-400 text-xs md:text-sm">{description}</p>
         </div>
     );
 }
@@ -121,28 +121,28 @@ export default function GitGitHubGuidePage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="mb-12"
+                    className="mb-8 md:mb-12"
                 >
-                    <div className="flex items-center gap-4 mb-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4">
                         <div className="flex gap-2">
-                            <div className="p-3 rounded-xl bg-[#F05032]/20 border border-[#F05032]/30">
-                                <GitBranch size={28} className="text-[#F05032]" />
+                            <div className="p-2 md:p-3 rounded-xl bg-[#F05032]/20 border border-[#F05032]/30">
+                                <GitBranch size={24} className="text-[#F05032] md:w-7 md:h-7" />
                             </div>
-                            <div className="p-3 rounded-xl bg-zinc-800 border border-zinc-600">
-                                <GitPullRequest size={28} className="text-white" />
+                            <div className="p-2 md:p-3 rounded-xl bg-zinc-800 border border-zinc-600">
+                                <GitPullRequest size={24} className="text-white md:w-7 md:h-7" />
                             </div>
                         </div>
                         <div>
-                            <span className="text-accent text-sm font-mono">DevOps / Version Control</span>
-                            <h1 className="text-3xl md:text-4xl font-bold text-white">
+                            <span className="text-accent text-xs md:text-sm font-mono">DevOps / Version Control</span>
+                            <h1 className="text-2xl md:text-4xl font-bold text-white">
                                 Git & GitHub Mastery
                             </h1>
                         </div>
                     </div>
-                    <p className="text-gray-400 text-lg">
+                    <p className="text-gray-400 text-base md:text-lg">
                         The complete guide to version control. Master Git commands, branching strategies, collaboration workflows, and GitHub features.
                     </p>
-                    <div className="flex items-center gap-4 mt-4 text-sm text-gray-500">
+                    <div className="flex flex-wrap items-center gap-2 md:gap-4 mt-4 text-xs md:text-sm text-gray-500">
                         <span>By Ramjee Prasad</span>
                         <span>•</span>
                         <span>December 15, 2025</span>
@@ -156,14 +156,14 @@ export default function GitGitHubGuidePage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="bg-zinc-900/50 border border-white/10 rounded-xl p-6 mb-12"
+                    className="bg-zinc-900/50 border border-white/10 rounded-xl p-4 md:p-6 mb-8 md:mb-12"
                 >
-                    <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                        <FolderTree size={20} className="text-accent" />
+                    <h2 className="text-lg md:text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <FolderTree size={18} className="text-accent" />
                         Table of Contents
                     </h2>
-                    <div className="grid md:grid-cols-2 gap-4">
-                        <ul className="space-y-2 text-gray-400">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                        <ul className="space-y-2 text-sm text-gray-400">
                             <li><a href="#git-basics" className="hover:text-[#F05032] transition-colors">1. Git Fundamentals</a></li>
                             <li><a href="#git-config" className="hover:text-[#F05032] transition-colors">2. Git Configuration</a></li>
                             <li><a href="#basic-commands" className="hover:text-[#F05032] transition-colors">3. Essential Commands</a></li>

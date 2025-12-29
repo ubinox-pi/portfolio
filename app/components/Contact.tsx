@@ -59,7 +59,7 @@ export default function Contact() {
                         onClick={() => handleCopy("ashish23481@gmail.com", 'email')}
                         className="group relative cursor-pointer bg-black/20 p-6 rounded-xl border border-white/5 hover:border-accent/50 transition-all duration-300"
                     >
-                        <div className="absolute top-2 right-2 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="absolute top-2 right-2 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
                             {copiedEmail ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}
                         </div>
                         <div className="flex items-center gap-4">
@@ -67,7 +67,7 @@ export default function Contact() {
                                 <Mail size={24} />
                             </div>
                             <div className="text-left">
-                                <div className="text-xs text-gray-500">Email</div>
+                                <div className="text-xs text-gray-400">Email</div>
                                 <div className="text-white font-mono text-xs sm:text-sm break-all">ashish23481@gmail.com</div>
                             </div>
                         </div>
@@ -78,7 +78,7 @@ export default function Contact() {
                         onClick={() => handleCopy("9801112671", 'phone')}
                         className="group relative cursor-pointer bg-black/20 p-6 rounded-xl border border-white/5 hover:border-accent/50 transition-all duration-300"
                     >
-                        <div className="absolute top-2 right-2 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="absolute top-2 right-2 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
                             {copiedPhone ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}
                         </div>
                         <div className="flex items-center gap-4">
@@ -86,7 +86,7 @@ export default function Contact() {
                                 <Phone size={24} />
                             </div>
                             <div className="text-left">
-                                <div className="text-xs text-gray-500">Phone</div>
+                                <div className="text-xs text-gray-400">Phone</div>
                                 <div className="text-white font-mono text-xs sm:text-sm break-all">+91 9801112671</div>
                             </div>
                         </div>
@@ -104,7 +104,7 @@ export default function Contact() {
                     Say Hello <span role="img" aria-label="wave" className="text-xl">👋</span>
                 </motion.a>
 
-                <div className="mt-16 border-t border-white/10 pt-8 flex flex-wrap justify-center gap-6 md:gap-10 text-sm text-gray-500 font-mono">
+                <div className="mt-16 border-t border-white/10 pt-8 flex flex-wrap justify-center gap-6 md:gap-10 text-sm text-gray-400 font-mono">
                     <div className="flex flex-col items-center gap-2 group">
                         <div className="p-2 bg-white/5 rounded-full group-hover:text-white transition-colors"><MapPin size={18} /></div>
                         <span>Jamshedpur</span>

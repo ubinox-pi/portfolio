@@ -68,10 +68,20 @@ export default function Projects() {
                                         <Folder size={24} />
                                     </div>
                                     <div className="flex gap-4">
-                                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                                        <a
+                                            href={project.github}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-gray-400 hover:text-white transition-colors"
+                                            aria-label={`View ${project.title} source code on GitHub`}
+                                        >
                                             <Github size={20} />
                                         </a>
-                                        <a href={project.link} className="text-gray-400 hover:text-white transition-colors">
+                                        <a
+                                            href={project.link}
+                                            className="text-gray-400 hover:text-white transition-colors"
+                                            aria-label={`View ${project.title} live demo`}
+                                        >
                                             <ExternalLink size={20} />
                                         </a>
                                     </div>

@@ -103,12 +103,15 @@ export default function TechStack() {
                                         <img
                                             src={skill.icon}
                                             alt={skill.name}
+                                            width={40}
+                                            height={40}
                                             className="max-h-full max-w-full object-contain"
+                                            loading="lazy"
                                         />
                                     </div>
                                     <div>
                                         <div className="text-white font-medium text-xs leading-tight">{skill.name}</div>
-                                        <div className="text-[10px] text-gray-500 font-mono">v{skill.version}</div>
+                                        <div className="text-[10px] text-gray-400 font-mono">v{skill.version}</div>
                                     </div>
                                 </motion.div>
                             ))}
@@ -152,12 +155,15 @@ export default function TechStack() {
                                             <img
                                                 src={skill.icon}
                                                 alt={skill.name}
+                                                width={48}
+                                                height={48}
                                                 className="max-h-full max-w-full object-contain filter group-hover:brightness-110 transition-all duration-300"
+                                                loading="lazy"
                                             />
                                         </div>
                                         <div>
                                             <div className="text-white font-bold text-sm">{skill.name}</div>
-                                            <div className="text-xs text-gray-500 font-mono">v{skill.version}</div>
+                                            <div className="text-xs text-gray-400 font-mono">v{skill.version}</div>
                                         </div>
                                     </motion.div>
                                 ))}
@@ -171,15 +177,15 @@ export default function TechStack() {
                         <div className="relative bg-[#0d1117] p-6 rounded-lg border border-white/10 shadow-2xl font-mono text-sm overflow-hidden h-[500px] flex flex-col">
                             <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-4">
                                 <div className="flex gap-2">
-                                    <div className="w-3 h-3 text-gray-500">_</div>
-                                    <div className="w-3 h-3 text-gray-500">□</div>
-                                    <div className="w-3 h-3 text-gray-500">x</div>
+                                    <div className="w-3 h-3 text-gray-400">_</div>
+                                    <div className="w-3 h-3 text-gray-400">□</div>
+                                    <div className="w-3 h-3 text-gray-400">x</div>
                                 </div>
-                                <div className="text-xs text-gray-500">pom.xml - {activeTab}</div>
+                                <div className="text-xs text-gray-400">pom.xml - {activeTab}</div>
                             </div>
 
                             <div className="overflow-y-auto custom-scrollbar flex-grow">
-                                <div className="text-gray-500 mb-2">&lt;!-- {activeTab} Dependencies --&gt;</div>
+                                <div className="text-gray-400 mb-2">&lt;!-- {activeTab} Dependencies --&gt;</div>
                                 <div className="text-gray-400">&lt;<span className="text-pink-400">dependencies</span>&gt;</div>
 
                                 <div className="pl-4 space-y-1 my-2">

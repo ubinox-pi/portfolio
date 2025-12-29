@@ -29,15 +29,15 @@ export default function About() {
                             <h3 className="text-white font-bold mb-4">Education</h3>
                             <div className="border-l-2 border-accent pl-4">
                                 <div className="text-white font-bold">B.Tech in Computer Science and Engineering</div>
-                                <div className="text-gray-500 text-sm">Silicon Institute of Technology | 2023 - 2027</div>
+                                <div className="text-gray-400 text-sm">Silicon Institute of Technology | 2023 - 2027</div>
                             </div>
                             <div className="border-l-2 border-accent pl-4 mt-4">
                                 <div className="text-white font-bold">12th Grade</div>
-                                <div className="text-gray-500 text-sm">Jamshedpur Co-operative College | 2021 - 2023</div>
+                                <div className="text-gray-400 text-sm">Jamshedpur Co-operative College | 2021 - 2023</div>
                             </div>
                             <div className="border-l-2 border-accent pl-4 mt-4">
                                 <div className="text-white font-bold">10th Grade</div>
-                                <div className="text-gray-500 text-sm">Gayatri Shiksha Niketan High School | 2009 - 2021</div>
+                                <div className="text-gray-400 text-sm">Gayatri Shiksha Niketan High School | 2009 - 2021</div>
                             </div>
                         </div>
                     </div>
@@ -46,8 +46,10 @@ export default function About() {
                         <div className="aspect-square rounded-lg bg-gray-800 border-2 border-accent relative overflow-hidden group">
                             <Image
                                 src="/ramjee_passport.png"
-                                alt="Ramjee Prasad"
+                                alt="Ramjee Prasad - Backend Developer"
                                 fill
+                                priority
+                                sizes="(max-width: 768px) 100vw, 310px"
                                 className="object-cover object-top scale-110 group-hover:scale-105 transition-transform duration-500"
                             />
                             <div className="absolute inset-0 bg-accent/10 group-hover:bg-transparent transition-colors duration-300" />
