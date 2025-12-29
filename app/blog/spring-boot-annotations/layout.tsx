@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         type: "article",
         publishedTime: "2025-12-22T00:00:00.000Z",
         authors: ["Ramjee Prasad"],
-        url: "https://portfolio-three-azure-84.vercel.app/blog/spring-boot-annotations",
+        url: "https://ramjeeprasad.online/blog/spring-boot-annotations",
     },
     twitter: {
         card: "summary_large_image",
@@ -31,7 +31,15 @@ export const metadata: Metadata = {
         description: "Master Spring Boot annotations with practical examples and best practices.",
     },
     alternates: {
-        canonical: "https://portfolio-three-azure-84.vercel.app/blog/spring-boot-annotations",
+        canonical: "https://ramjeeprasad.online/blog/spring-boot-annotations",
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+        },
     },
 };
 

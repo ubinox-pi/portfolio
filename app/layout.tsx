@@ -17,58 +17,52 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ramjee Prasad | Backend Developer & Java Spring Boot Expert",
-  description: "Ramjee Prasad is a Backend Engineer and Java Developer specializing in Spring Boot, Microservices, REST APIs, and Distributed Systems. Hire Ramjee Prasad for scalable, high-performance backend development.",
+  title: "Ramjee Prasad - Backend Developer | Java & Spring Boot",
+  description: "Ramjee Prasad is a Backend Developer specializing in Java, Spring Boot, Microservices, and REST APIs. Portfolio of Ramjee Prasad showcasing backend development projects.",
   keywords: [
     "Ramjee Prasad",
-    "Ramjee Prasad backend engineer",
+    "Ramjee Prasad portfolio",
     "Ramjee Prasad developer",
-    "Ramjee Prasad Java developer",
+    "Ramjee Prasad backend",
+    "Ramjee Prasad Java",
     "Ramjee Prasad Spring Boot",
     "Backend Developer",
-    "Backend Engineer",
     "Java Developer",
     "Spring Boot Developer",
-    "Java Spring Boot Expert",
     "Microservices Developer",
     "REST API Developer",
-    "Docker Developer",
-    "Kubernetes Developer",
-    "Full Stack Developer",
-    "Software Engineer India",
+    "Software Developer India",
     "Backend Developer Jamshedpur",
-    "Java Developer Portfolio",
-    "Spring WebFlux Developer",
-    "Distributed Systems Engineer",
-    "Software Developer India"
+    "ramjeeprasad.online",
+    "Java portfolio"
   ],
-  authors: [{ name: "Ramjee Prasad", url: "https://github.com/ubinox-pi" }],
+  authors: [{ name: "Ramjee Prasad", url: "https://ramjeeprasad.online" }],
   creator: "Ramjee Prasad",
   publisher: "Ramjee Prasad",
   alternates: {
-    canonical: "https://portfolio-three-azure-84.vercel.app/",
+    canonical: "https://ramjeeprasad.online/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://portfolio-three-azure-84.vercel.app/",
-    title: "Ramjee Prasad | Backend Developer & Java Spring Boot Expert",
-    description: "Ramjee Prasad - Backend Engineer specializing in Java, Spring Boot, Microservices, and Distributed Systems. Building scalable applications.",
-    siteName: "Ramjee Prasad - Backend Developer Portfolio",
+    url: "https://ramjeeprasad.online/",
+    title: "Ramjee Prasad - Backend Developer",
+    description: "Ramjee Prasad - Backend Developer specializing in Java, Spring Boot, and Microservices. View portfolio and projects.",
+    siteName: "Ramjee Prasad Portfolio",
     images: [
       {
-        url: "/ramjee_passport.png",
+        url: "https://ramjeeprasad.online/ramjee_passport.png",
         width: 800,
         height: 800,
-        alt: "Ramjee Prasad - Backend Developer and Java Expert",
+        alt: "Ramjee Prasad - Backend Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ramjee Prasad | Backend Developer & Java Expert",
-    description: "Ramjee Prasad - Backend Engineer specializing in Java, Spring Boot, Microservices, and Distributed Systems.",
-    images: ["/ramjee_passport.png"],
+    title: "Ramjee Prasad - Backend Developer",
+    description: "Ramjee Prasad - Backend Developer specializing in Java, Spring Boot, and Microservices.",
+    images: ["https://ramjeeprasad.online/ramjee_passport.png"],
   },
   robots: {
     index: true,
@@ -102,7 +96,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-8T2L676SSV"

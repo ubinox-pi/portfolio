@@ -4,9 +4,9 @@ export default function JsonLd() {
         "@type": "Person",
         "name": "Ramjee Prasad",
         "jobTitle": "Backend Developer",
-        "description": "Backend Engineer specializing in Java, Spring Boot, Microservices, and Distributed Systems",
-        "url": "https://portfolio-three-azure-84.vercel.app",
-        "image": "https://portfolio-three-azure-84.vercel.app/ramjee_passport.png",
+        "description": "Backend Developer specializing in Java, Spring Boot, Microservices, and REST APIs",
+        "url": "https://ramjeeprasad.online",
+        "image": "https://ramjeeprasad.online/ramjee_passport.png",
         "email": "mailto:ashish23481@gmail.com",
         "telephone": "+91-9801112671",
         "address": {
@@ -16,31 +16,28 @@ export default function JsonLd() {
         },
         "sameAs": [
             "https://github.com/ubinox-pi",
-            "https://www.linkedin.com/in/ramjee-prasad-6b26b4349"
+            "https://www.linkedin.com/in/ramjee-prasad-6b26b4349",
+            "https://ramjeeprasad.online",
+            "https://ramjeeprasad.vercel.app",
+            "https://ashishkushwaha.vercel.app"
         ],
         "knowsAbout": [
             "Java",
             "Spring Boot",
-            "Spring WebFlux",
             "Microservices",
             "REST API",
             "Docker",
-            "Kubernetes",
             "PostgreSQL",
-            "Redis",
-            "Apache Kafka"
-        ],
-        "alumniOf": {
-            "@type": "EducationalOrganization",
-            "name": "Bachelor of Technology in Computer Science"
-        }
+            "Redis"
+        ]
     };
 
     const websiteSchema = {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Ramjee Prasad - Backend Developer Portfolio",
-        "url": "https://portfolio-three-azure-84.vercel.app",
+        "name": "Ramjee Prasad Portfolio",
+        "alternateName": "Ramjee Prasad - Backend Developer",
+        "url": "https://ramjeeprasad.online",
         "description": "Portfolio website of Ramjee Prasad, a Backend Developer specializing in Java, Spring Boot, and Microservices",
         "author": {
             "@type": "Person",

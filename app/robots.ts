@@ -5,14 +5,61 @@ export default function robots(): MetadataRoute.Robots {
         rules: [
             {
                 userAgent: '*',
-                allow: '/',
-                disallow: ['/api/', '/_next/'],
+                allow: [
+                    '/',
+                    '/resume',
+                    '/blog/',
+                    '/blog/spring-boot-rest-api',
+                    '/blog/spring-boot-annotations',
+                    '/blog/intellij-shortcuts',
+                    '/blog/docker-commands',
+                    '/blog/maven-gradle-guide',
+                    '/blog/git-github-guide',
+                ],
+                disallow: ['/api/', '/_next/', '/private/'],
             },
             {
                 userAgent: 'Googlebot',
                 allow: '/',
             },
+            {
+                userAgent: 'Googlebot-Image',
+                allow: '/',
+            },
+            {
+                userAgent: 'Bingbot',
+                allow: '/',
+            },
+            {
+                userAgent: 'DuckDuckBot',
+                allow: '/',
+            },
+            {
+                userAgent: 'Yandex',
+                allow: '/',
+            },
+            {
+                userAgent: 'Slurp',
+                allow: '/',
+            },
+            {
+                userAgent: 'Baiduspider',
+                allow: '/',
+            },
+            {
+                userAgent: 'facebookexternalhit',
+                allow: '/',
+            },
+            {
+                userAgent: 'Twitterbot',
+                allow: '/',
+            },
+            {
+                userAgent: 'LinkedInBot',
+                allow: '/',
+            },
         ],
-        sitemap: 'https://portfolio-three-azure-84.vercel.app/sitemap.xml',
+        sitemap: 'https://ramjeeprasad.online/sitemap.xml',
+        host: 'https://ramjeeprasad.online',
     }
 }

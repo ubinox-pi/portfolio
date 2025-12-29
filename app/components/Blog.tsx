@@ -6,10 +6,40 @@ import Link from "next/link";
 
 const blogPosts = [
     {
+        slug: "git-github-guide",
+        title: "Git & GitHub Mastery",
+        description: "Complete guide to version control. Master Git commands, branching strategies, merge vs rebase, pull requests, and GitHub workflows.",
+        date: "December 15, 2025",
+        readTime: "20 min read",
+        tags: ["Git", "GitHub", "DevOps"],
+        color: "#F05032", // Git orange
+        emoji: "🔀"
+    },
+    {
+        slug: "maven-gradle-guide",
+        title: "Java Build Mastery: Maven & Gradle",
+        description: "Complete guide to Java build tools. Master Maven and Gradle commands, dependency management, plugins, and multi-module projects.",
+        date: "December 10, 2025",
+        readTime: "25 min read",
+        tags: ["Maven", "Gradle", "Java"],
+        color: "#C71A36", // Maven red
+        emoji: "🔧"
+    },
+    {
+        slug: "docker-commands",
+        title: "Docker Commands Cheat Sheet",
+        description: "Essential Docker commands for containers, images, volumes, networks, and Docker Compose. The ultimate DevOps reference guide.",
+        date: "December 5, 2025",
+        readTime: "10 min read",
+        tags: ["Docker", "DevOps"],
+        color: "#2496ED", // Docker blue
+        emoji: "🐳"
+    },
+    {
         slug: "intellij-shortcuts",
         title: "5 IntelliJ Shortcuts Every Java Dev Should Know",
         description: "Boost your productivity with essential keyboard shortcuts. Master navigation, refactoring, debugging, and code generation in IntelliJ IDEA.",
-        date: "December 22, 2025",
+        date: "November 28, 2025",
         readTime: "5 min read",
         tags: ["IntelliJ", "Productivity"],
         color: "#FC5185", // IntelliJ pink
@@ -18,23 +48,23 @@ const blogPosts = [
     {
         slug: "spring-boot-annotations",
         title: "Mastering Spring Boot Annotations",
-        description: "A comprehensive guide to essential annotations that power modern Spring Boot applications. From @SpringBootApplication to @Repository.",
-        date: "December 22, 2025",
-        readTime: "10 min read",
+        description: "Deep dive into Spring Boot annotations. Learn @RestController, @Service, @Repository, @Autowired, and more with practical examples.",
+        date: "November 20, 2025",
+        readTime: "8 min read",
         tags: ["Spring Boot", "Java"],
-        color: "#6db33f", // Spring green
+        color: "#6DB33F", // Spring green
         emoji: "🌱"
     },
     {
         slug: "spring-boot-rest-api",
-        title: "Building RESTful APIs with Spring Boot",
-        description: "Complete guide to building REST APIs using MVC architecture, DTOs, validation, error handling, and API versioning.",
-        date: "December 22, 2025",
-        readTime: "15 min read",
+        title: "Building REST APIs with Spring Boot",
+        description: "Learn how to build production-ready REST APIs using Spring Boot. Covers controllers, services, validation, and best practices.",
+        date: "November 12, 2025",
+        readTime: "12 min read",
         tags: ["Spring Boot", "REST API"],
-        color: "#6db33f", // Spring green
+        color: "#6DB33F", // Spring green
         emoji: "🚀"
-    }
+    },
 ];
 
 export default function Blog() {

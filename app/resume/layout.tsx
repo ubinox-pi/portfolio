@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Ramjee Prasad Resume | Backend Developer",
         description: "Professional resume of Ramjee Prasad - Java & Spring Boot Developer",
-        url: "https://portfolio-three-azure-84.vercel.app/resume",
+        url: "https://ramjeeprasad.online/resume",
     },
     alternates: {
-        canonical: "https://portfolio-three-azure-84.vercel.app/resume",
+        canonical: "https://ramjeeprasad.online/resume",
     },
     robots: {
         index: true,

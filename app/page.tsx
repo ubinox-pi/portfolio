@@ -7,6 +7,7 @@ import Contact from "./components/Contact";
 import Experience from "./components/Experience";
 import Blog from "./components/Blog";
 import BackToTop from "./components/BackToTop";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <Projects />
       <Blog />
       <Contact />
+      <Footer />
 
       {/* Global decorative elements */}
       <div className="fixed bottom-0 left-10 hidden lg:block w-[1px] h-32 bg-gray-500/50" />
@@ -28,3 +30,4 @@ export default function Home() {
     </main>
   );
 }
+
