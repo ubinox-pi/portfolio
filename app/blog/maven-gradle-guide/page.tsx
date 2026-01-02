@@ -87,22 +87,22 @@ function BlogJsonLd() {
         "@type": "TechArticle",
         "headline": "Java Build Mastery: Maven & Gradle Complete Guide",
         "description": "Ultimate Java build tools guide. Master Maven and Gradle commands, build lifecycle, dependency management, plugins, profiles, multi-module projects, and troubleshooting with 100+ practical examples.",
-        "image": "https://ramjeeprasad.online/java.png",
+        "image": "https://www.ramjeeprasad.online/java.png",
         "author": {
             "@type": "Person",
             "name": "Ramjee Prasad",
-            "url": "https://ramjeeprasad.online"
+            "url": "https://www.ramjeeprasad.online"
         },
         "publisher": {
             "@type": "Person",
             "name": "Ramjee Prasad",
-            "url": "https://ramjeeprasad.online"
+            "url": "https://www.ramjeeprasad.online"
         },
         "datePublished": "2025-12-10",
         "dateModified": "2025-12-10",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://ramjeeprasad.online/blog/maven-gradle-guide"
+            "@id": "https://www.ramjeeprasad.online/blog/maven-gradle-guide"
         },
         "keywords": "Maven, Gradle, Java build tools, pom.xml, build.gradle, dependency management, Maven lifecycle, Gradle tasks",
         "articleSection": "Programming Tutorials",
@@ -157,19 +157,19 @@ function BlogJsonLd() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://ramjeeprasad.online"
+                "item": "https://www.ramjeeprasad.online"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Blog",
-                "item": "https://ramjeeprasad.online/blog"
+                "item": "https://www.ramjeeprasad.online/blog"
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "Maven & Gradle Guide",
-                "item": "https://ramjeeprasad.online/blog/maven-gradle-guide"
+                "item": "https://www.ramjeeprasad.online/blog/maven-gradle-guide"
             }
         ]
     };

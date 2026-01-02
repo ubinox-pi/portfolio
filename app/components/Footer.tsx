@@ -86,7 +86,7 @@ export default function Footer() {
                         © {new Date().getFullYear()} Ramjee Prasad. All rights reserved.
                     </p>
                     <p className="text-gray-400 text-xs mt-2">
-                        <Link href="https://ramjeeprasad.online" className="hover:text-accent">ramjeeprasad.online</Link>
+                        <Link href="https://www.ramjeeprasad.online" className="hover:text-accent">ramjeeprasad.online</Link>
                     </p>
                 </div>
             </div>

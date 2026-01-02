@@ -59,7 +59,7 @@ export default function robots(): MetadataRoute.Robots {
                 allow: '/',
             },
         ],
-        sitemap: 'https://ramjeeprasad.online/sitemap.xml',
-        host: 'https://ramjeeprasad.online',
+        sitemap: 'https://www.ramjeeprasad.online/sitemap.xml',
+        host: 'https://www.ramjeeprasad.online',
     }
 }

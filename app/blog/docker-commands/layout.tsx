@@ -34,12 +34,12 @@ export const metadata: Metadata = {
         type: "article",
         publishedTime: "2025-12-05T00:00:00.000Z",
         authors: ["Ramjee Prasad"],
-        url: "https://ramjeeprasad.online/blog/docker-commands",
+        url: "https://www.ramjeeprasad.online/blog/docker-commands",
         siteName: "Ramjee Prasad Portfolio",
         locale: "en_US",
         images: [
             {
-                url: "https://ramjeeprasad.online/java.png",
+                url: "https://www.ramjeeprasad.online/java.png",
                 width: 1200,
                 height: 630,
                 alt: "Docker Commands Cheat Sheet",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
         description: "Master Docker commands with this comprehensive cheat sheet.",
     },
     alternates: {
-        canonical: "https://ramjeeprasad.online/blog/docker-commands",
+        canonical: "https://www.ramjeeprasad.online/blog/docker-commands",
     },
     robots: {
         index: true,

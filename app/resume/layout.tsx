@@ -44,12 +44,12 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Ramjee Prasad Resume | Backend Developer",
         description: "Professional resume of Ramjee Prasad - Java & Spring Boot Developer",
-        url: "https://ramjeeprasad.online/resume",
+        url: "https://www.ramjeeprasad.online/resume",
         siteName: "Ramjee Prasad Portfolio",
         type: "website",
         images: [
             {
-                url: "https://ramjeeprasad.online/ramjee_passport.png",
+                url: "https://www.ramjeeprasad.online/ramjee_passport.png",
                 width: 800,
                 height: 800,
                 alt: "Ramjee Prasad - Backend Developer",
@@ -60,10 +60,10 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Ramjee Prasad Resume | Backend Developer",
         description: "Professional resume of Ramjee Prasad - Java & Spring Boot Developer",
-        images: ["https://ramjeeprasad.online/ramjee_passport.png"],
+        images: ["https://www.ramjeeprasad.online/ramjee_passport.png"],
     },
     alternates: {
-        canonical: "https://ramjeeprasad.online/resume",
+        canonical: "https://www.ramjeeprasad.online/resume",
     },
     robots: {
         index: true,

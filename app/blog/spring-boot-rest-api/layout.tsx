@@ -36,7 +36,7 @@ export const metadata: Metadata = {
         type: "article",
         publishedTime: "2025-12-22T00:00:00.000Z",
         authors: ["Ramjee Prasad"],
-        url: "https://ramjeeprasad.online/blog/spring-boot-rest-api",
+        url: "https://www.ramjeeprasad.online/blog/spring-boot-rest-api",
     },
     twitter: {
         card: "summary_large_image",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
         description: "Complete guide to building production-ready REST APIs with Spring Boot.",
     },
     alternates: {
-        canonical: "https://ramjeeprasad.online/blog/spring-boot-rest-api",
+        canonical: "https://www.ramjeeprasad.online/blog/spring-boot-rest-api",
     },
     robots: {
         index: true,

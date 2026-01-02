@@ -56,7 +56,7 @@ export const metadata: Metadata = {
         "Maven tutorial India",
         "Gradle tutorial India",
     ],
-    authors: [{ name: "Ramjee Prasad", url: "https://ramjeeprasad.online" }],
+    authors: [{ name: "Ramjee Prasad", url: "https://www.ramjeeprasad.online" }],
     creator: "Ramjee Prasad",
     publisher: "Ramjee Prasad",
     openGraph: {
@@ -66,12 +66,12 @@ export const metadata: Metadata = {
         publishedTime: "2025-12-10T00:00:00.000Z",
         modifiedTime: new Date().toISOString(),
         authors: ["Ramjee Prasad"],
-        url: "https://ramjeeprasad.online/blog/maven-gradle-guide",
+        url: "https://www.ramjeeprasad.online/blog/maven-gradle-guide",
         siteName: "Ramjee Prasad Portfolio",
         locale: "en_US",
         images: [
             {
-                url: "https://ramjeeprasad.online/java.png",
+                url: "https://www.ramjeeprasad.online/java.png",
                 width: 1200,
                 height: 630,
                 alt: "Maven vs Gradle Java Build Tools Guide",
@@ -90,11 +90,11 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Java Build Mastery: Maven & Gradle Complete Guide",
         description: "Master Java build tools with this comprehensive Maven and Gradle guide. 100+ commands and examples.",
-        images: ["https://ramjeeprasad.online/java.png"],
+        images: ["https://www.ramjeeprasad.online/java.png"],
         creator: "@ramjeeprasad",
     },
     alternates: {
-        canonical: "https://ramjeeprasad.online/blog/maven-gradle-guide",
+        canonical: "https://www.ramjeeprasad.online/blog/maven-gradle-guide",
     },
     robots: {
         index: true,

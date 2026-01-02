@@ -71,11 +71,11 @@ function BlogJsonLd() {
         "@type": "TechArticle",
         "headline": "Git & GitHub Mastery: Complete Developer Guide",
         "description": "Master Git and GitHub with 100+ commands, branching strategies, merge vs rebase, pull requests, and team collaboration workflows.",
-        "image": "https://ramjeeprasad.online/java.png",
+        "image": "https://www.ramjeeprasad.online/java.png",
         "author": {
             "@type": "Person",
             "name": "Ramjee Prasad",
-            "url": "https://ramjeeprasad.online"
+            "url": "https://www.ramjeeprasad.online"
         },
         "publisher": {
             "@type": "Person",
@@ -83,7 +83,7 @@ function BlogJsonLd() {
         },
         "datePublished": "2025-12-15",
         "dateModified": "2025-12-15",
-        "mainEntityOfPage": "https://ramjeeprasad.online/blog/git-github-guide",
+        "mainEntityOfPage": "https://www.ramjeeprasad.online/blog/git-github-guide",
         "keywords": "Git, GitHub, version control, branching, merge, rebase, pull request"
     };
 
@@ -91,9 +91,9 @@ function BlogJsonLd() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ramjeeprasad.online" },
-            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://ramjeeprasad.online/blog" },
-            { "@type": "ListItem", "position": 3, "name": "Git & GitHub Guide", "item": "https://ramjeeprasad.online/blog/git-github-guide" }
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ramjeeprasad.online" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.ramjeeprasad.online/blog" },
+            { "@type": "ListItem", "position": 3, "name": "Git & GitHub Guide", "item": "https://www.ramjeeprasad.online/blog/git-github-guide" }
         ]
     };
 

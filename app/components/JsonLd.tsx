@@ -15,8 +15,8 @@ export default function JsonLd() {
         ],
         "jobTitle": "Backend Developer",
         "description": "Ramjee Prasad is a Backend Developer from Jamshedpur, Jharkhand, India specializing in Java, Spring Boot, Spring WebFlux, Microservices, REST APIs, PostgreSQL, and Docker. B.Tech CSE student at Silicon Institute of Technology. Available for hire.",
-        "url": "https://ramjeeprasad.online",
-        "image": "https://ramjeeprasad.online/og-image.png",
+        "url": "https://www.ramjeeprasad.online",
+        "image": "https://www.ramjeeprasad.online/og-image.png",
         "email": "mailto:ashish23481@gmail.com",
         "telephone": ["+91-9801112671", "+91-8227865178"],
         "address": {
@@ -50,7 +50,7 @@ export default function JsonLd() {
             "https://x.com/ramjee__prasad",
             "https://www.geeksforgeeks.org/profile/ramjeeprasad",
             "https://discord.com/users/ramjeeprasad",
-            "https://ramjeeprasad.online"
+            "https://www.ramjeeprasad.online"
         ],
         "knowsAbout": [
             "Java",
@@ -98,12 +98,12 @@ export default function JsonLd() {
         "@type": "WebSite",
         "name": "Ramjee Prasad Portfolio",
         "alternateName": "Ramjee Prasad - Backend Developer",
-        "url": "https://ramjeeprasad.online",
+        "url": "https://www.ramjeeprasad.online",
         "description": "Portfolio website of Ramjee Prasad, a Backend Developer specializing in Java, Spring Boot, and Microservices",
         "publisher": {
             "@type": "Person",
             "name": "Ramjee Prasad",
-            "url": "https://ramjeeprasad.online"
+            "url": "https://www.ramjeeprasad.online"
         },
         "author": {
             "@type": "Person",
@@ -122,7 +122,7 @@ export default function JsonLd() {
         "@type": "WebPage",
         "name": "Ramjee Prasad | Backend Developer & Java Spring Boot Expert",
         "description": "Ramjee Prasad is a Backend Developer from India specializing in Java, Spring Boot, Microservices, REST APIs, and distributed systems.",
-        "url": "https://ramjeeprasad.online",
+        "url": "https://www.ramjeeprasad.online",
         "mainEntity": {
             "@type": "Person",
             "name": "Ramjee Prasad"
@@ -130,13 +130,13 @@ export default function JsonLd() {
         "publisher": {
             "@type": "Person",
             "name": "Ramjee Prasad",
-            "url": "https://ramjeeprasad.online",
-            "image": "https://ramjeeprasad.online/og-image.png"
+            "url": "https://www.ramjeeprasad.online",
+            "image": "https://www.ramjeeprasad.online/og-image.png"
         },
-        "image": "https://ramjeeprasad.online/og-image.png",
+        "image": "https://www.ramjeeprasad.online/og-image.png",
         "primaryImageOfPage": {
             "@type": "ImageObject",
-            "url": "https://ramjeeprasad.online/og-image.png"
+            "url": "https://www.ramjeeprasad.online/og-image.png"
         }
     };
 

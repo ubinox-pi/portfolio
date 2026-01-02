@@ -48,7 +48,7 @@ const nextConfig: NextConfig = {
             value: 'portfolio-three-azure-84.vercel.app',
           },
         ],
-        destination: 'https://ramjeeprasad.online/:path*',
+        destination: 'https://www.ramjeeprasad.online/:path*',
         permanent: true,
       },
       // Common redirects for blog variations

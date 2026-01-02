@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         type: "article",
         publishedTime: "2025-12-22T00:00:00.000Z",
         authors: ["Ramjee Prasad"],
-        url: "https://ramjeeprasad.online/blog/intellij-shortcuts",
+        url: "https://www.ramjeeprasad.online/blog/intellij-shortcuts",
     },
     twitter: {
         card: "summary_large_image",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         description: "Essential keyboard shortcuts to supercharge your Java development workflow.",
     },
     alternates: {
-        canonical: "https://ramjeeprasad.online/blog/intellij-shortcuts",
+        canonical: "https://www.ramjeeprasad.online/blog/intellij-shortcuts",
     },
     robots: {
         index: true,

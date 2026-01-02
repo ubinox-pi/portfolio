@@ -55,7 +55,7 @@ export const metadata: Metadata = {
         "Git tutorial India",
         "GitHub tutorial Hindi",
     ],
-    authors: [{ name: "Ramjee Prasad", url: "https://ramjeeprasad.online" }],
+    authors: [{ name: "Ramjee Prasad", url: "https://www.ramjeeprasad.online" }],
     creator: "Ramjee Prasad",
     publisher: "Ramjee Prasad",
     openGraph: {
@@ -65,12 +65,12 @@ export const metadata: Metadata = {
         publishedTime: "2025-12-15T00:00:00.000Z",
         modifiedTime: new Date().toISOString(),
         authors: ["Ramjee Prasad"],
-        url: "https://ramjeeprasad.online/blog/git-github-guide",
+        url: "https://www.ramjeeprasad.online/blog/git-github-guide",
         siteName: "Ramjee Prasad Portfolio",
         locale: "en_US",
         images: [
             {
-                url: "https://ramjeeprasad.online/java.png",
+                url: "https://www.ramjeeprasad.online/java.png",
                 width: 1200,
                 height: 630,
                 alt: "Git & GitHub Complete Guide",
@@ -82,10 +82,10 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Git & GitHub Mastery: Complete Developer Guide",
         description: "Master Git and GitHub with 100+ commands and workflows.",
-        images: ["https://ramjeeprasad.online/java.png"],
+        images: ["https://www.ramjeeprasad.online/java.png"],
     },
     alternates: {
-        canonical: "https://ramjeeprasad.online/blog/git-github-guide",
+        canonical: "https://www.ramjeeprasad.online/blog/git-github-guide",
     },
     robots: {
         index: true,

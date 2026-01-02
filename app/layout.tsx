@@ -396,22 +396,22 @@ export const metadata: Metadata = {
     "fresher Spring Boot developer",
     "fresher backend developer India",
   ],
-  authors: [{ name: "Ramjee Prasad", url: "https://ramjeeprasad.online" }],
+  authors: [{ name: "Ramjee Prasad", url: "https://www.ramjeeprasad.online" }],
   creator: "Ramjee Prasad",
   publisher: "Ramjee Prasad",
   alternates: {
-    canonical: "https://ramjeeprasad.online/",
+    canonical: "https://www.ramjeeprasad.online/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://ramjeeprasad.online/",
+    url: "https://www.ramjeeprasad.online/",
     title: "Ramjee Prasad | Backend Developer & Java Spring Boot Expert",
     description: "Ramjee Prasad is a Backend Developer from India specializing in Java, Spring Boot, Microservices, REST APIs, and distributed systems. Hire Ramjee Prasad.",
     siteName: "Ramjee Prasad Portfolio",
     images: [
       {
-        url: "https://ramjeeprasad.online/og-image.png",
+        url: "https://www.ramjeeprasad.online/og-image.png",
         width: 1200,
         height: 630,
         alt: "Ramjee Prasad - Backend Developer | Java, Spring Boot, Microservices",
@@ -423,7 +423,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ramjee Prasad | Backend Developer & Java Spring Boot Expert",
     description: "Ramjee Prasad - Backend Developer specializing in Java, Spring Boot, Microservices, and REST APIs.",
-    images: ["https://ramjeeprasad.online/og-image.png"],
+    images: ["https://www.ramjeeprasad.online/og-image.png"],
     creator: "@ramjee__prasad",
   },
   robots: {
