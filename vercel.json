@@ -1,0 +1,26 @@
+{
+    "redirects": [
+        {
+            "source": "/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "ramjeeprasad.vercel.app"
+                }
+            ],
+            "destination": "https://ramjeeprasad.online/:path*",
+            "permanent": true
+        },
+        {
+            "source": "/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "portfolio-three-azure-84.vercel.app"
+                }
+            ],
+            "destination": "https://ramjeeprasad.online/:path*",
+            "permanent": true
+        }
+    ]
+}

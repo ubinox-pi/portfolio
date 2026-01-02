@@ -4,6 +4,7 @@ export const metadata: Metadata = {
     title: "Spring Boot Annotations Guide | Ramjee Prasad Blog",
     description: "A comprehensive guide to Spring Boot annotations by Ramjee Prasad including @SpringBootApplication, @RestController, @Autowired, @Service, @Repository, and more.",
     keywords: [
+        // Technical
         "Spring Boot annotations",
         "Spring annotations tutorial",
         "@RestController",
@@ -11,10 +12,17 @@ export const metadata: Metadata = {
         "@Service",
         "@Repository",
         "Spring Framework",
+        "Java annotations",
+        "Spring Boot tutorial",
+
+        // Personal brand
         "Ramjee Prasad blog",
         "Ramjee Prasad Spring Boot",
-        "Java annotations",
-        "Spring Boot tutorial"
+        "Ramjee Prasad Spring annotations",
+        "Ramjee Prasad Jamshedpur",
+        "Ramjee Prasad Jharkhand",
+        "Ramjee Prasad Silicon Institute",
+        "Spring Boot tutorial India"
     ],
     authors: [{ name: "Ramjee Prasad" }],
     openGraph: {

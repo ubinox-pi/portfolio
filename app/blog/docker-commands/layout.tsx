@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Docker Commands Cheat Sheet | Ramjee Prasad Blog",
-    description: "Complete Docker commands guide by Ramjee Prasad. Learn essential Docker commands for containers, images, volumes, networks, and Docker Compose with practical examples.",
+    description: "Complete Docker commands guide by Ramjee Prasad from Jamshedpur. Learn essential Docker commands for containers, images, volumes, networks, and Docker Compose with practical examples.",
     keywords: [
+        // Docker specific
         "Docker commands",
         "Docker tutorial",
         "Docker cheat sheet",
@@ -11,11 +12,20 @@ export const metadata: Metadata = {
         "Docker image commands",
         "Docker Compose",
         "Docker for beginners",
-        "Ramjee Prasad Docker",
-        "Ramjee Prasad blog",
-        "DevOps Docker",
+        "Docker CLI",
         "Container commands",
-        "Docker CLI"
+        "DevOps Docker",
+
+        // Personal brand + Docker
+        "Ramjee Prasad Docker",
+        "Ramjee Prasad Docker tutorial",
+        "Ramjee Prasad DevOps",
+        "Ramjee Prasad blog",
+        "Ramjee Prasad Jamshedpur",
+        "Ramjee Prasad Jharkhand",
+        "Ramjee Prasad Silicon Institute",
+        "Docker tutorial Hindi",
+        "Docker commands for developers"
     ],
     authors: [{ name: "Ramjee Prasad" }],
     openGraph: {

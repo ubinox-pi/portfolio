@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Building RESTful APIs with Spring Boot | Ramjee Prasad Blog",
-    description: "Complete guide to building REST APIs with Spring Boot by Ramjee Prasad. Learn MVC architecture, CRUD operations, DTOs, validation, error handling, and API versioning with practical Java examples.",
+    description: "Complete guide to building REST APIs with Spring Boot by Ramjee Prasad from Jamshedpur, Jharkhand. Learn MVC architecture, CRUD operations, DTOs, validation, error handling, and API versioning with practical Java examples.",
     keywords: [
+        // Technical keywords
         "Spring Boot REST API",
         "Spring Boot tutorial",
         "REST API Java",
@@ -13,11 +14,20 @@ export const metadata: Metadata = {
         "Spring Boot Controller",
         "DTO pattern",
         "API validation",
-        "Ramjee Prasad blog",
-        "Ramjee Prasad Spring Boot",
         "Backend development tutorial",
         "Java Spring tutorial",
-        "RESTful services Java"
+        "RESTful services Java",
+
+        // Personal brand + Spring
+        "Ramjee Prasad Spring Boot",
+        "Ramjee Prasad Java tutorial",
+        "Ramjee Prasad REST API",
+        "Ramjee Prasad blog",
+        "Ramjee Prasad Jamshedpur",
+        "Ramjee Prasad Jharkhand",
+        "Ramjee Prasad Silicon Institute",
+        "Spring Boot tutorial India",
+        "Java backend tutorial"
     ],
     authors: [{ name: "Ramjee Prasad" }],
     openGraph: {
