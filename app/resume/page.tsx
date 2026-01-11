@@ -94,12 +94,12 @@ export default function ResumePage() {
                             Professional Summary
                         </h2>
                         <p className="text-gray-700 leading-relaxed text-xs md:text-sm">
-                            Results-driven Backend Developer with hands-on experience in designing and implementing
-                            scalable microservices using Java, Spring Boot, and Spring WebFlux. Proficient in
-                            building RESTful APIs, implementing reactive programming patterns, and optimizing
-                            database performance. Strong foundation in distributed systems architecture with
-                            practical exposure to Docker, message queues, and cloud technologies. Passionate
-                            about writing clean, maintainable code and following industry best practices.
+                            Backend Developer specializing in Java and Spring Boot with experience in building
+                            scalable RESTful and reactive microservices. Proficient in Spring Boot 3.x, Spring
+                            Security, WebFlux, JPA/Hibernate, and PostgreSQL. Hands-on experience with JWT-based
+                            authentication, Dockerized deployments, Redis caching, and event-driven systems using
+                            Kafka and RabbitMQ. Strong understanding of system design, distributed systems, and
+                            clean architecture principles.
                         </p>
                     </section>
 
@@ -110,28 +110,45 @@ export default function ResumePage() {
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 text-xs md:text-sm">
                             <div>
-                                <h3 className="font-semibold text-gray-900 mb-1">Languages & Frameworks</h3>
+                                <h3 className="font-semibold text-gray-900 mb-1">Programming Languages</h3>
                                 <p className="text-gray-700 leading-relaxed">
-                                    Java 21, Spring Boot 3.x, Spring WebFlux, Spring Security, Spring Data JPA,
-                                    Hibernate, RESTful APIs, GraphQL, Python, C++
+                                    Java (21), Python, C++
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className="font-semibold text-gray-900 mb-1">Frameworks</h3>
+                                <p className="text-gray-700 leading-relaxed">
+                                    Spring Boot 3.x, Spring WebFlux, Spring Security, Spring Data JPA, Hibernate
                                 </p>
                             </div>
                             <div>
                                 <h3 className="font-semibold text-gray-900 mb-1">Databases & Caching</h3>
                                 <p className="text-gray-700 leading-relaxed">
-                                    PostgreSQL, MySQL, MongoDB, Redis, Firebase Realtime Database
+                                    PostgreSQL, MySQL, MongoDB, Redis
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className="font-semibold text-gray-900 mb-1">API & Messaging</h3>
+                                <p className="text-gray-700 leading-relaxed">
+                                    RESTful APIs, GraphQL, Apache Kafka, RabbitMQ
                                 </p>
                             </div>
                             <div>
                                 <h3 className="font-semibold text-gray-900 mb-1">DevOps & Tools</h3>
                                 <p className="text-gray-700 leading-relaxed">
-                                    Docker, Git, Jenkins, Maven, Gradle, Postman, JUnit 5, Mockito
+                                    Docker, Git, Jenkins, Maven, Gradle, Postman
                                 </p>
                             </div>
                             <div>
-                                <h3 className="font-semibold text-gray-900 mb-1">Messaging & Cloud</h3>
+                                <h3 className="font-semibold text-gray-900 mb-1">Testing & Cloud</h3>
                                 <p className="text-gray-700 leading-relaxed">
-                                    Apache Kafka, RabbitMQ, AWS (EC2, S3), Microservices Architecture
+                                    JUnit 5, Mockito, AWS (EC2, S3)
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className="font-semibold text-gray-900 mb-1">Operating Systems</h3>
+                                <p className="text-gray-700 leading-relaxed">
+                                    Linux (Ubuntu, Red Hat), Windows
                                 </p>
                             </div>
                         </div>
@@ -147,27 +164,27 @@ export default function ResumePage() {
                             {/* Project 1 */}
                             <div>
                                 <div className="flex flex-wrap items-baseline justify-between gap-1 md:gap-2 mb-1">
-                                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">Layered Spring Architecture</h3>
-                                    <span className="text-[10px] md:text-xs text-gray-600">Spring Boot, PostgreSQL, Docker, JWT</span>
+                                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">Real-Time Chat System</h3>
+                                    <span className="text-[10px] md:text-xs text-gray-600">Spring Boot, WebSockets, Redis, STOMP</span>
                                 </div>
                                 <ul className="list-disc list-inside text-gray-700 text-xs md:text-sm space-y-0.5 ml-1">
-                                    <li>Built comprehensive backend application using Spring Boot with RESTful API endpoints</li>
-                                    <li>Implemented JWT authentication with role-based access control (RBAC)</li>
-                                    <li>Designed layered architecture following SOLID principles</li>
-                                    <li>Containerized application using Docker for consistent deployment</li>
+                                    <li>Built a real-time chat system using Spring Boot and WebSockets supporting concurrent users</li>
+                                    <li>Implemented Redis for session management and caching to reduce database load</li>
+                                    <li>Designed message broadcasting mechanism for low-latency real-time communication</li>
                                 </ul>
                             </div>
 
                             {/* Project 2 */}
                             <div>
                                 <div className="flex flex-wrap items-baseline justify-between gap-1 md:gap-2 mb-1">
-                                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">Real-Time Chat System</h3>
-                                    <span className="text-[10px] md:text-xs text-gray-600">Spring Boot, WebSockets, Redis, Java</span>
+                                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">Layered Spring Architecture</h3>
+                                    <span className="text-[10px] md:text-xs text-gray-600">Spring Boot, PostgreSQL, Docker, JWT</span>
                                 </div>
                                 <ul className="list-disc list-inside text-gray-700 text-xs md:text-sm space-y-0.5 ml-1">
-                                    <li>Developed WebSocket-based chat feature handling real-time message broadcasting</li>
-                                    <li>Implemented Redis for in-memory session storage and caching</li>
-                                    <li>Built scalable user session management supporting concurrent connections</li>
+                                    <li>Developed scalable backend application using Spring Boot with RESTful API endpoints</li>
+                                    <li>Implemented JWT-based authentication with role-based access control (RBAC)</li>
+                                    <li>Designed layered architecture following SOLID principles and clean code practices</li>
+                                    <li>Containerized application using Docker for consistent deployment across environments</li>
                                 </ul>
                             </div>
 
@@ -175,11 +192,11 @@ export default function ResumePage() {
                             <div>
                                 <div className="flex flex-wrap items-baseline justify-between gap-1 md:gap-2 mb-1">
                                     <h3 className="font-semibold text-gray-900 text-sm md:text-base">Secure Banking System</h3>
-                                    <span className="text-[10px] md:text-xs text-gray-600">Java, Spring Security, Encryption, MySQL</span>
+                                    <span className="text-[10px] md:text-xs text-gray-600">Java, Spring Security, AES Encryption, MySQL</span>
                                 </div>
                                 <ul className="list-disc list-inside text-gray-700 text-xs md:text-sm space-y-0.5 ml-1">
-                                    <li>Designed encrypted transaction system with fraud detection mechanisms</li>
-                                    <li>Implemented role-based access control for different privilege levels</li>
+                                    <li>Designed secure transaction system with AES encryption and fraud detection mechanisms</li>
+                                    <li>Implemented Spring Security with role-based access control for different privilege levels</li>
                                     <li>Built multi-module Java application with clear separation of concerns</li>
                                 </ul>
                             </div>
@@ -193,10 +210,10 @@ export default function ResumePage() {
                         </h2>
                         <div className="flex flex-col md:flex-row md:flex-wrap justify-between items-start md:items-baseline gap-1 md:gap-2">
                             <div>
-                                <h3 className="font-semibold text-gray-900 text-sm md:text-base">Bachelor of Technology in Computer Science</h3>
-                                <p className="text-gray-700 text-xs md:text-sm">Coursework: DSA, DBMS, OS, Computer Networks</p>
+                                <h3 className="font-semibold text-gray-900 text-sm md:text-base">Bachelor of Technology (B.Tech) in Computer Science</h3>
+                                <p className="text-gray-700 text-xs md:text-sm">Coursework: Data Structures & Algorithms, DBMS, Operating Systems, Computer Networks</p>
                             </div>
-                            <span className="text-gray-600 text-xs md:text-sm font-medium">2023 - 2027</span>
+                            <span className="text-gray-600 text-xs md:text-sm font-medium">2023 – 2027 (Expected)</span>
                         </div>
                     </section>
 
@@ -218,7 +235,7 @@ export default function ResumePage() {
                             Additional Information
                         </h2>
                         <div className="text-gray-700 text-xs md:text-sm space-y-0.5 md:space-y-1">
-                            <p><strong>OS:</strong> Linux (Ubuntu, Red Hat), Windows</p>
+                            <p><strong>Networking:</strong> TCP/IP, HTTP/HTTPS, REST, WebSockets, Wireshark, nmap, DNS</p>
                             <p><strong>Languages:</strong> English, Hindi (Native)</p>
                             <p><strong>Interests:</strong> System Design, Open Source</p>
                         </div>

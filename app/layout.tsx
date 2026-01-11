@@ -476,6 +476,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
+        suppressHydrationWarning
       >
         <a href="#main-content" className="skip-link">
           Skip to content
