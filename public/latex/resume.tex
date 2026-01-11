@@ -1,0 +1,155 @@
+%-------------------------
+% Resume - Ramjee Prasad
+% Exact match to portfolio website resume
+%-------------------------
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[margin=0.3in, top=0in, bottom=0.3in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+
+% Colors matching website exactly
+\definecolor{headerBg}{HTML}{111827}
+\definecolor{headerText}{HTML}{FFFFFF}
+\definecolor{headerGray}{HTML}{9CA3AF}
+\definecolor{sectionColor}{HTML}{111827}
+\definecolor{bodyText}{HTML}{1F2937}
+\definecolor{techGray}{HTML}{4B5563}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=false,
+    pdfborder={0 0 0}
+}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Section formatting - BLACK color with BLACK underline (2px thick)
+\titleformat{\section}
+    {\normalsize\bfseries\color{sectionColor}\uppercase}
+    {}
+    {0em}
+    {}
+    [\vspace{-0.6em}{\color{sectionColor}\rule{\textwidth}{0.8pt}}]
+
+\titlespacing{\section}{0pt}{1.2em}{0.5em}
+
+\begin{document}
+
+%----------HEADER----------
+\noindent
+\hspace*{-0.3in}%
+\fcolorbox{headerBg}{headerBg}{%
+\begin{minipage}{\dimexpr\paperwidth-2\fboxsep-2\fboxrule}
+\hspace{0.3in}
+\begin{minipage}{\dimexpr\textwidth}
+\vspace{2.2em}
+\textcolor{headerText}{\fontsize{26pt}{30pt}\selectfont\textbf{RAMJEE PRASAD}}
+
+\vspace{0.8em}
+\textcolor{headerGray}{\large Backend Developer | Java \& Spring Boot}
+
+\vspace{2em}
+{\small\textcolor{headerGray}{%
+\faEnvelope\ \href{mailto:ashish23481@gmail.com}{ashish23481@gmail.com} \hspace{1.5em}
+\faPhone\ +91 9801112671 \hspace{1.5em}
+\faMapMarker*\ Jamshedpur \hspace{1.5em}
+\faGithub\ \href{https://github.com/ubinox-pi}{github.com/ubinox-pi}
+}}
+
+\vspace{0.8em}
+{\small\textcolor{headerGray}{%
+\faLinkedin\ \href{https://www.linkedin.com/in/ramjee-prasad-6b26b4349}{linkedin.com/in/ramjeeprasad}
+}}
+\vspace{2.2em}
+\end{minipage}
+\end{minipage}%
+}
+
+\vspace{1em}
+
+%----------PROFESSIONAL SUMMARY----------
+\section{Professional Summary}
+{\small\color{bodyText}
+Backend Developer specializing in Java and Spring Boot with experience in building scalable RESTful and reactive microservices. Proficient in Spring Boot 3.x, Spring Security, WebFlux, JPA/Hibernate, and PostgreSQL. Hands-on experience with JWT-based authentication, Dockerized deployments, Redis caching, and event-driven systems using Kafka and RabbitMQ. Strong understanding of system design, distributed systems, and clean architecture principles.
+}
+
+%----------TECHNICAL SKILLS----------
+\section{Technical Skills}
+{\small\color{bodyText}
+\begin{tabular}{@{}p{4.2cm}p{11cm}@{}}
+\textbf{Programming Languages} & Java (21), Python, C++ \\[0.5em]
+\textbf{Frameworks} & Spring Boot 3.x, Spring WebFlux, Spring Security, Spring Data JPA, Hibernate \\[0.5em]
+\textbf{API Technologies} & RESTful APIs, GraphQL \\[0.5em]
+\textbf{Databases \& Caching} & PostgreSQL, MySQL, MongoDB, Redis \\[0.5em]
+\textbf{Messaging} & Apache Kafka, RabbitMQ \\[0.5em]
+\textbf{DevOps \& Tools} & Docker, Git, Jenkins, Maven, Gradle, Postman \\[0.5em]
+\textbf{Testing} & JUnit 5, Mockito \\[0.5em]
+\textbf{Cloud} & AWS (EC2, S3) \\[0.5em]
+\textbf{Operating Systems} & Linux (Ubuntu, Red Hat), Windows \\
+\end{tabular}
+}
+
+%----------PROJECTS----------
+\section{Projects}
+
+{\small\color{bodyText}
+\textbf{Real-Time Chat System} \hfill {\footnotesize\textcolor{techGray}{Spring Boot, WebSockets, Redis, STOMP}}
+\begin{itemize}[leftmargin=1.2em, topsep=3pt, itemsep=1pt, parsep=1pt]
+    \item Built a real-time chat system using Spring Boot and WebSockets supporting concurrent users
+    \item Implemented Redis for session management and caching to reduce database load
+    \item Designed message broadcasting mechanism for low-latency real-time communication
+\end{itemize}
+}
+
+\vspace{0.5em}
+{\small\color{bodyText}
+\textbf{Layered Spring Architecture} \hfill {\footnotesize\textcolor{techGray}{Spring Boot, PostgreSQL, Docker, JWT}}
+\begin{itemize}[leftmargin=1.2em, topsep=3pt, itemsep=1pt, parsep=1pt]
+    \item Developed scalable backend application using Spring Boot with RESTful API endpoints
+    \item Implemented JWT-based authentication with role-based access control (RBAC)
+    \item Designed layered architecture following SOLID principles and clean code practices
+    \item Containerized application using Docker for consistent deployment across environments
+\end{itemize}
+}
+
+\vspace{0.5em}
+{\small\color{bodyText}
+\textbf{Secure Banking System} \hfill {\footnotesize\textcolor{techGray}{Java, Spring Security, AES Encryption, MySQL}}
+\begin{itemize}[leftmargin=1.2em, topsep=3pt, itemsep=1pt, parsep=1pt]
+    \item Designed secure transaction system with AES encryption and fraud detection mechanisms
+    \item Implemented Spring Security with role-based access control for different privilege levels
+    \item Built multi-module Java application with clear separation of concerns
+\end{itemize}
+}
+
+%----------EDUCATION----------
+\section{Education}
+{\small\color{bodyText}
+\textbf{Bachelor of Technology (B.Tech) in Computer Science} \hfill \textbf{2023 -- 2027 (Expected)}\\
+Coursework: Data Structures \& Algorithms, DBMS, Operating Systems, Computer Networks
+}
+
+%----------CERTIFICATIONS----------
+\section{Certifications \& Achievements}
+{\small\color{bodyText}
+\begin{itemize}[leftmargin=1.2em, topsep=3pt, itemsep=1pt, parsep=1pt]
+    \item Completed Spring Framework and Spring Boot training
+    \item Implemented reactive microservices using Spring WebFlux and Project Reactor
+    \item Designed and deployed containerized microservices using Docker and CI/CD pipelines
+\end{itemize}
+}
+
+
+
+\end{document}

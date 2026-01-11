@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Printer, Mail, Phone, MapPin, Linkedin, Github, X } from "lucide-react";
+import { Download, Mail, Phone, MapPin, Linkedin, Github, X, Code, Printer } from "lucide-react";
 import Link from "next/link";
 
 export default function ResumePage() {
@@ -224,8 +224,8 @@ export default function ResumePage() {
                         </h2>
                         <ul className="list-disc list-inside text-gray-700 text-xs md:text-sm space-y-0.5 md:space-y-1 ml-1">
                             <li>Completed Spring Framework and Spring Boot training</li>
-                            <li>Practiced 200+ DSA problems on LeetCode and HackerRank</li>
-                            <li>Active contributor to open-source Java projects</li>
+                            <li>Implemented reactive microservices using Spring WebFlux and Project Reactor</li>
+                            <li>Designed and deployed containerized microservices using Docker and CI/CD pipelines</li>
                         </ul>
                     </section>
 
@@ -244,14 +244,32 @@ export default function ResumePage() {
                 </div>
             </div>
 
-            {/* Download Button */}
-            <button
-                onClick={handleDownload}
-                className="fixed bottom-4 right-4 md:bottom-8 md:right-8 flex items-center gap-2 px-4 md:px-6 py-2.5 md:py-3 bg-accent text-black font-bold rounded-full shadow-lg hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300 z-50 print:hidden text-sm md:text-base"
-            >
-                <Printer size={18} />
-                Save as PDF
-            </button>
+            {/* Action Buttons */}
+            <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 flex flex-col gap-2 z-50 print:hidden">
+                <button
+                    onClick={handleDownload}
+                    className="flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 bg-accent text-black font-bold rounded-full shadow-lg hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300 text-xs md:text-sm"
+                >
+                    <Printer size={16} />
+                    Print
+                </button>
+                <a
+                    href="/Resume.pdf"
+                    download="Ramjee_Prasad_Resume.pdf"
+                    className="flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 bg-green-600 text-white font-bold rounded-full shadow-lg hover:bg-green-500 hover:shadow-[0_0_20px_rgba(34,197,94,0.4)] transition-all duration-300 text-xs md:text-sm"
+                >
+                    <Download size={16} />
+                    Download PDF
+                </a>
+                <a
+                    href="/latex/resume.tex"
+                    download="resume.tex"
+                    className="flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 bg-zinc-800 text-white font-bold rounded-full shadow-lg hover:bg-zinc-700 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 text-xs md:text-sm border border-zinc-600"
+                >
+                    <Code size={16} />
+                    LaTeX Code
+                </a>
+            </div>
 
             {/* Instructions Modal */}
             {showInstructions && (

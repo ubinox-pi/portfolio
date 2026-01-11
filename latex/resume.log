@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.9)  3 JAN 2026 19:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.9)  11 JAN 2026 14:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -462,36 +462,25 @@ sers/ASUS/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/fa5brands0
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-Package rerunfilecheck Warning: File `resume.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `resume.out':
-(rerunfilecheck)             Before: C0355DA85F84BF53A98341827ACDBEA1;796
-(rerunfilecheck)             After:  32AE53DAAD322197389A292C2E45760D;640.
+Package rerunfilecheck Info: File `resume.out' has not changed.
+(rerunfilecheck)             Checksum: 32AE53DAAD322197389A292C2E45760D;640.
  ) 
 Here is how much of TeX's memory you used:
- 13155 strings out of 474486
- 226454 string characters out of 5744227
+ 13153 strings out of 474486
+ 226434 string characters out of 5744227
  1947542 words of memory out of 5000000
- 35295 multiletter control sequences out of 15000+600000
+ 35294 multiletter control sequences out of 15000+600000
  582237 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,8n,79p,1197b,434s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{section.6} has been referenced but does not exist, 
-replaced by a fixed one
-
-<C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/fontawesome5/Fo
-ntAwesome5Brands-Regular.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb><C:/Users/ASUS/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/ASUS/AppData/
-Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on resume.pdf (1 page, 75110 bytes).
+<C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/fontawesome5/
+FontAwesome5Brands-Regular.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb><C:/Users/ASUS/AppData/
+Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/ASUS/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on resume.pdf (1 page, 75346 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
- 8 named destinations out of 1000 (max. 500000)
- 49 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 64 PDF objects out of 1000 (max. 8388607)
+ 7 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
