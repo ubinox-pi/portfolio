@@ -254,6 +254,12 @@ export const metadata: Metadata = {
     "contact Ramjee Prasad",
     "Ramjee Prasad contact",
     "Ramjee Prasad email",
+    "ramjeeprasad.dev@gmail.com",
+    "ramjeeprasad gmail",
+    "ramjeeprasad@zohomail.in",
+    "ramjeeprasad zohomail",
+    "Ramjee Prasad gmail",
+    "email Ramjee Prasad",
 
     // Hiring keywords - Technology combinations
     "hire Java developer",
@@ -417,13 +423,20 @@ export const metadata: Metadata = {
         alt: "Ramjee Prasad - Backend Developer | Java, Spring Boot, Microservices",
         type: "image/png",
       },
+      {
+        url: "https://www.ramjeeprasad.online/linkdin_background.png",
+        width: 1584,
+        height: 396,
+        alt: "Ramjee Prasad - Backend Engineer | Spring Boot & WebFlux | LinkedIn Banner",
+        type: "image/png",
+      },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Ramjee Prasad | Backend Developer & Java Spring Boot Expert",
     description: "Ramjee Prasad - Backend Developer specializing in Java, Spring Boot, Microservices, and REST APIs.",
-    images: ["https://www.ramjeeprasad.online/og-image.png"],
+    images: ["https://www.ramjeeprasad.online/og-image.png", "https://www.ramjeeprasad.online/linkdin_background.png"],
     creator: "@ramjee__prasad",
   },
   robots: {

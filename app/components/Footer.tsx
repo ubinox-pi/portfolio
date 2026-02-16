@@ -64,7 +64,7 @@ export default function Footer() {
                                 </a>
                             </li>
                             <li>
-                                <a href="mailto:ashish23481@gmail.com" className="text-gray-400 hover:text-white flex items-center gap-2" aria-label="Email Ramjee Prasad">
+                                <a href="mailto:ramjeeprasad.dev@gmail.com" className="text-gray-400 hover:text-white flex items-center gap-2" aria-label="Email Ramjee Prasad">
                                     <Mail size={14} /> Email
                                 </a>
                             </li>

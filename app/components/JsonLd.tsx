@@ -17,7 +17,7 @@ export default function JsonLd() {
         "description": "Ramjee Prasad is a Backend Developer from Jamshedpur, Jharkhand, India specializing in Java, Spring Boot, Spring WebFlux, Microservices, REST APIs, PostgreSQL, and Docker. B.Tech CSE student at Silicon Institute of Technology. Available for hire.",
         "url": "https://www.ramjeeprasad.online",
         "image": "https://www.ramjeeprasad.online/og-image.png",
-        "email": "mailto:ashish23481@gmail.com",
+        "email": ["mailto:ramjeeprasad.dev@gmail.com", "mailto:ramjeeprasad@zohomail.in"],
         "telephone": ["+91-9801112671", "+91-8227865178"],
         "address": {
             "@type": "PostalAddress",
@@ -182,7 +182,7 @@ export default function JsonLd() {
                 "name": "How to contact Ramjee Prasad?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "You can contact Ramjee Prasad via email at ashish23481@gmail.com or by phone at +91-9801112671 or +91-8227865178. You can also connect with him on LinkedIn, GitHub (ubinox-pi), Instagram (ramjeeprasad.java), or Twitter/X (ramjee__prasad)."
+                    "text": "You can contact Ramjee Prasad via email at ramjeeprasad.dev@gmail.com or ramjeeprasad@zohomail.in, or by phone at +91-9801112671 or +91-8227865178. You can also connect with him on LinkedIn, GitHub (ubinox-pi), Instagram (ramjeeprasad.java), or Twitter/X (ramjee__prasad)."
                 }
             },
             {

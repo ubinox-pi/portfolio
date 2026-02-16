@@ -231,7 +231,7 @@ git clone -b develop https://github.com/username/repo.git`}
 git config --global user.name "Ramjee Prasad"
 
 # Set your email
-git config --global user.email "ashish23481@gmail.com"
+git config --global user.email "ramjeeprasad.dev@gmail.com"
 
 # View all config
 git config --list`}

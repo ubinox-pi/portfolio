@@ -63,9 +63,9 @@ export default function ResumePage() {
                     </p>
 
                     <div className="grid grid-cols-2 md:flex md:flex-wrap gap-2 md:gap-6 text-xs md:text-sm text-gray-300">
-                        <a href="mailto:ashish23481@gmail.com" className="flex items-center gap-1.5 md:gap-2 hover:text-white transition-colors">
+                        <a href="mailto:ramjeeprasad.dev@gmail.com" className="flex items-center gap-1.5 md:gap-2 hover:text-white transition-colors">
                             <Mail size={14} className="flex-shrink-0" />
-                            <span className="truncate">ashish23481@gmail.com</span>
+                            <span className="truncate">ramjeeprasad.dev@gmail.com</span>
                         </a>
                         <a href="tel:+919801112671" className="flex items-center gap-1.5 md:gap-2 hover:text-white transition-colors">
                             <Phone size={14} className="flex-shrink-0" />
@@ -278,6 +278,8 @@ export default function ResumePage() {
                         <button
                             onClick={() => setShowInstructions(false)}
                             className="absolute top-4 right-4 text-gray-400 hover:text-white"
+                            title="Close"
+                            aria-label="Close"
                         >
                             <X size={20} />
                         </button>

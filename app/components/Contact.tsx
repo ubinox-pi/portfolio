@@ -57,69 +57,92 @@ export default function Contact() {
                     I'm currently looking for new opportunities in backend development. Whether you have a question about Spring Boot, distributed systems, or just want to say hi, my inbox is always open!
                 </p>
 
-                <div className="flex flex-col md:flex-row justify-center gap-6 mb-12">
-                    {/* Email Card */}
-                    <div
-                        onClick={() => handleCopy("ashish23481@gmail.com", 'email')}
-                        className="group relative cursor-pointer bg-black/20 p-6 rounded-xl border border-white/5 hover:border-accent/50 transition-all duration-300"
-                    >
-                        <div className="absolute top-2 right-2 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
-                            {copiedEmail ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}
-                        </div>
-                        <div className="flex items-center gap-4">
-                            <div className="p-3 bg-accent/10 rounded-full text-accent group-hover:scale-110 transition-transform">
-                                <Mail size={24} />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 max-w-3xl mx-auto">
+                    {/* Left Column: Emails */}
+                    <div className="flex flex-col gap-4">
+                        {/* Gmail Card */}
+                        <div
+                            onClick={() => handleCopy("ramjeeprasad.dev@gmail.com", 'email')}
+                            className="group relative cursor-pointer bg-black/20 p-5 rounded-xl border border-white/5 hover:border-accent/50 transition-all duration-300"
+                        >
+                            <div className="absolute top-2 right-2 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                                {copiedEmail ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}
                             </div>
-                            <div className="text-left">
-                                <div className="text-xs text-gray-400">Email</div>
-                                <div className="text-white font-mono text-xs sm:text-sm break-all">ashish23481@gmail.com</div>
+                            <div className="flex items-center gap-4">
+                                <div className="p-3 bg-accent/10 rounded-full text-accent group-hover:scale-110 transition-transform flex-shrink-0">
+                                    <Mail size={22} />
+                                </div>
+                                <div className="text-left min-w-0">
+                                    <div className="text-xs text-gray-400">Email</div>
+                                    <div className="text-white font-mono text-xs sm:text-sm truncate">ramjeeprasad.dev@gmail.com</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Zoho Email Card */}
+                        <div
+                            onClick={() => handleCopy("ramjeeprasad@zohomail.in", 'email')}
+                            className="group relative cursor-pointer bg-black/20 p-5 rounded-xl border border-white/5 hover:border-accent/50 transition-all duration-300"
+                        >
+                            <div className="absolute top-2 right-2 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                                {copiedEmail ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}
+                            </div>
+                            <div className="flex items-center gap-4">
+                                <div className="p-3 bg-accent/10 rounded-full text-accent group-hover:scale-110 transition-transform flex-shrink-0">
+                                    <Mail size={22} />
+                                </div>
+                                <div className="text-left min-w-0">
+                                    <div className="text-xs text-gray-400">Email (Business)</div>
+                                    <div className="text-white font-mono text-xs sm:text-sm truncate">ramjeeprasad@zohomail.in</div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* Primary Phone Card */}
-                    <div
-                        onClick={() => handleCopy("9801112671", 'phone')}
-                        className="group relative cursor-pointer bg-black/20 p-6 rounded-xl border border-white/5 hover:border-accent/50 transition-all duration-300"
-                    >
-                        <div className="absolute top-2 right-2 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
-                            {copiedPhone ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}
-                        </div>
-                        <div className="flex items-center gap-4">
-                            <div className="p-3 bg-accent/10 rounded-full text-accent group-hover:scale-110 transition-transform">
-                                <Phone size={24} />
+                    {/* Right Column: Phones */}
+                    <div className="flex flex-col gap-4">
+                        {/* Primary Phone Card */}
+                        <div
+                            onClick={() => handleCopy("9801112671", 'phone')}
+                            className="group relative cursor-pointer bg-black/20 p-5 rounded-xl border border-white/5 hover:border-accent/50 transition-all duration-300"
+                        >
+                            <div className="absolute top-2 right-2 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                                {copiedPhone ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}
                             </div>
-                            <div className="text-left">
-                                <div className="text-xs text-gray-400">Phone (Primary)</div>
-                                <div className="text-white font-mono text-sm whitespace-nowrap">+91 9801112671</div>
+                            <div className="flex items-center gap-4">
+                                <div className="p-3 bg-accent/10 rounded-full text-accent group-hover:scale-110 transition-transform flex-shrink-0">
+                                    <Phone size={22} />
+                                </div>
+                                <div className="text-left">
+                                    <div className="text-xs text-gray-400">Phone (Primary)</div>
+                                    <div className="text-white font-mono text-sm whitespace-nowrap">+91 9801112671</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Secondary Phone Card */}
+                        <div
+                            onClick={() => handleCopy("8227865178", 'phone2')}
+                            className="group relative cursor-pointer bg-black/20 p-5 rounded-xl border border-white/5 hover:border-accent/50 transition-all duration-300"
+                        >
+                            <div className="absolute top-2 right-2 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                                {copiedPhone2 ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}
+                            </div>
+                            <div className="flex items-center gap-4">
+                                <div className="p-3 bg-accent/10 rounded-full text-accent group-hover:scale-110 transition-transform flex-shrink-0">
+                                    <Phone size={22} />
+                                </div>
+                                <div className="text-left">
+                                    <div className="text-xs text-gray-400">Phone (Secondary)</div>
+                                    <div className="text-white font-mono text-sm whitespace-nowrap">+91 8227865178</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    {/* Secondary Phone Card */}
-                    <div
-                        onClick={() => handleCopy("8227865178", 'phone2')}
-                        className="group relative cursor-pointer bg-black/20 p-6 rounded-xl border border-white/5 hover:border-accent/50 transition-all duration-300"
-                    >
-                        <div className="absolute top-2 right-2 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
-                            {copiedPhone2 ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}
-                        </div>
-                        <div className="flex items-center gap-4">
-                            <div className="p-3 bg-accent/10 rounded-full text-accent group-hover:scale-110 transition-transform">
-                                <Phone size={24} />
-                            </div>
-                            <div className="text-left">
-                                <div className="text-xs text-gray-400">Phone (Secondary)</div>
-                                <div className="text-white font-mono text-sm whitespace-nowrap">+91 8227865178</div>
-                            </div>
-                        </div>
-                    </div>
-
-
                 </div>
 
                 <motion.a
-                    href="mailto:ashish23481@gmail.com"
+                    href="mailto:ramjeeprasad.dev@gmail.com"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="inline-flex items-center gap-2 px-10 py-4 bg-accent text-black font-bold rounded-full shadow-[0_0_20px_rgba(250,204,21,0.3)] hover:shadow-[0_0_30px_rgba(250,204,21,0.5)] transition-shadow"
