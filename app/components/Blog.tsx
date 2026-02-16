@@ -6,6 +6,16 @@ import Link from "next/link";
 
 const blogPosts = [
     {
+        slug: "mono-flux-reactive-java",
+        title: "Mastering Mono & Flux in Reactive Java",
+        description: "Deep dive into reactive programming with Project Reactor. From Publisher-Subscriber patterns to building real-world reactive pipelines with Mono and Flux.",
+        date: "February 16, 2026",
+        readTime: "18 min read",
+        tags: ["Reactive Java", "Spring WebFlux", "Project Reactor"],
+        color: "#7C3AED",
+        emoji: "⚛️"
+    },
+    {
         slug: "git-github-guide",
         title: "Git & GitHub Mastery",
         description: "Complete guide to version control. Master Git commands, branching strategies, merge vs rebase, pull requests, and GitHub workflows.",
@@ -72,13 +82,13 @@ export default function Blog() {
         <section id="blog" className="py-20 px-4 md:px-6">
             <div className="max-w-6xl mx-auto">
                 <div className="flex items-center gap-4 mb-10">
-                    <span className="text-3xl text-accent font-bold">05.</span>
+                    <span className="text-3xl text-accent font-bold">06.</span>
                     <h2 className="text-3xl font-bold text-white">Blog</h2>
                     <div className="h-[1px] bg-white/20 flex-grow hidden md:block" />
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                    {blogPosts.map((post, index) => (
+                    {blogPosts.slice(0, 6).map((post, index) => (
                         <motion.div
                             key={post.slug}
                             initial={{ opacity: 0, y: 20 }}
@@ -161,6 +171,15 @@ export default function Blog() {
                             </Link>
                         </motion.div>
                     ))}
+                </div>
+
+                <div className="flex justify-center mt-8">
+                    <a
+                        href="/blog"
+                        className="inline-flex items-center gap-2 px-6 py-2.5 border border-accent/30 text-accent rounded-full text-sm font-medium hover:bg-accent/10 transition-colors"
+                    >
+                        View All Articles <ArrowRight size={16} />
+                    </a>
                 </div>
             </div>
         </section>

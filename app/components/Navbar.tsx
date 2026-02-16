@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Terminal, Code, User, Briefcase, Mail, Cpu } from "lucide-react";
+import { Terminal, Code, User, Briefcase, Mail, Cpu, BookOpen } from "lucide-react";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -12,6 +12,7 @@ export default function Navbar() {
         { name: "skills", path: "#skills", icon: Cpu },
         { name: "projects", path: "#projects", icon: Code },
         { name: "experience", path: "#experience", icon: Briefcase },
+        { name: "blog", path: "/blog", icon: BookOpen },
         { name: "contact", path: "#contact", icon: Mail },
     ];
 

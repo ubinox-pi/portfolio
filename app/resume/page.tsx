@@ -142,7 +142,7 @@ export default function ResumePage() {
                             <div>
                                 <h3 className="font-semibold text-gray-900 mb-1">Testing & Cloud</h3>
                                 <p className="text-gray-700 leading-relaxed">
-                                    JUnit 5, Mockito, AWS (EC2, S3)
+                                    JUnit 5, Mockito, AWS (EC2, S3), Google Cloud (GCP)
                                 </p>
                             </div>
                             <div>

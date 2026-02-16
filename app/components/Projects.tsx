@@ -46,7 +46,7 @@ export default function Projects() {
         <section id="projects" className="py-20 px-6">
             <div className="max-w-6xl mx-auto">
                 <div className="flex items-center gap-4 mb-10">
-                    <span className="text-3xl text-accent font-bold">03.</span>
+                    <span className="text-3xl text-accent font-bold">04.</span>
                     <h2 className="text-3xl font-bold text-white">Featured Projects</h2>
                     <div className="h-[1px] bg-white/20 flex-grow" />
                 </div>
@@ -77,13 +77,27 @@ export default function Projects() {
                                         >
                                             <Github size={20} />
                                         </a>
-                                        <a
-                                            href={project.link}
-                                            className="text-gray-400 hover:text-white transition-colors"
-                                            aria-label={`View ${project.title} live demo`}
-                                        >
-                                            <ExternalLink size={20} />
-                                        </a>
+                                        {project.link && project.link !== "#" ? (
+                                            <a
+                                                href={project.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-gray-400 hover:text-white transition-colors"
+                                                aria-label={`View ${project.title} live demo`}
+                                            >
+                                                <ExternalLink size={20} />
+                                            </a>
+                                        ) : (
+                                            <span
+                                                className="text-gray-600 cursor-default relative group/demo"
+                                                aria-label="Live demo coming soon"
+                                            >
+                                                <ExternalLink size={20} />
+                                                <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-zinc-800 text-gray-300 text-[10px] px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover/demo:opacity-100 transition-opacity pointer-events-none border border-white/10">
+                                                    Coming Soon
+                                                </span>
+                                            </span>
+                                        )}
                                     </div>
                                 </div>
 

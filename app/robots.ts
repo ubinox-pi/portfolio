@@ -8,6 +8,7 @@ export default function robots(): MetadataRoute.Robots {
                 allow: [
                     '/',
                     '/resume',
+                    '/blog',
                     '/blog/',
                     '/blog/spring-boot-rest-api',
                     '/blog/spring-boot-annotations',
@@ -15,6 +16,7 @@ export default function robots(): MetadataRoute.Robots {
                     '/blog/docker-commands',
                     '/blog/maven-gradle-guide',
                     '/blog/git-github-guide',
+                    '/blog/mono-flux-reactive-java',
                 ],
                 disallow: ['/api/', '/_next/', '/private/'],
             },

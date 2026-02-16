@@ -16,6 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'weekly',
             priority: 0.9,
         },
+        {
+            url: `${baseUrl}/blog`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
         // Blog posts
         {
             url: `${baseUrl}/blog/spring-boot-rest-api`,
@@ -50,6 +56,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         {
             url: `${baseUrl}/blog/git-github-guide`,
             lastModified: new Date('2025-12-15'),
+            changeFrequency: 'monthly',
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/blog/mono-flux-reactive-java`,
+            lastModified: new Date('2026-02-16'),
             changeFrequency: 'monthly',
             priority: 0.9,
         },

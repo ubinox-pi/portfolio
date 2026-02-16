@@ -180,6 +180,23 @@ export const metadata: Metadata = {
     "Ramjee Prasad Reactive Programming",
     "Ramjee Prasad Spring WebFlux",
     "Ramjee WebFlux",
+    "Ramjee Prasad Mono Flux",
+    "Ramjee Prasad Project Reactor",
+    "Ramjee Prasad Reactive Java",
+    "Mono Flux tutorial",
+    "Mono Flux Java",
+    "Mono Flux Spring WebFlux",
+    "Project Reactor tutorial",
+    "Project Reactor Mono Flux",
+    "Reactive Java tutorial",
+    "Reactive programming Java",
+    "Publisher Subscriber Java",
+    "Reactive Streams Java",
+    "Spring WebFlux Mono Flux",
+    "Spring WebFlux tutorial",
+    "reactive microservices Java",
+    "non-blocking Java",
+    "backpressure reactive Java",
 
     // Database keywords
     "Ramjee Prasad Postgres",
@@ -407,7 +424,12 @@ export const metadata: Metadata = {
   publisher: "Ramjee Prasad",
   alternates: {
     canonical: "https://www.ramjeeprasad.online/",
+    types: {
+      "application/rss+xml": "https://www.ramjeeprasad.online/feed.xml",
+    },
   },
+  manifest: "/manifest.json",
+  themeColor: "#facc15",
   openGraph: {
     type: "website",
     locale: "en_US",
