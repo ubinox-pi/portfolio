@@ -249,13 +249,32 @@ export default function ResumePage() {
                         <h2 className="text-base md:text-lg font-bold text-gray-900 border-b-2 border-gray-900 pb-1 mb-3 md:mb-4 uppercase tracking-wide">
                             Certifications
                         </h2>
-                        <ul className="list-disc list-inside text-gray-700 text-xs md:text-sm space-y-0.5 md:space-y-1 ml-1">
-                            <li><strong>Spring WebFlux Masterclass: High-Performance Reactive APIs</strong> — Udemy (Vinoth Selvaraj) <span className="text-gray-500 ml-1">May 2026</span></li>
-                            <li><strong>Mastering Java Reactive Programming [From Scratch]</strong> — Udemy (Vinoth Selvaraj) <span className="text-gray-500 ml-1">Jan 2026</span></li>
-                            <li><strong>Programming In Java</strong> — NPTEL (Elite Certification) <span className="text-gray-500 ml-1">2025</span></li>
-                            <li><strong>Database Management System</strong> — NPTEL (Elite Certification) <span className="text-gray-500 ml-1">2025</span></li>
-                            <li><strong>Spring Framework & Spring Boot</strong> — Self-paced (YouTube, Official Documentation) <span className="text-gray-500 ml-1">2024</span></li>
-                            <li><strong>Docker & Containerization</strong> — Self-paced (YouTube, Docker Documentation) <span className="text-gray-500 ml-1">2025</span></li>
+                        <ul className="list-disc list-inside text-gray-700 text-xs md:text-sm space-y-1 ml-1">
+                            <li>
+                                <strong>Spring WebFlux Masterclass: High-Performance Reactive APIs</strong>{' '}
+                                <a href="/Spring_WebFlux_Masterclass_High-Performance_Reactive_APIs_Ramjee.jpg" target="_blank" rel="noopener noreferrer" className="text-blue-700 font-normal text-xs">[View Certificate]</a>
+                                {' '}— Udemy (Vinoth Selvaraj) <span className="text-gray-500 ml-1">May 2026</span>
+                            </li>
+                            <li>
+                                <strong>Mastering Java Reactive Programming [From Scratch]</strong>{' '}
+                                <a href="/Mastering_Java_Reactive_Programming_Ramjee.jpg" target="_blank" rel="noopener noreferrer" className="text-blue-700 font-normal text-xs">[View Certificate]</a>
+                                {' '}— Udemy (Vinoth Selvaraj) <span className="text-gray-500 ml-1">Jan 2026</span>
+                            </li>
+                            <li>
+                                <strong>Programming In Java</strong>{' '}
+                                <a href="/Programming_In_Java_Ramjee.jpg" target="_blank" rel="noopener noreferrer" className="text-blue-700 font-normal text-xs">[View Certificate]</a>
+                                {' '}— NPTEL (Elite Certification) <span className="text-gray-500 ml-1">2025</span>
+                            </li>
+                            <li>
+                                <strong>Database Management System</strong>{' '}
+                                <a href="/Data_Base_Management_System_Ramjee.jpg" target="_blank" rel="noopener noreferrer" className="text-blue-700 font-normal text-xs">[View Certificate]</a>
+                                {' '}— NPTEL (Elite Certification) <span className="text-gray-500 ml-1">2025</span>
+                            </li>
+                            <li>
+                                <strong>Computer Networks and Internet Protocol</strong>{' '}
+                                <a href="/Computer_Networks_and_Internet_Protocol_Ramjee.jpg" target="_blank" rel="noopener noreferrer" className="text-blue-700 font-normal text-xs">[View Certificate]</a>
+                                {' '}— NPTEL (Elite Certification) <span className="text-gray-500 ml-1">2025</span>
+                            </li>
                         </ul>
                     </section>
 

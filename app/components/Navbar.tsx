@@ -2,16 +2,16 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Terminal, Code, User, Briefcase, Mail, Cpu, BookOpen } from "lucide-react";
+import { Terminal, Code, User, Briefcase, Mail, Cpu, BookOpen, Award } from "lucide-react";
 import { useState } from "react";
 
 export default function Navbar() {
     const navItems = [
-        { name: "home", path: "/", icon: Terminal },
         { name: "about", path: "#about", icon: User },
         { name: "skills", path: "#skills", icon: Cpu },
-        { name: "projects", path: "#projects", icon: Code },
         { name: "experience", path: "#experience", icon: Briefcase },
+        { name: "projects", path: "#projects", icon: Code },
+        { name: "certifications", path: "#certifications", icon: Award },
         { name: "blog", path: "/blog", icon: BookOpen },
         { name: "contact", path: "#contact", icon: Mail },
     ];
