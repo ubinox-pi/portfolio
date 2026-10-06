@@ -5,6 +5,48 @@ import { Folder, Github, ExternalLink } from "lucide-react";
 
 const projects = [
     {
+        title: "Neptune Bank",
+        description: "A full-scale modular banking system with 10+ independently deployable microservices including auth, user, account, transaction, card, loan, OTP, and employee services. Features reactive API Gateway, JWT-based RBAC, and Docker Compose orchestration.",
+        tech: ["Java 21", "Spring Boot 3.5", "Spring Cloud Gateway", "Docker Compose", "PostgreSQL"],
+        github: "https://github.com/ubinox-pi/Banking-System",
+        link: "#"
+    },
+    {
+        title: "Convo",
+        description: "Real-time chat and user presence backend using WebSocket and STOMP protocol. Features WebRTC signaling for peer-to-peer audio/video calling, Firebase cloud storage, push notifications, and configurable heartbeat mechanisms.",
+        tech: ["Spring Boot", "WebSocket", "STOMP", "WebRTC", "Firebase"],
+        github: "https://github.com/ubinox-pi/Convo",
+        link: "#"
+    },
+    {
+        title: "Lovable Clone",
+        description: "Enterprise-grade AI-powered web development platform. Build full-stack React apps through natural language conversations with Spring AI agentic streaming, Kubernetes sandbox orchestration, and live preview via dynamic reverse proxy.",
+        tech: ["Java 25", "Spring Boot 4.1", "Spring AI 2.0", "Kubernetes", "MinIO"],
+        github: "https://github.com/ubinox-pi/lovable",
+        link: "#"
+    },
+    {
+        title: "ANONET",
+        description: "Decentralized P2P encrypted file transfer desktop application built with JavaFX. Features deterministic EC seed identities, DHT username lookup, NAT traversal with UDP hole punching, relay/onion routing fallback, and a Next.js marketing site.",
+        tech: ["Java 25", "JavaFX", "P2P", "Kademlia DHT", "Cryptography", "Next.js 16"],
+        github: "https://github.com/ubinox-pi/anonet",
+        link: "#"
+    },
+    {
+        title: "Airbnb Clone",
+        description: "Hotel booking and property management REST API built with Spring Boot. Features stateless JWT authentication, date-level inventory availability with dynamic surge pricing, Stripe payment lifecycle & webhooks, and manager analytics.",
+        tech: ["Java 25", "Spring Boot 4", "Spring Security", "PostgreSQL", "Stripe API", "Docker"],
+        github: "https://github.com/ubinox-pi/airbnb",
+        link: "#"
+    },
+    {
+        title: "LinkedIn Clone",
+        description: "Distributed microservices social platform architecture. Features Spring Cloud Eureka service discovery, API Gateway, event-driven messaging with Apache Kafka, Neo4j graph database for connections, and Kubernetes deployment manifests.",
+        tech: ["Java 21", "Spring Boot", "Apache Kafka", "Neo4j", "PostgreSQL", "Docker", "Kubernetes"],
+        github: "https://github.com/ubinox-pi/linkdin-clone",
+        link: "#"
+    },
+    {
         title: "Vertex",
         description: "A production-ready Android application featuring Firebase integration for authentication, real-time data sync, and cloud-based user management. Built with scalable architecture for seamless backend communication.",
         tech: ["Android", "Java", "Firebase", "Gradle"],
@@ -16,27 +58,6 @@ const projects = [
         description: "Android application that calculates compatibility using ASCII algorithms. Features Firebase integration, immersive UI, and romantic quotes.",
         tech: ["Android", "Java", "Firebase", "XML"],
         github: "https://github.com/ubinox-pi/Love-Calculator-App",
-        link: "#"
-    },
-    {
-        title: "Secure Banking System",
-        description: "Encrypted transaction system with fraud detection and role-based access. Multi-module Java application.",
-        tech: ["Java", "Spring Security", "Encryption", "MySQL"],
-        github: "https://github.com/ubinox-pi/Banking-System/tree/Ramjee-prasad",
-        link: "#"
-    },
-    {
-        title: "Layered Spring Architecture",
-        description: "Comprehensive backend application using Spring Boot. RESTful APIs, JWT Auth, RBAC, PostgreSQL, and Docker.",
-        tech: ["Spring Boot", "PostgreSQL", "Docker", "JWT"],
-        github: "https://github.com/ubinox-pi/Spring-project",
-        link: "#"
-    },
-    {
-        title: "Real-Time Chat System",
-        description: "WebSocket-based chat feature handling message broadcasting, user sessions, and Redis for in-memory data.",
-        tech: ["Spring Boot", "WebSockets", "Redis", "Java"],
-        github: "https://github.com/ubinox-pi/Spring-project/tree/Real-Time-chat",
         link: "#"
     },
 ];

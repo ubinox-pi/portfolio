@@ -1,6 +1,6 @@
 %-------------------------
 % Resume - Ramjee Prasad
-% Exact match to portfolio website resume
+% ATS-Optimized with Visual Header
 %-------------------------
 
 \documentclass[a4paper,10pt]{article}
@@ -9,127 +9,138 @@
 \usepackage[T1]{fontenc}
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
-\usepackage[margin=0.3in, top=0in, bottom=0.3in]{geometry}
+\usepackage[margin=0.4in, top=0in, bottom=0.3in]{geometry}
 \usepackage{xcolor}
 \usepackage{hyperref}
-\usepackage{fontawesome5}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{parskip}
 
-% Colors matching website exactly
+% Colors matching website
 \definecolor{headerBg}{HTML}{111827}
 \definecolor{headerText}{HTML}{FFFFFF}
 \definecolor{headerGray}{HTML}{9CA3AF}
 \definecolor{sectionColor}{HTML}{111827}
 \definecolor{bodyText}{HTML}{1F2937}
 \definecolor{techGray}{HTML}{4B5563}
+\definecolor{linkBlue}{HTML}{1D4ED8}
 
 % Hyperlink setup
 \hypersetup{
-    colorlinks=false,
+    colorlinks=true,
+    urlcolor=linkBlue,
     pdfborder={0 0 0}
 }
 
 % Remove page numbers
 \pagestyle{empty}
 
-% Section formatting - BLACK color with BLACK underline (2px thick)
+% Section formatting
 \titleformat{\section}
-    {\normalsize\bfseries\color{sectionColor}\uppercase}
+    {\normalsize\bfseries\color{sectionColor}}
     {}
     {0em}
-    {}
+    {\MakeUppercase}
     [\vspace{-0.6em}{\color{sectionColor}\rule{\textwidth}{0.8pt}}]
 
-\titlespacing{\section}{0pt}{1.2em}{0.5em}
+\titlespacing{\section}{0pt}{1.0em}{0.5em}
+
+% Tighter paragraph spacing
+\setlength{\parskip}{0pt}
 
 \begin{document}
 
-%----------HEADER----------
+%----------HEADER (Dark Bar - Visual + ATS-Parseable)----------
 \noindent
-\hspace*{-0.3in}%
-\fcolorbox{headerBg}{headerBg}{%
-\begin{minipage}{\dimexpr\paperwidth-2\fboxsep-2\fboxrule}
-\hspace{0.3in}
-\begin{minipage}{\dimexpr\textwidth}
-\vspace{2.2em}
-\textcolor{headerText}{\fontsize{26pt}{30pt}\selectfont\textbf{RAMJEE PRASAD}}
+\hspace*{-0.4in}%
+\colorbox{headerBg}{%
+\parbox{\dimexpr\paperwidth-2\fboxsep-0.01in}{%
+\hspace{0.4in}%
+\begin{minipage}{\dimexpr\textwidth-0.1in}
+\vspace{1.6em}
+\textcolor{headerText}{\fontsize{22pt}{26pt}\selectfont\textbf{RAMJEE PRASAD}}
 
-\vspace{0.8em}
+\vspace{0.5em}
 \textcolor{headerGray}{\large Backend Developer | Java \& Spring Boot}
 
-\vspace{2em}
+\vspace{1.4em}
+\begin{minipage}[t]{0.48\textwidth}
 {\small\textcolor{headerGray}{%
-\faEnvelope\ \href{mailto:ramjeeprasad.dev@gmail.com}{ramjeeprasad.dev@gmail.com} \hspace{1.5em}
-\faPhone\ +91 9801112671 \hspace{1.5em}
-\faMapMarker*\ Jamshedpur \hspace{1.5em}
-\faGithub\ \href{https://github.com/ubinox-pi}{github.com/ubinox-pi}
+Email: \href{mailto:ashish23481@gmail.com}{\textcolor{headerGray}{ashish23481@gmail.com}}\\[0.4em]
+Phone: +91 8227865178\\[0.4em]
+Location: Jamshedpur, India
 }}
-
-\vspace{0.8em}
-{\small\textcolor{headerGray}{%
-\faLinkedin\ \href{https://www.linkedin.com/in/ramjee-prasad-6b26b4349}{linkedin.com/in/ramjeeprasad}
-}}
-\vspace{2.2em}
-\end{minipage}
 \end{minipage}%
-}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+{\small\textcolor{headerGray}{%
+GitHub: \href{https://github.com/ubinox-pi}{\textcolor{headerGray}{github.com/ubinox-pi}}\\[0.4em]
+LinkedIn: \href{https://www.linkedin.com/in/ramjeeprasad}{\textcolor{headerGray}{linkedin.com/in/ramjeeprasad}}
+}}
+\end{minipage}
+\vspace{1.6em}
+\end{minipage}%
+}}
 
-\vspace{1em}
+\vspace{0.6em}
 
-%----------PROFESSIONAL SUMMARY----------
-\section{Professional Summary}
-{\small\color{bodyText}
-Backend Developer specializing in Java and Spring Boot with experience in building scalable RESTful and reactive microservices. Proficient in Spring Boot 3.x, Spring Security, WebFlux, JPA/Hibernate, and PostgreSQL. Hands-on experience with JWT-based authentication, Dockerized deployments, Redis caching, and event-driven systems using Kafka and RabbitMQ. Strong understanding of system design, distributed systems, and clean architecture principles.
-}
+% %----------PROFESSIONAL SUMMARY----------
+% \section{Professional Summary}
+% {\small\color{bodyText}
+% Results-driven Backend Developer specializing in Java 25 and Spring Boot 4.x, with a strong foundation in designing scalable microservices and AI-powered distributed systems. Skilled in developing reactive APIs using Spring WebFlux, AI agentic pipelines with Spring AI, and secure role-based systems with Spring Security. Demonstrated ability to independently architect multi-module backend systems with 10+ services, Kubernetes-orchestrated container sandboxes, containerized deployments using Docker Compose, and real-time communication systems using WebSocket and WebRTC. Strong communicator with a self-driven approach to distributed systems, clean architecture, and emerging backend technologies.
+% }
 
-%----------TECHNICAL SKILLS----------
+%----------TECHNICAL SKILLS (Plain List, ATS-Parseable)----------
 \section{Technical Skills}
 {\small\color{bodyText}
-\begin{tabular}{@{}p{4.2cm}p{11cm}@{}}
-\textbf{Programming Languages} & Java (21), Python, C++ \\[0.5em]
-\textbf{Frameworks} & Spring Boot 3.x, Spring WebFlux, Spring Security, Spring Data JPA, Hibernate \\[0.5em]
-\textbf{API Technologies} & RESTful APIs, GraphQL \\[0.5em]
-\textbf{Databases \& Caching} & PostgreSQL, MySQL, MongoDB, Redis \\[0.5em]
-\textbf{Messaging} & Apache Kafka, RabbitMQ \\[0.5em]
-\textbf{DevOps \& Tools} & Docker, Git, Jenkins, Maven, Gradle, Postman \\[0.5em]
-\textbf{Testing} & JUnit 5, Mockito \\[0.5em]
-\textbf{Cloud} & AWS (EC2, S3), Google Cloud (GCP) \\[0.5em]
-\textbf{Operating Systems} & Linux (Ubuntu, Red Hat), Windows \\
-\end{tabular}
+\textbf{Languages:} Java (25), C++ \\[0.3em]
+\textbf{Frameworks:} Spring Boot 4.x, Spring AI 2.0, Spring WebFlux, Spring Security, Spring Cloud Gateway, Spring Data JPA, Hibernate \\[0.3em]
+\textbf{API \& Protocols:} RESTful APIs, GraphQL, WebSocket, STOMP, WebRTC, Server-Sent Events (SSE) \\[0.3em]
+\textbf{Databases \& Caching:} PostgreSQL (pgvector), MySQL, MongoDB, Redis \\[0.3em]
+\textbf{Messaging:} Apache Kafka, RabbitMQ \\[0.3em]
+\textbf{DevOps \& Tools:} Docker, Docker Compose, Kubernetes (Fabric8), Git, Jenkins, Maven, Gradle, Postman \\[0.3em]
+\textbf{Storage \& Cloud:} MinIO (S3), AWS (EC2, S3), Google Cloud (GCP), Firebase (Storage, Notifications) \\[0.3em]
+\textbf{Testing:} JUnit 5, Mockito \\[0.3em]
+\textbf{Operating Systems:} Linux (Ubuntu, Red Hat), Windows \\[0.3em]
+\textbf{Soft Skills:} Communication, Problem-Solving, Self-Learning, Adaptability, Time Management, Collaboration
 }
 
 %----------PROJECTS----------
 \section{Projects}
 
 {\small\color{bodyText}
-\textbf{Real-Time Chat System} \hfill {\footnotesize\textcolor{techGray}{Spring Boot, WebSockets, Redis, STOMP}}
-\begin{itemize}[leftmargin=1.2em, topsep=3pt, itemsep=1pt, parsep=1pt]
-    \item Built a real-time chat system using Spring Boot and WebSockets supporting concurrent users
-    \item Implemented Redis for session management and caching to reduce database load
-    \item Designed message broadcasting mechanism for low-latency real-time communication
+\textbf{Neptune Bank --- Microservices Banking System} \href{https://github.com/ubinox-pi/Banking-System}{\textcolor{linkBlue}{[GitHub]}} \hfill {\footnotesize\textcolor{techGray}{Java 21, Spring Boot 3.5, Spring Cloud Gateway, Docker Compose}}
+\begin{itemize}[leftmargin=1.2em, topsep=2pt, itemsep=0pt, parsep=0pt]
+    \item Architected a full-scale modular banking system with 10+ independently deployable microservices including auth, user, account, transaction, card, loan, OTP, and employee services
+    \item Built a reactive API Gateway using Spring WebFlux and Spring Cloud Gateway for non-blocking request routing and resilience
+    \item Secured all microservices using Spring Security with JWT-based authentication and role-based access control (RBAC)
+    \item Designed database layer using Spring Data JPA with PostgreSQL, handling transactional operations across service boundaries
+    \item Orchestrated multi-service development and deployment using Docker Compose; deployed frontend on Vercel
+    \item Integrated WhatsApp automation module for real-time notification delivery to end users
 \end{itemize}
 }
 
 \vspace{0.5em}
 {\small\color{bodyText}
-\textbf{Layered Spring Architecture} \hfill {\footnotesize\textcolor{techGray}{Spring Boot, PostgreSQL, Docker, JWT}}
-\begin{itemize}[leftmargin=1.2em, topsep=3pt, itemsep=1pt, parsep=1pt]
-    \item Developed scalable backend application using Spring Boot with RESTful API endpoints
-    \item Implemented JWT-based authentication with role-based access control (RBAC)
-    \item Designed layered architecture following SOLID principles and clean code practices
-    \item Containerized application using Docker for consistent deployment across environments
+\textbf{Convo --- Real-Time Chat \& Communication Backend} \href{https://github.com/ubinox-pi/Convo}{\textcolor{linkBlue}{[GitHub]}} \hfill {\footnotesize\textcolor{techGray}{Spring Boot, WebSocket, STOMP, WebRTC, Firebase}}
+\begin{itemize}[leftmargin=1.2em, topsep=2pt, itemsep=0pt, parsep=0pt]
+    \item Built a real-time chat and user presence backend using Spring Boot with WebSocket and STOMP protocol for persistent bidirectional communication
+    \item Implemented WebRTC signaling server for peer-to-peer audio and video calling with low-latency media streaming
+    \item Integrated Firebase for cloud storage of media files and push notifications for offline message delivery
+    \item Engineered client disconnection detection and configurable heartbeat mechanisms to maintain reliable connection state
+    \item Designed hybrid media transfer pattern supporting HTTP multipart uploads and STOMP messaging for real-time text
 \end{itemize}
 }
 
 \vspace{0.5em}
 {\small\color{bodyText}
-\textbf{Secure Banking System} \hfill {\footnotesize\textcolor{techGray}{Java, Spring Security, AES Encryption, MySQL}}
-\begin{itemize}[leftmargin=1.2em, topsep=3pt, itemsep=1pt, parsep=1pt]
-    \item Designed secure transaction system with AES encryption and fraud detection mechanisms
-    \item Implemented Spring Security with role-based access control for different privilege levels
-    \item Built multi-module Java application with clear separation of concerns
+\textbf{Lovable Clone --- AI Full-Stack App Builder \& Live Sandbox} \href{https://github.com/ubinox-pi/lovable}{\textcolor{linkBlue}{[GitHub]}} \hfill {\footnotesize\textcolor{techGray}{Java 25, Spring Boot 4.1, Spring AI 2.0, Kubernetes, MinIO}}
+\begin{itemize}[leftmargin=1.2em, topsep=2pt, itemsep=0pt, parsep=0pt]
+    \item Built a distributed AI web development platform for creating full-stack via natural language using Spring AI streaming with SSE
+    \item Built Kubernetes sandbox orchestration with pre-warmed runners, dynamic pod claiming, and bidirectional MinIO sidecar sync for instant previews
+    \item Built a Node.js wildcard reverse proxy with Redis-backed route resolution and WebSocket passthrough for Vite HMR
+    \item Implemented multi-tenant RBAC with Spring Security, Redis sessions, and project permissions (OWNER, EDITOR, VIEWER)
+    \item Integrated Razorpay subscriptions with webhook lifecycle management, daily token quotas, and plan-based project limits
 \end{itemize}
 }
 
@@ -137,19 +148,37 @@ Backend Developer specializing in Java and Spring Boot with experience in buildi
 \section{Education}
 {\small\color{bodyText}
 \textbf{Bachelor of Technology (B.Tech) in Computer Science} \hfill \textbf{2023 -- 2027 (Expected)}\\
-Coursework: Data Structures \& Algorithms, DBMS, Operating Systems, Computer Networks
+Silicon Institute of Technology, Sambalpur \hfill CGPA: 7.46 / 10.0\\[0.2em]
+\textbf{Relevant Coursework:} Data Structures \& Algorithms, DBMS, Operating Systems, Computer Networks\\[0.2em]
+\textbf{Higher Secondary (XII)} --- Jamshedpur Co-operative College (JAC Board) \hfill \textbf{2021 -- 2023}\\[0.2em]
+\textbf{Secondary (X)} --- Gayatri Shiksha Niketan High School (CBSE) \hfill \textbf{2021}
 }
 
 %----------CERTIFICATIONS----------
-\section{Certifications \& Achievements}
+\section{Certifications}
 {\small\color{bodyText}
-\begin{itemize}[leftmargin=1.2em, topsep=3pt, itemsep=1pt, parsep=1pt]
-    \item Completed Spring Framework and Spring Boot training
-    \item Implemented reactive microservices using Spring WebFlux and Project Reactor
-    \item Designed and deployed containerized microservices using Docker and CI/CD pipelines
+\begin{itemize}[leftmargin=1.2em, topsep=2pt, itemsep=1pt, parsep=0pt]
+    \item \textbf{Spring WebFlux Masterclass: High-Performance Reactive APIs}
+    \href{https://udemy-certificate.s3.amazonaws.com/image/UC-73c69596-afd2-4808-8aa8-d92f109dd95e.jpg?v=1778004091000}{\textcolor{linkBlue}{[View Certificate]}}
+    --- Udemy (Vinoth Selvaraj) \hfill May 2026
+    \item \textbf{Mastering Java Reactive Programming [From Scratch]}
+    \href{https://udemy-certificate.s3.amazonaws.com/image/UC-717014e4-2542-40be-b0f2-6bcce5ec4003.jpg?v=1769866490000}{\textcolor{linkBlue}{[View Certificate]}}
+    --- Udemy (Vinoth Selvaraj) \hfill Jan 2026
+    \item \textbf{Programming In Java}
+    \href{http://ramjeeprasad.online/Programming_In_Java_Ramjee.jpg}{\textcolor{linkBlue}{[View Certificate]}}
+    --- NPTEL (Elite Certification) \hfill 2025
+    \item \textbf{Database Management System}
+    \href{http://ramjeeprasad.online/Data_Base_Management_System_Ramjee.jpg}{\textcolor{linkBlue}{[View Certificate]}}
+    --- NPTEL (Elite Certification) \hfill 2025
+    \item \textbf{Computer Networks and Internet Protocol}
+    \href{http://ramjeeprasad.online/Computer_Networks_and_Internet_Protocol_Ramjee.jpg}{\textcolor{linkBlue}{[View Certificate]}}
+    --- NPTEL (Elite Certification) \hfill 2025
+    \item \textbf{Spring Framework \& Spring Boot}
+    --- Self-paced (YouTube, Official Documentation) \hfill 2024
+    \item \textbf{Docker \& Containerization}
+    --- Self-paced (YouTube, Docker Documentation) \hfill 2025
 \end{itemize}
 }
-
 
 
 \end{document}

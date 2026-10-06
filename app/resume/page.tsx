@@ -94,12 +94,7 @@ export default function ResumePage() {
                             Professional Summary
                         </h2>
                         <p className="text-gray-700 leading-relaxed text-xs md:text-sm">
-                            Backend Developer specializing in Java and Spring Boot with experience in building
-                            scalable RESTful and reactive microservices. Proficient in Spring Boot 3.x, Spring
-                            Security, WebFlux, JPA/Hibernate, and PostgreSQL. Hands-on experience with JWT-based
-                            authentication, Dockerized deployments, Redis caching, and event-driven systems using
-                            Kafka and RabbitMQ. Strong understanding of system design, distributed systems, and
-                            clean architecture principles.
+                            Results-driven Backend Developer specializing in Java 21 and Spring Boot 3.x, with a strong foundation in designing scalable microservices architectures. Skilled in developing reactive APIs using Spring WebFlux and implementing secure, role-based systems with Spring Security and JWT. Demonstrated ability to independently architect multi-module backend systems with 10+ services, containerized deployments using Docker Compose, and real-time communication systems using WebSocket and WebRTC. Strong communicator with a self-driven approach to distributed systems, clean architecture, and emerging backend technologies.
                         </p>
                     </section>
 
@@ -164,40 +159,55 @@ export default function ResumePage() {
                             {/* Project 1 */}
                             <div>
                                 <div className="flex flex-wrap items-baseline justify-between gap-1 md:gap-2 mb-1">
-                                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">Real-Time Chat System</h3>
-                                    <span className="text-[10px] md:text-xs text-gray-600">Spring Boot, WebSockets, Redis, STOMP</span>
+                                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">
+                                        Neptune Bank — Microservices Banking System{' '}
+                                        <a href="https://github.com/ubinox-pi/Banking-System" target="_blank" rel="noopener noreferrer" className="text-blue-700 font-normal text-xs">[GitHub]</a>
+                                    </h3>
+                                    <span className="text-[10px] md:text-xs text-gray-600">Java 21, Spring Boot 3.5, Spring Cloud Gateway, Docker Compose</span>
                                 </div>
                                 <ul className="list-disc list-inside text-gray-700 text-xs md:text-sm space-y-0.5 ml-1">
-                                    <li>Built a real-time chat system using Spring Boot and WebSockets supporting concurrent users</li>
-                                    <li>Implemented Redis for session management and caching to reduce database load</li>
-                                    <li>Designed message broadcasting mechanism for low-latency real-time communication</li>
+                                    <li>Architected a full-scale modular banking system with 10+ independently deployable microservices including auth, user, account, transaction, card, loan, OTP, and employee services</li>
+                                    <li>Built a reactive API Gateway using Spring WebFlux and Spring Cloud Gateway for non-blocking request routing and resilience</li>
+                                    <li>Secured all microservices using Spring Security with JWT-based authentication and role-based access control (RBAC)</li>
+                                    <li>Designed database layer using Spring Data JPA with PostgreSQL, handling transactional operations across service boundaries</li>
+                                    <li>Orchestrated multi-service development and deployment using Docker Compose; deployed frontend on Vercel</li>
+                                    <li>Integrated WhatsApp automation module for real-time notification delivery to end users</li>
                                 </ul>
                             </div>
 
                             {/* Project 2 */}
                             <div>
                                 <div className="flex flex-wrap items-baseline justify-between gap-1 md:gap-2 mb-1">
-                                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">Layered Spring Architecture</h3>
-                                    <span className="text-[10px] md:text-xs text-gray-600">Spring Boot, PostgreSQL, Docker, JWT</span>
+                                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">
+                                        Convo — Real-Time Chat & Communication Backend{' '}
+                                        <a href="https://github.com/ubinox-pi/Convo" target="_blank" rel="noopener noreferrer" className="text-blue-700 font-normal text-xs">[GitHub]</a>
+                                    </h3>
+                                    <span className="text-[10px] md:text-xs text-gray-600">Spring Boot, WebSocket, STOMP, WebRTC, Firebase</span>
                                 </div>
                                 <ul className="list-disc list-inside text-gray-700 text-xs md:text-sm space-y-0.5 ml-1">
-                                    <li>Developed scalable backend application using Spring Boot with RESTful API endpoints</li>
-                                    <li>Implemented JWT-based authentication with role-based access control (RBAC)</li>
-                                    <li>Designed layered architecture following SOLID principles and clean code practices</li>
-                                    <li>Containerized application using Docker for consistent deployment across environments</li>
+                                    <li>Built a real-time chat and user presence backend using Spring Boot with WebSocket and STOMP protocol for persistent bidirectional communication</li>
+                                    <li>Implemented WebRTC signaling server for peer-to-peer audio and video calling with low-latency media streaming</li>
+                                    <li>Integrated Firebase for cloud storage of media files and push notifications for offline message delivery</li>
+                                    <li>Engineered client disconnection detection and configurable heartbeat mechanisms to maintain reliable connection state</li>
+                                    <li>Designed hybrid media transfer pattern supporting HTTP multipart uploads and STOMP messaging for real-time text</li>
                                 </ul>
                             </div>
 
                             {/* Project 3 */}
                             <div>
                                 <div className="flex flex-wrap items-baseline justify-between gap-1 md:gap-2 mb-1">
-                                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">Secure Banking System</h3>
-                                    <span className="text-[10px] md:text-xs text-gray-600">Java, Spring Security, AES Encryption, MySQL</span>
+                                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">
+                                        Lovable Clone — AI Full-Stack App Builder & Live Sandbox{' '}
+                                        <a href="https://github.com/ubinox-pi/lovable" target="_blank" rel="noopener noreferrer" className="text-blue-700 font-normal text-xs">[GitHub]</a>
+                                    </h3>
+                                    <span className="text-[10px] md:text-xs text-gray-600">Java 25, Spring Boot 4.1, Spring AI 2.0, Kubernetes, MinIO</span>
                                 </div>
                                 <ul className="list-disc list-inside text-gray-700 text-xs md:text-sm space-y-0.5 ml-1">
-                                    <li>Designed secure transaction system with AES encryption and fraud detection mechanisms</li>
-                                    <li>Implemented Spring Security with role-based access control for different privilege levels</li>
-                                    <li>Built multi-module Java application with clear separation of concerns</li>
+                                    <li>Engineered a distributed AI-powered web development platform enabling users to build full-stack React applications through natural language conversations using Spring AI agentic streaming with SSE</li>
+                                    <li>Designed Kubernetes sandbox orchestration with pre-warmed runner pod pools, dynamic pod claiming, and bidirectional MinIO file sync via sidecar containers for instant live previews</li>
+                                    <li>Built a Node.js wildcard reverse proxy with Redis-backed route resolution and WebSocket passthrough for Vite HMR</li>
+                                    <li>Implemented multi-tenant RBAC with Spring Security method-level authorization, Redis-distributed sessions, and fine-grained project permissions (OWNER, EDITOR, VIEWER)</li>
+                                    <li>Integrated Razorpay subscription billing with webhook-driven lifecycle management, daily token usage quotas, and plan-based project limits</li>
                                 </ul>
                             </div>
                         </div>
@@ -208,24 +218,44 @@ export default function ResumePage() {
                         <h2 className="text-base md:text-lg font-bold text-gray-900 border-b-2 border-gray-900 pb-1 mb-3 md:mb-4 uppercase tracking-wide">
                             Education
                         </h2>
-                        <div className="flex flex-col md:flex-row md:flex-wrap justify-between items-start md:items-baseline gap-1 md:gap-2">
-                            <div>
-                                <h3 className="font-semibold text-gray-900 text-sm md:text-base">Bachelor of Technology (B.Tech) in Computer Science</h3>
-                                <p className="text-gray-700 text-xs md:text-sm">Coursework: Data Structures & Algorithms, DBMS, Operating Systems, Computer Networks</p>
+                        <div className="space-y-2 md:space-y-3">
+                            <div className="flex flex-col md:flex-row md:flex-wrap justify-between items-start md:items-baseline gap-1 md:gap-2">
+                                <div>
+                                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">Bachelor of Technology (B.Tech) in Computer Science</h3>
+                                    <p className="text-gray-700 text-xs md:text-sm">Silicon Institute of Technology, Sambalpur &mdash; CGPA: 7.44 / 10.0</p>
+                                    <p className="text-gray-600 text-xs">Relevant Coursework: Data Structures & Algorithms, DBMS, Operating Systems, Computer Networks</p>
+                                </div>
+                                <span className="text-gray-600 text-xs md:text-sm font-medium">2023 – 2027 (Expected)</span>
                             </div>
-                            <span className="text-gray-600 text-xs md:text-sm font-medium">2023 – 2027 (Expected)</span>
+                            <div className="flex flex-col md:flex-row md:flex-wrap justify-between items-start md:items-baseline gap-1 md:gap-2">
+                                <div>
+                                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">Higher Secondary (XII)</h3>
+                                    <p className="text-gray-700 text-xs md:text-sm">Jamshedpur Co-operative College (JAC Board)</p>
+                                </div>
+                                <span className="text-gray-600 text-xs md:text-sm font-medium">2021 – 2023</span>
+                            </div>
+                            <div className="flex flex-col md:flex-row md:flex-wrap justify-between items-start md:items-baseline gap-1 md:gap-2">
+                                <div>
+                                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">Secondary (X)</h3>
+                                    <p className="text-gray-700 text-xs md:text-sm">Gayatri Shiksha Niketan High School (CBSE)</p>
+                                </div>
+                                <span className="text-gray-600 text-xs md:text-sm font-medium">2021</span>
+                            </div>
                         </div>
                     </section>
 
                     {/* Certifications */}
                     <section>
                         <h2 className="text-base md:text-lg font-bold text-gray-900 border-b-2 border-gray-900 pb-1 mb-3 md:mb-4 uppercase tracking-wide">
-                            Certifications & Achievements
+                            Certifications
                         </h2>
                         <ul className="list-disc list-inside text-gray-700 text-xs md:text-sm space-y-0.5 md:space-y-1 ml-1">
-                            <li>Completed Spring Framework and Spring Boot training</li>
-                            <li>Implemented reactive microservices using Spring WebFlux and Project Reactor</li>
-                            <li>Designed and deployed containerized microservices using Docker and CI/CD pipelines</li>
+                            <li><strong>Spring WebFlux Masterclass: High-Performance Reactive APIs</strong> — Udemy (Vinoth Selvaraj) <span className="text-gray-500 ml-1">May 2026</span></li>
+                            <li><strong>Mastering Java Reactive Programming [From Scratch]</strong> — Udemy (Vinoth Selvaraj) <span className="text-gray-500 ml-1">Jan 2026</span></li>
+                            <li><strong>Programming In Java</strong> — NPTEL (Elite Certification) <span className="text-gray-500 ml-1">2025</span></li>
+                            <li><strong>Database Management System</strong> — NPTEL (Elite Certification) <span className="text-gray-500 ml-1">2025</span></li>
+                            <li><strong>Spring Framework & Spring Boot</strong> — Self-paced (YouTube, Official Documentation) <span className="text-gray-500 ml-1">2024</span></li>
+                            <li><strong>Docker & Containerization</strong> — Self-paced (YouTube, Docker Documentation) <span className="text-gray-500 ml-1">2025</span></li>
                         </ul>
                     </section>
 

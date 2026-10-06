@@ -26,6 +26,7 @@ const categories = {
         { name: "MongoDB", version: "7.0", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
         { name: "MySQL", version: "8.0", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
         { name: "Firebase", version: "Realtime", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
+        { name: "MinIO", version: "S3", icon: "https://dl.min.io/logo/Minio_logo_light/Minio_logo_light.svg" },
     ],
     "OS": [
         { name: "Linux", version: "Kernel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
