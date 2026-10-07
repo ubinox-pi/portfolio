@@ -1,62 +1,83 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Folder, Github, ExternalLink } from "lucide-react";
+import { FolderGit2, Github, ExternalLink, ArrowUpRight, Shield, Zap, Cpu, Network } from "lucide-react";
 
-const projects = [
+interface Project {
+    title: string;
+    category: string;
+    description: string;
+    tech: string[];
+    github: string;
+    link?: string;
+    featured?: boolean;
+}
+
+const projects: Project[] = [
     {
         title: "Neptune Bank",
-        description: "A full-scale modular banking system with 10+ independently deployable microservices including auth, user, account, transaction, card, loan, OTP, and employee services. Features reactive API Gateway, JWT-based RBAC, and Docker Compose orchestration.",
+        category: "Distributed Banking Microservices",
+        description: "A full-scale modular banking architecture with 10+ independently deployable microservices (auth, user, account, transaction, card, loan, OTP, employee). Features reactive Spring Cloud Gateway, JWT-based RBAC, and Docker Compose orchestration.",
         tech: ["Java 21", "Spring Boot 3.5", "Spring Cloud Gateway", "Docker Compose", "PostgreSQL"],
         github: "https://github.com/ubinox-pi/Banking-System",
-        link: "#"
+        link: "#",
+        featured: true
     },
     {
         title: "Convo",
-        description: "Real-time chat and user presence backend using WebSocket and STOMP protocol. Features WebRTC signaling for peer-to-peer audio/video calling, Firebase cloud storage, push notifications, and configurable heartbeat mechanisms.",
+        category: "Real-Time WebSocket & Signaling",
+        description: "High-concurrency chat and presence backend using WebSocket and STOMP protocols. Implements WebRTC peer signaling for low-latency audio/video calling, Firebase cloud persistence, push notifications, and heartbeat connection health checks.",
         tech: ["Spring Boot", "WebSocket", "STOMP", "WebRTC", "Firebase"],
         github: "https://github.com/ubinox-pi/Convo",
-        link: "#"
+        link: "#",
+        featured: true
     },
     {
         title: "Lovable Clone",
-        description: "Enterprise-grade AI-powered web development platform. Build full-stack React apps through natural language conversations with Spring AI agentic streaming, Kubernetes sandbox orchestration, and live preview via dynamic reverse proxy.",
+        category: "Spring AI Agentic Sandbox",
+        description: "Enterprise-grade AI-assisted web development platform. Facilitates conversational full-stack app scaffolding through Spring AI agentic streaming, Kubernetes isolated sandbox orchestration, and live multi-tenant preview via dynamic reverse proxy.",
         tech: ["Java 25", "Spring Boot 4.1", "Spring AI 2.0", "Kubernetes", "MinIO"],
         github: "https://github.com/ubinox-pi/lovable",
-        link: "#"
+        link: "#",
+        featured: true
     },
     {
         title: "ANONET",
-        description: "Decentralized P2P encrypted file transfer desktop application built with JavaFX. Features deterministic EC seed identities, DHT username lookup, NAT traversal with UDP hole punching, relay/onion routing fallback, and a Next.js marketing site.",
-        tech: ["Java 25", "JavaFX", "P2P", "Kademlia DHT", "Cryptography", "Next.js 16"],
+        category: "Decentralized P2P & Cryptography",
+        description: "Peer-to-peer encrypted file transfer protocol with JavaFX desktop client. Engineered with deterministic EC seed identities, Kademlia DHT node announcements, NAT traversal via UDP hole punching, relay onion routing fallback, and Next.js portal.",
+        tech: ["Java 25", "JavaFX", "P2P Protocol", "Kademlia DHT", "Cryptography", "Next.js 16"],
         github: "https://github.com/ubinox-pi/anonet",
         link: "#"
     },
     {
         title: "Airbnb Clone",
-        description: "Hotel booking and property management REST API built with Spring Boot. Features stateless JWT authentication, date-level inventory availability with dynamic surge pricing, Stripe payment lifecycle & webhooks, and manager analytics.",
+        category: "High-Availability Booking REST API",
+        description: "Enterprise property rental engine built with Spring Boot. Implements stateless JWT authentication, date-level inventory availability with dynamic surge pricing algorithms, Stripe webhook payment lifecycles, and host analytics reporting.",
         tech: ["Java 25", "Spring Boot 4", "Spring Security", "PostgreSQL", "Stripe API", "Docker"],
         github: "https://github.com/ubinox-pi/airbnb",
         link: "#"
     },
     {
         title: "LinkedIn Clone",
-        description: "Distributed microservices social platform architecture. Features Spring Cloud Eureka service discovery, API Gateway, event-driven messaging with Apache Kafka, Neo4j graph database for connections, and Kubernetes deployment manifests.",
+        category: "Event-Driven Social Graph",
+        description: "Distributed social network backend orchestrated with Spring Cloud Eureka service discovery, API Gateway, and Apache Kafka event streaming. Utilizes Neo4j graph database for degree-of-connection algorithms and Kubernetes manifests.",
         tech: ["Java 21", "Spring Boot", "Apache Kafka", "Neo4j", "PostgreSQL", "Docker", "Kubernetes"],
         github: "https://github.com/ubinox-pi/linkdin-clone",
         link: "#"
     },
     {
         title: "Vertex",
-        description: "A production-ready Android application featuring Firebase integration for authentication, real-time data sync, and cloud-based user management. Built with scalable architecture for seamless backend communication.",
-        tech: ["Android", "Java", "Firebase", "Gradle"],
+        category: "Android Architecture",
+        description: "Production-ready Android mobile application engineered with Firebase integration for authentication, real-time database synchronization, cloud storage, and offline-first persistence.",
+        tech: ["Android SDK", "Java", "Firebase", "Gradle", "MVVM"],
         github: "https://github.com/ubinox-pi/Vertex",
         link: "#"
     },
     {
         title: "Love Calculator App",
-        description: "Android application that calculates compatibility using ASCII algorithms. Features Firebase integration, immersive UI, and romantic quotes.",
-        tech: ["Android", "Java", "Firebase", "XML"],
+        category: "Android Utility & Algorithms",
+        description: "Interactive mobile utility implementing ASCII character-scoring heuristics, Firebase analytics integration, and custom animation layers for mobile clients.",
+        tech: ["Android SDK", "Java", "Firebase", "XML Layouts"],
         github: "https://github.com/ubinox-pi/Love-Calculator-App",
         link: "#"
     },
@@ -64,73 +85,111 @@ const projects = [
 
 export default function Projects() {
     return (
-        <section id="projects" className="py-20 px-6">
+        <section id="projects" className="py-24 px-4 md:px-6 relative">
             <div className="max-w-6xl mx-auto">
-                <div className="flex items-center gap-4 mb-10">
-                    <span className="text-3xl text-accent font-bold">04.</span>
-                    <h2 className="text-3xl font-bold text-white">Featured Projects</h2>
-                    <div className="h-[1px] bg-white/20 flex-grow" />
+                {/* Section Header */}
+                <div className="flex items-center gap-3 mb-4">
+                    <span className="font-mono text-xs uppercase tracking-widest text-amber-400 bg-amber-400/10 px-2.5 py-1 rounded-full border border-amber-400/20">
+                        04 / SYSTEMS
+                    </span>
+                    <div className="h-[1px] bg-white/10 flex-grow" />
+                </div>
+                <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                    <div>
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+                            Featured Architectural Systems
+                        </h2>
+                        <p className="text-zinc-400 text-sm md:text-base mt-2 max-w-2xl leading-relaxed">
+                            Engineered for high concurrency, fault isolation, and resilient backend data pipelines. Each repository includes Docker configurations and comprehensive architecture specs.
+                        </p>
+                    </div>
+
+                    <a
+                        href="https://github.com/ubinox-pi"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-xs font-mono text-amber-400 hover:text-amber-300 transition-colors shrink-0"
+                    >
+                        View Full GitHub Portfolio <ArrowUpRight size={14} />
+                    </a>
                 </div>
 
+                {/* Projects Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {projects.map((project, index) => (
                         <motion.div
                             key={project.title}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            whileHover={{ y: -5 }}
-                            className="bg-zinc-900/30 backdrop-blur-md p-6 rounded-lg border border-white/5 hover:border-accent hover:shadow-[0_0_15px_rgba(250,204,21,0.2)] transition-all duration-300 group flex flex-col justify-between"
+                            transition={{ duration: 0.35, delay: index * 0.05 }}
+                            viewport={{ once: true, margin: "-40px" }}
+                            className="bg-[#0e1017]/75 backdrop-blur-xl p-6 rounded-2xl border border-white/10 hover:border-amber-500/40 hover:shadow-[0_12px_40px_-15px_rgba(245,158,11,0.15)] transition-all duration-300 group flex flex-col justify-between"
                         >
                             <div>
-                                <div className="flex justify-between items-start mb-4">
-                                    <div className="p-3 bg-white/5 rounded-full text-accent">
-                                        <Folder size={24} />
+                                {/* Header Icons & Links */}
+                                <div className="flex justify-between items-start mb-5">
+                                    <div className="p-2.5 bg-amber-500/10 rounded-xl text-amber-400 border border-amber-500/20 group-hover:scale-105 transition-transform">
+                                        <FolderGit2 size={22} />
                                     </div>
-                                    <div className="flex gap-4">
+
+                                    <div className="flex items-center gap-3">
                                         <a
                                             href={project.github}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-gray-400 hover:text-white transition-colors"
+                                            className="text-zinc-400 hover:text-white transition-colors p-1.5 hover:bg-white/5 rounded-lg"
                                             aria-label={`View ${project.title} source code on GitHub`}
                                         >
-                                            <Github size={20} />
+                                            <Github size={18} />
                                         </a>
+
                                         {project.link && project.link !== "#" ? (
                                             <a
                                                 href={project.link}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="text-gray-400 hover:text-white transition-colors"
-                                                aria-label={`View ${project.title} live demo`}
+                                                className="text-zinc-400 hover:text-amber-300 transition-colors p-1.5 hover:bg-white/5 rounded-lg"
+                                                aria-label={`View ${project.title} live system`}
                                             >
-                                                <ExternalLink size={20} />
+                                                <ExternalLink size={18} />
                                             </a>
                                         ) : (
                                             <span
-                                                className="text-gray-600 cursor-default relative group/demo"
-                                                aria-label="Live demo coming soon"
+                                                className="text-zinc-600 cursor-default relative group/demo p-1.5"
+                                                aria-label="Live deployment coming soon"
                                             >
-                                                <ExternalLink size={20} />
-                                                <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-zinc-800 text-gray-300 text-[10px] px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover/demo:opacity-100 transition-opacity pointer-events-none border border-white/10">
-                                                    Coming Soon
+                                                <ExternalLink size={18} />
+                                                <span className="absolute -top-7 right-0 bg-[#090a0f] text-zinc-300 text-[10px] px-2 py-0.5 rounded whitespace-nowrap opacity-0 group-hover/demo:opacity-100 transition-opacity pointer-events-none border border-white/10 shadow-lg">
+                                                    Demo Preview
                                                 </span>
                                             </span>
                                         )}
                                     </div>
                                 </div>
 
-                                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent transition-colors">{project.title}</h3>
-                                <p className="text-gray-400 mb-4 text-sm leading-relaxed">
+                                {/* Category Tag */}
+                                <div className="text-[11px] font-mono text-amber-400/90 font-medium mb-1.5">
+                                    {project.category}
+                                </div>
+
+                                {/* Title */}
+                                <h3 className="text-xl font-bold text-white mb-2.5 group-hover:text-amber-300 transition-colors">
+                                    {project.title}
+                                </h3>
+
+                                {/* Description */}
+                                <p className="text-zinc-400 mb-6 text-sm leading-relaxed">
                                     {project.description}
                                 </p>
                             </div>
 
-                            <div className="flex flex-wrap gap-2 mt-4">
+                            {/* Tech Stack Pills */}
+                            <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/5">
                                 {project.tech.map((t) => (
-                                    <span key={t} className="text-xs font-mono text-accent">
+                                    <span
+                                        key={t}
+                                        className="text-[11px] font-mono text-zinc-300 bg-white/5 px-2 py-0.5 rounded border border-white/5 group-hover:border-amber-500/20 group-hover:text-amber-300/90 transition-colors"
+                                    >
                                         {t}
                                     </span>
                                 ))}

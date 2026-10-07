@@ -2,38 +2,28 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import TechStack from "./components/TechStack";
+import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Certifications from "./components/Certifications";
-import Contact from "./components/Contact";
-import Experience from "./components/Experience";
 import Blog from "./components/Blog";
-import BackToTop from "./components/BackToTop";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-// import CurrentlyLearning from "./components/CurrentlyLearning";
-// import Testimonials from "./components/Testimonials";
+import BackToTop from "./components/BackToTop";
 
 export default function Home() {
   return (
-    <main className="min-h-screen" id="main-content">
+    <main className="min-h-screen relative selection:bg-amber-500/20 selection:text-amber-300" id="main-content">
       <Navbar />
       <Hero />
       <About />
       <TechStack />
       <Experience />
-      {/* <CurrentlyLearning /> */}
       <Projects />
       <Certifications />
-      {/* <Testimonials /> */}
       <Blog />
       <Contact />
       <Footer />
-
-      {/* Global decorative elements */}
-      <div className="fixed bottom-0 left-10 hidden lg:block w-[1px] h-32 bg-gray-500/50" />
-      <div className="fixed bottom-0 right-10 hidden lg:block w-[1px] h-32 bg-gray-500/50" />
-
       <BackToTop />
     </main>
   );
 }
-

@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import JavaBackground from "./components/JavaBackground";
+import AmbientBackground from "./components/AmbientBackground";
 import JsonLd from "./components/JsonLd";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -620,7 +620,7 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>
-        <JavaBackground />
+        <AmbientBackground />
 
         <div className="relative z-10">
           {children}

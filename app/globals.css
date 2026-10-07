@@ -10,63 +10,55 @@ html {
 }
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --java-yellow: #f5841f;
-  /* Java Logo Orange/Yellow */
-  --spring-green: #6db33f;
-  /* Spring Logo Green */
-  --code-bg: #1e1e1e;
-  --accent: #FACC15;
-  /* Bright Yellow */
+  --background: #090a0f;
+  --foreground: #f4f4f5;
+  --foreground-muted: #9ca3af;
+  --accent: #f59e0b;
+  --accent-hover: #fbbf24;
+  --accent-muted: rgba(245, 158, 11, 0.12);
+  --accent-border: rgba(245, 158, 11, 0.25);
+  --card-bg: rgba(14, 16, 24, 0.65);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-hover-border: rgba(245, 158, 11, 0.35);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-java-yellow: var(--java-yellow);
-  --color-spring-green: var(--spring-green);
-  --color-code-bg: var(--code-bg);
+  --color-foreground-muted: var(--foreground-muted);
   --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-muted: var(--accent-muted);
+  --color-accent-border: var(--accent-border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-mono), monospace;
-  /* Default to mono for terminal feel */
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* GPU acceleration for specific animations only - don't apply globally as it breaks fixed positioning */
-
-/* Custom Scrollbar for Terminal Feel */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: #090a0f;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 5px;
+  background: #27272a;
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
+  background: #f59e0b;
 }
 
 /* Skip to content link for accessibility */
