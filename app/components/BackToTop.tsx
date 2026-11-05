@@ -3,28 +3,20 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp } from "lucide-react";
+import { EASE } from "./ui/Reveal";
 
 export default function BackToTop() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        const toggleVisibility = () => {
-            if (window.scrollY > 400) {
-                setIsVisible(true);
-            } else {
-                setIsVisible(false);
-            }
-        };
-
-        window.addEventListener("scroll", toggleVisibility);
-        return () => window.removeEventListener("scroll", toggleVisibility);
+        const toggle = () => setIsVisible(window.scrollY > 500);
+        toggle();
+        window.addEventListener("scroll", toggle, { passive: true });
+        return () => window.removeEventListener("scroll", toggle);
     }, []);
 
     const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     return (
@@ -34,11 +26,12 @@ export default function BackToTop() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ ease: EASE }}
                     onClick={scrollToTop}
-                    className="fixed bottom-8 right-8 z-50 p-3 bg-[#0e1017]/90 text-amber-400 border border-amber-500/30 hover:border-amber-400 hover:text-black hover:bg-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:shadow-[0_0_25px_rgba(245,158,11,0.4)] backdrop-blur-md rounded-xl transition-all duration-300 group"
+                    className="fixed bottom-8 right-8 z-50 grid h-11 w-11 place-items-center rounded-full border border-line-strong bg-surface text-muted shadow-2xl transition-colors duration-300 hover:border-accent hover:bg-accent hover:text-background"
                     aria-label="Scroll to top"
                 >
-                    <ArrowUp size={20} className="group-hover:-translate-y-0.5 transition-transform" />
+                    <ArrowUp size={18} />
                 </motion.button>
             )}
         </AnimatePresence>

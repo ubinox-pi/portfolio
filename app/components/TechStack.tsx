@@ -2,7 +2,8 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Layers, FileCode, Check, Copy, Shield, Cloud, Database, Cpu, Wrench } from "lucide-react";
+import SectionHeading from "./ui/SectionHeading";
+import { Reveal, EASE } from "./ui/Reveal";
 
 interface TechItem {
     name: string;
@@ -12,14 +13,14 @@ interface TechItem {
 }
 
 const categories: Record<string, TechItem[]> = {
-    "Languages": [
+    Languages: [
         { name: "Java", version: "21 / 25", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", description: "Virtual threads, records, pattern matching" },
         { name: "Reactive Java", version: "Project Reactor", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-plain-wordmark.svg", description: "Mono, Flux, backpressure streams" },
         { name: "C++", version: "20", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg", description: "Data structures & low-level memory" },
         { name: "Python", version: "3.12", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", description: "Automation & scripting pipelines" },
         { name: "Android", version: "Modern SDK", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg", description: "Native mobile client development" },
     ],
-    "Frameworks": [
+    Frameworks: [
         { name: "Spring Boot", version: "3.4 / 4.x", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg", description: "Microservices & enterprise REST APIs" },
         { name: "Spring WebFlux", version: "6.x", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original-wordmark.svg", description: "Non-blocking reactive Netty runtime" },
         { name: "Spring Security", version: "6.x", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg", description: "JWT, OAuth2, RBAC filter chains" },
@@ -29,7 +30,7 @@ const categories: Record<string, TechItem[]> = {
         { name: "Spring Cloud", version: "2024.x", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg", description: "Gateway routing, Eureka & distributed config" },
         { name: "Spring AI", version: "2.0", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original-wordmark.svg", description: "LLM orchestration & agentic streaming" },
     ],
-    "Databases": [
+    Databases: [
         { name: "PostgreSQL", version: "16", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", description: "ACID transactions, indexing, partitioning" },
         { name: "Redis", version: "7.2", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg", description: "In-memory caching, distributed locks, pub/sub" },
         { name: "Firebase", version: "Realtime", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg", description: "Realtime database & cloud messaging" },
@@ -38,7 +39,7 @@ const categories: Record<string, TechItem[]> = {
         { name: "Neo4j", version: "5.x", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/neo4j/neo4j-original.svg", description: "Graph algorithms & social connections" },
         { name: "MinIO", version: "S3 Compatible", icon: "https://dl.min.io/logo/Minio_logo_light/Minio_logo_light.svg", description: "Distributed blob storage" },
     ],
-    "Security": [
+    Security: [
         { name: "JWT", version: "RFC 7519", icon: "https://jwt.io/img/pic_logo.svg", description: "Stateless claims-based authentication" },
         { name: "OAuth2", version: "2.1", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oauth/oauth-original.svg", description: "Delegated authorization & SSO identity" },
         { name: "Spring Security", version: "6.x", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg", description: "Method-level RBAC & security filter chains" },
@@ -59,201 +60,98 @@ const categories: Record<string, TechItem[]> = {
         { name: "Gradle", version: "8.7", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-original.svg", description: "Kotlin DSL & incremental caching" },
         { name: "JUnit 5", version: "5.10", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/junit/junit-original.svg", description: "Unit, mock & integration tests" },
         { name: "Postman", version: "11.x", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg", description: "API contract testing & mock servers" },
-    ]
+    ],
 };
+
+const catKeys = Object.keys(categories);
 
 export default function TechStack() {
     const [activeTab, setActiveTab] = useState("Languages");
-    const [activeConfigFile, setActiveConfigFile] = useState<"pom" | "yml">("pom");
 
     return (
-        <section id="skills" className="py-24 px-4 md:px-6 relative">
-            <div className="max-w-6xl mx-auto">
-                {/* Section Header */}
-                <div className="flex items-center gap-3 mb-4">
-                    <span className="font-mono text-xs uppercase tracking-widest text-amber-400 bg-amber-400/10 px-2.5 py-1 rounded-full border border-amber-400/20">
-                        02 / ARSENAL
-                    </span>
-                    <div className="h-[1px] bg-white/10 flex-grow" />
-                </div>
-                <div className="mb-12">
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-                        Technical Arsenal & Infrastructure
-                    </h2>
-                    <p className="text-zinc-400 text-sm md:text-base mt-2 max-w-2xl leading-relaxed">
-                        Production-grade backend engineering stack with deep expertise in the Java ecosystem, reactive asynchronous runtimes, distributed persistence, security, and cloud infrastructure.
-                    </p>
-                </div>
+        <section id="skills" className="relative px-4 py-28 md:px-6 md:py-36">
+            <div className="mx-auto max-w-6xl">
+                <SectionHeading
+                    index="02"
+                    label="Stack"
+                    title={[
+                        "Tools I reach for",
+                        <span key="l2" className="serif-italic text-muted">every single day.</span>,
+                    ]}
+                    intro="Production-grade Java ecosystem, reactive runtimes, distributed persistence, security and cloud infrastructure."
+                />
 
-                {/* Main Content Area */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                    {/* Left: Category Navigation & Skill Cards Grid (7 cols) */}
-                    <div className="lg:col-span-7 space-y-6">
-                        {/* Tab Filter Pills */}
-                        <div className="flex flex-wrap gap-2">
-                            {Object.keys(categories).map((cat) => {
-                                const isActive = activeTab === cat;
-                                return (
-                                    <button
-                                        key={cat}
-                                        onClick={() => setActiveTab(cat)}
-                                        className={`px-3.5 py-1.5 rounded-xl text-xs font-mono tracking-wide whitespace-nowrap transition-all duration-200 border shrink-0 ${
-                                            isActive
-                                                ? "bg-amber-500/10 border-amber-500/40 text-amber-300 shadow-[0_0_15px_rgba(245,158,11,0.15)] font-semibold"
-                                                : "bg-[#0e1017]/60 border-white/10 text-zinc-400 hover:text-white hover:border-white/20"
-                                        }`}
-                                    >
-                                        {cat}
-                                    </button>
-                                );
-                            })}
-                        </div>
-
-                        {/* Interactive Skill Cards Grid */}
-                        <motion.div
-                            layout
-                            className="grid grid-cols-2 sm:grid-cols-3 gap-3.5"
-                        >
-                            <AnimatePresence mode="popLayout">
-                                {categories[activeTab].map((skill, index) => (
-                                    <motion.div
-                                        key={skill.name}
-                                        initial={{ opacity: 0, scale: 0.95 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        exit={{ opacity: 0, scale: 0.95 }}
-                                        transition={{ duration: 0.2, delay: index * 0.03 }}
-                                        className="bg-[#0e1017]/70 backdrop-blur-md p-4 rounded-xl border border-white/10 hover:border-amber-500/40 hover:bg-[#0e1017]/95 transition-all duration-300 group flex flex-col justify-between"
-                                    >
-                                        <div>
-                                            <div className="flex items-center justify-between mb-3">
-                                                <div className="h-10 w-10 p-1.5 rounded-lg bg-white/5 border border-white/5 group-hover:border-amber-500/20 flex items-center justify-center transition-colors">
-                                                    <img
-                                                        src={skill.icon}
-                                                        alt={skill.name}
-                                                        width={32}
-                                                        height={32}
-                                                        className="max-h-full max-w-full object-contain filter group-hover:brightness-110 transition-all"
-                                                        loading="lazy"
-                                                    />
-                                                </div>
-                                                <span className="text-[10px] font-mono text-zinc-500 bg-white/5 px-2 py-0.5 rounded border border-white/5">
-                                                    {skill.version}
-                                                </span>
-                                            </div>
-
-                                            <div className="text-white font-semibold text-sm group-hover:text-amber-300 transition-colors">
-                                                {skill.name}
-                                            </div>
-
-                                            {skill.description && (
-                                                <p className="text-[11px] text-zinc-400 mt-1 line-clamp-2 leading-relaxed">
-                                                    {skill.description}
-                                                </p>
-                                            )}
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </AnimatePresence>
-                        </motion.div>
-                    </div>
-
-                    {/* Right: Architectural Code Inspector (5 cols) */}
-                    <div className="lg:col-span-5 bg-[#0e1017]/85 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden shadow-2xl flex flex-col h-[520px]">
-                        {/* Editor Tab Bar */}
-                        <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/[0.02]">
-                            <div className="flex items-center gap-2">
+                {/* Category tabs */}
+                <Reveal>
+                    <div className="mb-10 flex flex-wrap gap-2 border-b border-line pb-4">
+                        {catKeys.map((cat) => {
+                            const isActive = activeTab === cat;
+                            return (
                                 <button
-                                    onClick={() => setActiveConfigFile("pom")}
-                                    className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-mono transition-colors ${
-                                        activeConfigFile === "pom"
-                                            ? "bg-amber-500/10 text-amber-300 border border-amber-500/30"
-                                            : "text-zinc-400 hover:text-white"
+                                    key={cat}
+                                    onClick={() => setActiveTab(cat)}
+                                    className={`relative rounded-full px-4 py-2 font-mono text-xs tracking-wide transition-colors duration-300 ${
+                                        isActive
+                                            ? "text-foreground"
+                                            : "text-muted hover:text-foreground"
                                     }`}
                                 >
-                                    <FileCode size={13} />
-                                    pom.xml
+                                    {isActive && (
+                                        <motion.span
+                                            layoutId="stack-tab"
+                                            className="absolute inset-0 rounded-full bg-surface-2 ring-1 ring-inset ring-line-strong"
+                                            transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                                        />
+                                    )}
+                                    <span className="relative z-10">{cat}</span>
                                 </button>
-                                <button
-                                    onClick={() => setActiveConfigFile("yml")}
-                                    className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-mono transition-colors ${
-                                        activeConfigFile === "yml"
-                                            ? "bg-amber-500/10 text-amber-300 border border-amber-500/30"
-                                            : "text-zinc-400 hover:text-white"
-                                    }`}
-                                >
-                                    <Layers size={13} />
-                                    application.yml
-                                </button>
-                            </div>
-
-                            <div className="flex items-center gap-2">
-                                <span className="text-[10px] font-mono text-zinc-500">
-                                    {activeConfigFile === "pom" ? "Maven 3.9" : "Spring Boot 3.4"}
-                                </span>
-                            </div>
-                        </div>
-
-                        {/* Editor Body */}
-                        <div className="p-4 overflow-y-auto font-mono text-xs text-zinc-300 flex-grow custom-scrollbar leading-relaxed">
-                            {activeConfigFile === "pom" ? (
-                                <div className="space-y-1">
-                                    <div className="text-zinc-500">&lt;!-- Enterprise Microservice Dependencies --&gt;</div>
-                                    <div className="text-zinc-500">&lt;<span className="text-amber-400">dependencies</span>&gt;</div>
-                                    {categories[activeTab].map((skill) => (
-                                        <div key={skill.name} className="pl-4 py-1 border-l border-white/5 my-1 hover:bg-white/[0.03] transition-colors">
-                                            <div className="text-zinc-500">&lt;<span className="text-amber-400">dependency</span>&gt;</div>
-                                            <div className="pl-4 text-zinc-400">
-                                                &lt;<span className="text-sky-400">groupId</span>&gt;<span className="text-zinc-200">org.springframework.boot</span>&lt;/<span className="text-sky-400">groupId</span>&gt;
-                                            </div>
-                                            <div className="pl-4 text-zinc-400">
-                                                &lt;<span className="text-sky-400">artifactId</span>&gt;<span className="text-amber-300">{skill.name.toLowerCase().replace(/[\s/.]+/g, '-')}-module</span>&lt;/<span className="text-sky-400">artifactId</span>&gt;
-                                            </div>
-                                            <div className="pl-4 text-zinc-400">
-                                                &lt;<span className="text-sky-400">version</span>&gt;<span className="text-emerald-400">{skill.version}</span>&lt;/<span className="text-sky-400">version</span>&gt;
-                                            </div>
-                                            <div className="text-zinc-500">&lt;/<span className="text-amber-400">dependency</span>&gt;</div>
-                                        </div>
-                                    ))}
-                                    <div className="text-zinc-500">&lt;/<span className="text-amber-400">dependencies</span>&gt;</div>
-                                </div>
-                            ) : (
-                                <div className="space-y-1 text-zinc-300">
-                                    <div className="text-zinc-500"># Spring Boot Production Cluster Configuration</div>
-                                    <div><span className="text-amber-400">spring:</span></div>
-                                    <div className="pl-4"><span className="text-sky-400">application:</span></div>
-                                    <div className="pl-8"><span className="text-sky-400">name:</span> <span className="text-emerald-400">neptune-gateway-service</span></div>
-                                    <div className="pl-4"><span className="text-sky-400">threads:</span></div>
-                                    <div className="pl-8"><span className="text-sky-400">virtual:</span></div>
-                                    <div className="pl-12"><span className="text-sky-400">enabled:</span> <span className="text-amber-300">true</span> <span className="text-zinc-500"># Java 21+ Project Loom</span></div>
-                                    <div className="pl-4"><span className="text-sky-400">security:</span></div>
-                                    <div className="pl-8"><span className="text-sky-400">oauth2:</span></div>
-                                    <div className="pl-12"><span className="text-sky-400">resourceserver:</span></div>
-                                    <div className="pl-16"><span className="text-sky-400">jwt:</span></div>
-                                    <div className="pl-20"><span className="text-sky-400">issuer-uri:</span> <span className="text-emerald-400">https://auth.neptune.internal</span></div>
-                                    <div className="pl-4"><span className="text-sky-400">data:</span></div>
-                                    <div className="pl-8"><span className="text-sky-400">redis:</span></div>
-                                    <div className="pl-12"><span className="text-sky-400">host:</span> <span className="text-zinc-200">10.0.1.45</span></div>
-                                    <div className="pl-12"><span className="text-sky-400">port:</span> <span className="text-emerald-400">6379</span></div>
-                                    <div className="pl-4"><span className="text-sky-400">kafka:</span></div>
-                                    <div className="pl-8"><span className="text-sky-400">bootstrap-servers:</span> <span className="text-zinc-200">kafka-cluster:9092</span></div>
-                                    <div className="pl-8"><span className="text-sky-400">consumer:</span></div>
-                                    <div className="pl-12"><span className="text-sky-400">group-id:</span> <span className="text-emerald-400">financial-ledger-group</span></div>
-                                    <div><span className="text-amber-400">server:</span></div>
-                                    <div className="pl-4"><span className="text-sky-400">port:</span> <span className="text-emerald-400">8080</span></div>
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Editor Status Bar */}
-                        <div className="px-4 py-2 border-t border-white/10 bg-white/[0.02] flex items-center justify-between text-[11px] font-mono text-zinc-500">
-                            <span className="flex items-center gap-1.5">
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                                Runtime: Reactive Netty Engine
-                            </span>
-                            <span>UTF-8 • LF</span>
-                        </div>
+                            );
+                        })}
                     </div>
-                </div>
+                </Reveal>
+
+                {/* Skill grid */}
+                <motion.div layout className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+                    <AnimatePresence mode="popLayout">
+                        {categories[activeTab].map((skill, index) => (
+                            <motion.div
+                                key={skill.name}
+                                initial={{ opacity: 0, scale: 0.96 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.96 }}
+                                transition={{ duration: 0.3, delay: index * 0.04, ease: EASE }}
+                                className="group flex items-start gap-4 bg-background p-5 transition-colors duration-300 hover:bg-surface"
+                            >
+                                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-line bg-surface transition-colors duration-300 group-hover:border-accent/30">
+                                    <img
+                                        src={skill.icon}
+                                        alt={skill.name}
+                                        width={28}
+                                        height={28}
+                                        className="max-h-7 max-w-7 object-contain transition-transform duration-500 group-hover:scale-110"
+                                        loading="lazy"
+                                    />
+                                </div>
+                                <div className="min-w-0 flex-1">
+                                    <div className="flex items-baseline gap-2">
+                                        <span className="text-sm font-medium text-foreground transition-colors duration-300 group-hover:text-accent">
+                                            {skill.name}
+                                        </span>
+                                        <span className="leader" />
+                                        <span className="shrink-0 font-mono text-[10px] text-subtle">
+                                            {skill.version}
+                                        </span>
+                                    </div>
+                                    {skill.description && (
+                                        <p className="mt-1.5 text-xs leading-relaxed text-muted line-clamp-2">
+                                            {skill.description}
+                                        </p>
+                                    )}
+                                </div>
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
+                </motion.div>
             </div>
         </section>
     );

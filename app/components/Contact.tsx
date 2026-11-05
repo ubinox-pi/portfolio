@@ -1,15 +1,17 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, Linkedin, Github, MapPin, Copy, Check, ArrowUpRight, Send } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, MapPin, Copy, Check, Send, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
+import SectionHeading from "./ui/SectionHeading";
+import { Reveal, EASE } from "./ui/Reveal";
 
 export default function Contact() {
     const [copiedEmail, setCopiedEmail] = useState(false);
     const [copiedPhone, setCopiedPhone] = useState(false);
     const [copiedPhone2, setCopiedPhone2] = useState(false);
 
-    const handleCopy = async (text: string, type: 'email' | 'phone' | 'phone2') => {
+    const handleCopy = async (text: string, type: "email" | "phone" | "phone2") => {
         try {
             if (navigator.clipboard && window.isSecureContext) {
                 await navigator.clipboard.writeText(text);
@@ -25,11 +27,10 @@ export default function Contact() {
                 document.execCommand("copy");
                 textArea.remove();
             }
-
-            if (type === 'email') {
+            if (type === "email") {
                 setCopiedEmail(true);
                 setTimeout(() => setCopiedEmail(false), 2000);
-            } else if (type === 'phone') {
+            } else if (type === "phone") {
                 setCopiedPhone(true);
                 setTimeout(() => setCopiedPhone(false), 2000);
             } else {
@@ -41,193 +42,122 @@ export default function Contact() {
         }
     };
 
+    const contactItems = [
+        { label: "Primary Email", value: "ramjeeprasad.dev@gmail.com", type: "email" as const, Icon: Mail, copied: copiedEmail },
+        { label: "Business Email", value: "ramjeeprasad@zohomail.in", type: "email" as const, Icon: Mail, copied: copiedEmail },
+        { label: "Direct Phone", value: "+91 9801112671", type: "phone" as const, Icon: Phone, copied: copiedPhone },
+        { label: "Secondary Phone", value: "+91 8227865178", type: "phone2" as const, Icon: Phone, copied: copiedPhone2 },
+    ];
+
+    const socials = [
+        { name: "GitHub", href: "https://github.com/ubinox-pi", Icon: Github },
+        { name: "LinkedIn", href: "https://www.linkedin.com/in/ramjee-prasad-6b26b4349", Icon: Linkedin },
+        { name: "X (Twitter)", href: "https://x.com/ramjee__prasad" },
+        { name: "GeeksforGeeks", href: "https://www.geeksforgeeks.org/profile/ramjeeprasad" },
+        { name: "Discord", href: "https://discord.com/users/ramjeeprasad" },
+    ];
+
     return (
-        <section id="contact" className="py-24 px-4 md:px-6 relative">
-            <div className="max-w-4xl mx-auto">
-                {/* Section Header */}
-                <div className="flex items-center gap-3 mb-4 justify-center">
-                    <span className="font-mono text-xs uppercase tracking-widest text-amber-400 bg-amber-400/10 px-2.5 py-1 rounded-full border border-amber-400/20">
-                        07 / INITIATE CONTACT
-                    </span>
-                </div>
+        <section id="contact" className="relative px-4 py-28 md:px-6 md:py-36">
+            <div className="mx-auto max-w-4xl">
+                <SectionHeading
+                    index="07"
+                    label="Contact"
+                    title={[
+                        "Let\u2019s build",
+                        <span key="l2" className="serif-italic text-muted">something together.</span>,
+                    ]}
+                    intro={
+                        <>
+                            I&rsquo;m open to{" "}
+                            <span className="text-foreground font-medium">Backend Developer</span> and{" "}
+                            <span className="text-foreground font-medium">Software Engineer</span> roles. Whether it&rsquo;s
+                            distributed systems, microservices benchmarks or an upcoming position — let&rsquo;s connect.
+                        </>
+                    }
+                />
 
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="relative bg-[#0e1017]/85 backdrop-blur-2xl p-8 md:p-14 rounded-3xl border border-white/10 shadow-2xl text-center overflow-hidden"
-                >
-                    {/* Ambient Radial Accent */}
-                    <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
-                        Let's Engineer High-Scale Systems Together
-                    </h2>
-                    <p className="text-zinc-400 text-sm md:text-base mb-10 max-w-xl mx-auto leading-relaxed">
-                        I am actively open to <span className="text-zinc-200 font-semibold">Backend Developer</span> and <span className="text-zinc-200 font-semibold">Software Engineer</span> roles. Whether discussing distributed systems architecture, microservices benchmarks, or an upcoming position, let's connect.
-                    </p>
-
-                    {/* Contact Cards Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 text-left">
-                        {/* Primary Email */}
-                        <div
-                            onClick={() => handleCopy("ramjeeprasad.dev@gmail.com", 'email')}
-                            className="group relative cursor-pointer bg-white/[0.03] hover:bg-white/[0.06] p-4 md:p-5 rounded-2xl border border-white/10 hover:border-amber-500/40 transition-all duration-300 flex items-center justify-between"
-                        >
-                            <div className="flex items-center gap-3.5 min-w-0">
-                                <div className="p-3 bg-amber-500/10 rounded-xl text-amber-400 border border-amber-500/20 group-hover:scale-105 transition-transform shrink-0">
-                                    <Mail size={20} />
-                                </div>
-                                <div className="min-w-0">
-                                    <div className="text-[11px] font-mono text-zinc-400">Primary Email</div>
-                                    <div className="text-white font-mono text-xs md:text-sm truncate font-medium">
-                                        ramjeeprasad.dev@gmail.com
+                {/* Contact cards */}
+                <Reveal>
+                    <div className="grid gap-3 sm:grid-cols-2">
+                        {contactItems.map((item) => (
+                            <button
+                                key={item.value}
+                                onClick={() => handleCopy(item.value, item.type)}
+                                className="group flex items-center justify-between rounded-xl border border-line bg-surface/40 px-5 py-4 text-left transition-all duration-300 hover:border-accent/30 hover:bg-surface"
+                            >
+                                <div className="flex items-center gap-3.5 min-w-0">
+                                    <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-line bg-surface text-muted transition-colors duration-300 group-hover:border-accent/30 group-hover:text-accent">
+                                        <item.Icon size={18} />
+                                    </div>
+                                    <div className="min-w-0">
+                                        <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-subtle">
+                                            {item.label}
+                                        </div>
+                                        <div className="truncate font-mono text-sm text-foreground">{item.value}</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="text-zinc-400 p-1.5 rounded-lg group-hover:text-amber-400 transition-colors">
-                                {copiedEmail ? <Check size={16} className="text-emerald-400" /> : <Copy size={16} />}
-                            </div>
-                        </div>
-
-                        {/* Business Email */}
-                        <div
-                            onClick={() => handleCopy("ramjeeprasad@zohomail.in", 'email')}
-                            className="group relative cursor-pointer bg-white/[0.03] hover:bg-white/[0.06] p-4 md:p-5 rounded-2xl border border-white/10 hover:border-amber-500/40 transition-all duration-300 flex items-center justify-between"
-                        >
-                            <div className="flex items-center gap-3.5 min-w-0">
-                                <div className="p-3 bg-amber-500/10 rounded-xl text-amber-400 border border-amber-500/20 group-hover:scale-105 transition-transform shrink-0">
-                                    <Mail size={20} />
+                                <div className="shrink-0 text-subtle transition-colors duration-300 group-hover:text-accent">
+                                    {item.copied ? (
+                                        <Check size={16} className="text-emerald-400" />
+                                    ) : (
+                                        <Copy size={16} />
+                                    )}
                                 </div>
-                                <div className="min-w-0">
-                                    <div className="text-[11px] font-mono text-zinc-400">Direct / Business</div>
-                                    <div className="text-white font-mono text-xs md:text-sm truncate font-medium">
-                                        ramjeeprasad@zohomail.in
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="text-zinc-400 p-1.5 rounded-lg group-hover:text-amber-400 transition-colors">
-                                {copiedEmail ? <Check size={16} className="text-emerald-400" /> : <Copy size={16} />}
-                            </div>
-                        </div>
-
-                        {/* Primary Phone */}
-                        <div
-                            onClick={() => handleCopy("+91 9801112671", 'phone')}
-                            className="group relative cursor-pointer bg-white/[0.03] hover:bg-white/[0.06] p-4 md:p-5 rounded-2xl border border-white/10 hover:border-amber-500/40 transition-all duration-300 flex items-center justify-between"
-                        >
-                            <div className="flex items-center gap-3.5 min-w-0">
-                                <div className="p-3 bg-amber-500/10 rounded-xl text-amber-400 border border-amber-500/20 group-hover:scale-105 transition-transform shrink-0">
-                                    <Phone size={20} />
-                                </div>
-                                <div className="min-w-0">
-                                    <div className="text-[11px] font-mono text-zinc-400">Direct Phone</div>
-                                    <div className="text-white font-mono text-xs md:text-sm truncate font-medium">
-                                        +91 9801112671
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="text-zinc-400 p-1.5 rounded-lg group-hover:text-amber-400 transition-colors">
-                                {copiedPhone ? <Check size={16} className="text-emerald-400" /> : <Copy size={16} />}
-                            </div>
-                        </div>
-
-                        {/* Secondary Phone */}
-                        <div
-                            onClick={() => handleCopy("+91 8227865178", 'phone2')}
-                            className="group relative cursor-pointer bg-white/[0.03] hover:bg-white/[0.06] p-4 md:p-5 rounded-2xl border border-white/10 hover:border-amber-500/40 transition-all duration-300 flex items-center justify-between"
-                        >
-                            <div className="flex items-center gap-3.5 min-w-0">
-                                <div className="p-3 bg-amber-500/10 rounded-xl text-amber-400 border border-amber-500/20 group-hover:scale-105 transition-transform shrink-0">
-                                    <Phone size={20} />
-                                </div>
-                                <div className="min-w-0">
-                                    <div className="text-[11px] font-mono text-zinc-400">Secondary Contact</div>
-                                    <div className="text-white font-mono text-xs md:text-sm truncate font-medium">
-                                        +91 8227865178
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="text-zinc-400 p-1.5 rounded-lg group-hover:text-amber-400 transition-colors">
-                                {copiedPhone2 ? <Check size={16} className="text-emerald-400" /> : <Copy size={16} />}
-                            </div>
-                        </div>
+                            </button>
+                        ))}
                     </div>
+                </Reveal>
 
-                    {/* Action CTA */}
-                    <motion.a
-                        href="mailto:ramjeeprasad.dev@gmail.com"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-400 text-black font-semibold text-sm shadow-[0_0_25px_rgba(245,158,11,0.25)] hover:shadow-[0_0_35px_rgba(245,158,11,0.4)] transition-all"
-                    >
-                        <Send size={16} />
-                        Compose Email Message
-                    </motion.a>
-
-                    {/* Social Network Links */}
-                    <div className="mt-12 pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-3 text-xs font-mono text-zinc-400">
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5">
-                            <MapPin size={14} className="text-amber-400" />
-                            <span>Jamshedpur, India</span>
-                        </div>
+                {/* CTA */}
+                <Reveal delay={0.1}>
+                    <div className="mt-10 text-center">
                         <a
-                            href="https://github.com/ubinox-pi"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 hover:border-amber-500/30 hover:text-amber-300 transition-colors"
+                            href="mailto:ramjeeprasad.dev@gmail.com"
+                            className="group inline-flex items-center gap-3 rounded-full bg-foreground py-3 pl-7 pr-3 text-sm font-semibold text-background transition-colors duration-300 hover:bg-accent"
                         >
-                            <Github size={14} />
-                            <span>GitHub</span>
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/ramjee-prasad-6b26b4349"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 hover:border-amber-500/30 hover:text-amber-300 transition-colors"
-                        >
-                            <Linkedin size={14} />
-                            <span>LinkedIn</span>
-                        </a>
-                        <a
-                            href="https://x.com/ramjee__prasad"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 hover:border-amber-500/30 hover:text-amber-300 transition-colors"
-                        >
-                            <span>X (Twitter)</span>
-                        </a>
-                        <a
-                            href="https://www.geeksforgeeks.org/profile/ramjeeprasad"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 hover:border-amber-500/30 hover:text-amber-300 transition-colors"
-                        >
-                            <span>GeeksforGeeks</span>
-                        </a>
-                        <a
-                            href="https://discord.com/users/ramjeeprasad"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 hover:border-amber-500/30 hover:text-amber-300 transition-colors"
-                        >
-                            <span>Discord</span>
+                            Compose an email
+                            <span className="grid h-9 w-9 place-items-center rounded-full bg-background text-foreground transition-transform duration-500 group-hover:rotate-[-20deg]">
+                                <Send size={15} />
+                            </span>
                         </a>
                     </div>
-                </motion.div>
+                </Reveal>
+
+                {/* Socials & Location */}
+                <Reveal delay={0.15}>
+                    <div className="mt-14 flex flex-wrap items-center justify-center gap-2 border-t border-line pt-8">
+                        <span className="flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 font-mono text-[11px] text-subtle">
+                            <MapPin size={12} className="text-accent" />
+                            Jamshedpur, India
+                        </span>
+                        {socials.map((s) => (
+                            <a
+                                key={s.name}
+                                href={s.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 font-mono text-[11px] text-subtle transition-colors duration-300 hover:border-accent/30 hover:text-foreground"
+                            >
+                                {s.Icon && <s.Icon size={12} />}
+                                {s.name}
+                            </a>
+                        ))}
+                    </div>
+                </Reveal>
             </div>
 
-            {/* Toast Notification */}
+            {/* Toast */}
             <AnimatePresence>
                 {(copiedEmail || copiedPhone || copiedPhone2) && (
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 30 }}
-                        className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-[#0e1017] text-white px-5 py-2.5 rounded-xl text-xs font-mono border border-amber-500/40 shadow-2xl flex items-center gap-2 z-50 pointer-events-none"
+                        className="fixed bottom-8 left-1/2 z-50 -translate-x-1/2 rounded-full border border-accent/30 bg-surface px-5 py-2.5 font-mono text-xs text-foreground shadow-2xl pointer-events-none flex items-center gap-2"
                     >
                         <Check size={14} className="text-emerald-400" />
-                        <span>Copied to clipboard</span>
+                        Copied to clipboard
                     </motion.div>
                 )}
             </AnimatePresence>

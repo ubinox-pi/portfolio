@@ -1,310 +1,277 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, FileText, Github, Terminal, CheckCircle2, Cpu, Activity, GitBranch, Check, FileCode } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { ArrowDownRight, ArrowUpRight, Coffee, Github, Linkedin } from "lucide-react";
+import { EASE, MaskLine } from "./ui/Reveal";
 
-export default function Hero() {
-    const profileCodeLines = [
-        { indent: 0, content: <span><span className="text-sky-400">package</span> <span className="text-zinc-300">com.ramjeeprasad</span>;</span> },
-        { indent: 0, content: <span>&nbsp;</span> },
-        { indent: 0, content: <span><span className="text-sky-400">import</span> <span className="text-zinc-300">java.util.Set</span>;</span> },
-        { indent: 0, content: <span>&nbsp;</span> },
-        { indent: 0, content: <span className="text-zinc-500 italic">/**</span> },
-        { indent: 0, content: <span className="text-zinc-500 italic">&nbsp;* Backend Developer • Distributed Systems</span> },
-        { indent: 0, content: <span className="text-zinc-500 italic">&nbsp;*/</span> },
-        {
-            indent: 0,
-            content: (
-                <span>
-                    <span className="text-sky-400">public record</span>{" "}
-                    <span className="text-amber-300 font-semibold">RamjeePrasad</span>(
-                </span>
-            ),
-        },
-        {
-            indent: 1,
-            content: (
-                <span>
-                    <span className="text-sky-300">String</span> role,
-                </span>
-            ),
-        },
-        {
-            indent: 1,
-            content: (
-                <span>
-                    <span className="text-sky-300">String</span> education,
-                </span>
-            ),
-        },
-        {
-            indent: 1,
-            content: (
-                <span>
-                    <span className="text-sky-300">Set</span>&lt;<span className="text-sky-300">String</span>&gt; coreStack,
-                </span>
-            ),
-        },
-        {
-            indent: 1,
-            content: (
-                <span>
-                    <span className="text-sky-300">Set</span>&lt;<span className="text-sky-300">String</span>&gt; distributed,
-                </span>
-            ),
-        },
-        {
-            indent: 1,
-            content: (
-                <span>
-                    <span className="text-sky-400">boolean</span> availableForHire
-                </span>
-            ),
-        },
-        {
-            indent: 0,
-            content: <span>) &#123;</span>,
-        },
-        {
-            indent: 1,
-            content: (
-                <span>
-                    <span className="text-sky-400">public static</span>{" "}
-                    <span className="text-amber-300">RamjeePrasad</span> <span className="text-amber-200">overview</span>() &#123;
-                </span>
-            ),
-        },
-        {
-            indent: 2,
-            content: (
-                <span>
-                    <span className="text-sky-400">return new</span>{" "}
-                    <span className="text-amber-300">RamjeePrasad</span>(
-                </span>
-            ),
-        },
-        {
-            indent: 3,
-            content: <span className="text-emerald-300">&quot;Backend Developer&quot;</span>,
-        },
-        {
-            indent: 3,
-            content: <span className="text-emerald-300">&quot;B.Tech Computer Science&quot;</span>,
-        },
-        {
-            indent: 3,
-            content: (
-                <span>
-                    <span className="text-sky-300">Set</span>.<span className="text-amber-200">of</span>(
-                    <span className="text-emerald-300">&quot;Java 25&quot;</span>,{" "}
-                    <span className="text-emerald-300">&quot;Spring Boot&quot;</span>,{" "}
-                    <span className="text-emerald-300">&quot;WebFlux&quot;</span>),
-                </span>
-            ),
-        },
-        {
-            indent: 3,
-            content: (
-                <span>
-                    <span className="text-sky-300">Set</span>.<span className="text-amber-200">of</span>(
-                    <span className="text-emerald-300">&quot;Kafka&quot;</span>,{" "}
-                    <span className="text-emerald-300">&quot;PostgreSQL&quot;</span>,{" "}
-                    <span className="text-emerald-300">&quot;Redis&quot;</span>,{" "}
-                    <span className="text-emerald-300">&quot;Docker&quot;</span>),
-                </span>
-            ),
-        },
-        {
-            indent: 3,
-            content: (
-                <span>
-                    <span className="text-amber-300 font-semibold">true</span>{" "}
-                    <span className="text-zinc-500 italic">// Available for Roles</span>
-                </span>
-            ),
-        },
-        {
-            indent: 2,
-            content: <span>);</span>,
-        },
-        {
-            indent: 1,
-            content: <span>&#125;</span>,
-        },
-        {
-            indent: 0,
-            content: <span>&#125;</span>,
-        },
-    ];
+const stack = [
+    "Java 25",
+    "Spring Boot 4",
+    "Spring WebFlux",
+    "Apache Kafka",
+    "PostgreSQL",
+    "Redis",
+    "Docker",
+    "Kubernetes",
+    "Spring AI",
+    "Project Reactor",
+    "Neo4j",
+    "Spring Security",
+];
+
+const stats = [
+    { value: "10+", label: "Microservices built" },
+    { value: "05", label: "Verified certifications" },
+    { value: "07", label: "Technical articles" },
+    { value: "’27", label: "B.Tech CSE, graduating" },
+];
+
+function useISTClock() {
+    const [time, setTime] = useState<string | null>(null);
+    useEffect(() => {
+        const fmt = new Intl.DateTimeFormat("en-GB", {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false,
+            timeZone: "Asia/Kolkata",
+        });
+        const tick = () => setTime(fmt.format(new Date()));
+        tick();
+        const id = setInterval(tick, 1000);
+        return () => clearInterval(id);
+    }, []);
+    return time;
+}
+
+function PortraitCard() {
+    const ref = useRef<HTMLDivElement>(null);
+    const mx = useMotionValue(0);
+    const my = useMotionValue(0);
+    const rotateX = useSpring(useTransform(my, [-0.5, 0.5], [7, -7]), { stiffness: 150, damping: 18 });
+    const rotateY = useSpring(useTransform(mx, [-0.5, 0.5], [-9, 9]), { stiffness: 150, damping: 18 });
+    const glareX = useTransform(mx, [-0.5, 0.5], ["0%", "100%"]);
+
+    const onMove = (e: React.MouseEvent) => {
+        const rect = ref.current?.getBoundingClientRect();
+        if (!rect) return;
+        mx.set((e.clientX - rect.left) / rect.width - 0.5);
+        my.set((e.clientY - rect.top) / rect.height - 0.5);
+    };
+    const onLeave = () => {
+        mx.set(0);
+        my.set(0);
+    };
 
     return (
-        <section className="relative min-h-[92vh] flex items-center justify-center pt-28 md:pt-32 pb-16 px-4 md:px-6 overflow-hidden">
-            <div className="w-full max-w-6xl mx-auto">
-                <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-                    {/* Left Column: Headline & Intro */}
-                    <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-                        {/* Status Badge */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 15 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-medium backdrop-blur-md"
-                        >
-                            <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                            </span>
-                            Available for Backend Engineering Roles
-                        </motion.div>
+        <div className="relative mx-auto w-full max-w-[340px] [perspective:1100px]">
+            <motion.div
+                ref={ref}
+                onMouseMove={onMove}
+                onMouseLeave={onLeave}
+                style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+                className="glass group relative rounded-[22px] p-2.5"
+            >
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[16px] bg-surface-2">
+                    <Image
+                        src="/ramjee_passport.png"
+                        alt="Portrait of Ramjee Prasad, backend developer"
+                        fill
+                        priority
+                        sizes="(max-width: 1024px) 80vw, 340px"
+                        className="object-cover object-top grayscale-[40%] sepia-[12%] transition-all duration-700 group-hover:scale-[1.03] group-hover:grayscale-0 group-hover:sepia-0"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    {/* moving glare */}
+                    <motion.div
+                        style={{ left: glareX }}
+                        className="pointer-events-none absolute -top-1/2 h-[200%] w-1/3 -translate-x-1/2 rotate-12 bg-white/[0.07] blur-2xl"
+                    />
+                    <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between font-mono text-[10px] uppercase tracking-[0.18em] text-white/80">
+                        <span>Fig. 01 — The author</span>
+                        <span>2026</span>
+                    </div>
+                </div>
+                <div className="flex items-center justify-between px-2 pb-1 pt-3 font-mono text-[10.5px] text-muted">
+                    <span className="flex items-center gap-2">
+                        <span className="relative flex h-1.5 w-1.5">
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/70" />
+                            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                        </span>
+                        Open to opportunities
+                    </span>
+                    <span>JSR · IN</span>
+                </div>
+            </motion.div>
 
-                        {/* Main Editorial Headline */}
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]"
-                        >
-                            Architecting resilient{" "}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-yellow-400">
-                                distributed systems
-                            </span>{" "}
-                            & high-throughput backends.
-                        </motion.h1>
+            {/* Rotating stamp */}
+            <motion.div
+                initial={{ scale: 0, rotate: -40 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ duration: 1, delay: 1.1, ease: EASE }}
+                className="absolute -bottom-8 -left-8 grid h-[118px] w-[118px] place-items-center rounded-full bg-accent text-[#1a0f05] shadow-[0_20px_40px_-12px_rgba(242,134,46,0.45)] sm:-left-12"
+            >
+                <svg viewBox="0 0 120 120" className="absolute inset-0 h-full w-full animate-spin-slow" aria-hidden="true">
+                    <defs>
+                        <path id="stamp-circle" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" />
+                    </defs>
+                    <text fontSize="10" fontFamily="var(--font-jetbrains)" fontWeight={600} fill="currentColor">
+                        <textPath href="#stamp-circle" textLength="272" lengthAdjust="spacing">
+                            OPEN TO WORK · BACKEND · JAVA ·
+                        </textPath>
+                    </text>
+                </svg>
+                <Coffee size={26} strokeWidth={1.75} />
+            </motion.div>
+        </div>
+    );
+}
 
-                        {/* Subheadline Narrative */}
+export default function Hero() {
+    const time = useISTClock();
+
+    return (
+        <section className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden px-4 pb-10 pt-32 md:px-6 md:pt-36">
+            <div className="mx-auto w-full max-w-6xl">
+                {/* Meta row */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 0.2 }}
+                    className="mb-10 flex flex-wrap items-center justify-between gap-3 border-b border-line pb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-subtle md:mb-14"
+                >
+                    <span>
+                        <span className="text-accent">package</span> com.ramjeeprasad;
+                    </span>
+                    <span className="hidden sm:inline">Backend Engineer — Java &amp; Spring</span>
+                    <span className="tabular-nums">
+                        Jamshedpur, IN · {time ?? "--:--:--"} IST
+                    </span>
+                </motion.div>
+
+                <div className="grid items-end gap-14 lg:grid-cols-12 lg:gap-10">
+                    {/* Copy */}
+                    <div className="lg:col-span-8">
+                        <h1 className="font-serif text-[3.1rem] leading-[0.98] tracking-[-0.02em] text-foreground sm:text-7xl lg:text-[5.4rem] xl:text-[6rem]">
+                            <span className="sr-only">Ramjee Prasad — Backend Developer. </span>
+                            <MaskLine animateOnMount delay={0.25}>I build the backend</MaskLine>
+                            <MaskLine animateOnMount delay={0.35}>
+                                you&rsquo;ll <span className="serif-italic text-accent">never</span> have
+                            </MaskLine>
+                            <MaskLine animateOnMount delay={0.45}>
+                                to think about<span className="text-accent">.</span>
+                            </MaskLine>
+                        </h1>
+
                         <motion.p
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 16 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-base sm:text-lg text-zinc-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal"
+                            transition={{ duration: 0.9, delay: 0.75, ease: EASE }}
+                            className="mt-8 max-w-xl text-base leading-relaxed text-muted md:text-lg"
                         >
-                            Hi, I'm <span className="text-zinc-100 font-semibold">Ramjee Prasad</span>. I engineer high-concurrency systems using{" "}
-                            <span className="text-amber-400 font-medium">Java 25</span>,{" "}
-                            <span className="text-amber-400 font-medium">Spring Boot 4</span>,{" "}
-                            <span className="text-amber-400 font-medium">Spring WebFlux</span>, and{" "}
-                            <span className="text-amber-400 font-medium">Kafka</span>. Focused on clean domain architectures, P2P networking, and cloud-native containerization.
+                            Hi, I&rsquo;m <span className="text-foreground">Ramjee Prasad</span> — a CS undergrad who spends most
+                            days inside Spring Boot, WebFlux and Kafka. I care about clean domain models, honest APIs, and
+                            services that degrade gracefully instead of falling over.
                         </motion.p>
 
-                        {/* Action Buttons */}
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 16 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
-                            className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2"
+                            transition={{ duration: 0.9, delay: 0.9, ease: EASE }}
+                            className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4"
                         >
-                            <Link
-                                href="#projects"
-                                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-400 hover:bg-amber-300 text-zinc-950 font-semibold text-sm shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-                            >
-                                Explore Projects
-                                <ArrowRight size={16} />
-                            </Link>
-                            <Link
-                                href="/resume"
-                                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 text-zinc-200 hover:text-white font-medium text-sm border border-white/10 hover:border-white/20 backdrop-blur-md transition-all duration-200"
-                            >
-                                <FileText size={16} />
-                                View Resume
-                            </Link>
                             <a
-                                href="https://github.com/ubinox-pi"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 p-3 rounded-full bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white border border-white/10 hover:border-white/20 transition-all duration-200"
-                                aria-label="Visit GitHub Profile"
+                                href="#projects"
+                                className="group inline-flex items-center gap-3 rounded-full bg-foreground py-2 pl-6 pr-2 text-sm font-semibold text-background transition-colors duration-300 hover:bg-accent"
                             >
-                                <Github size={18} />
+                                See selected work
+                                <span className="grid h-9 w-9 place-items-center rounded-full bg-background text-foreground transition-transform duration-500 group-hover:rotate-[-45deg]">
+                                    <ArrowDownRight size={16} />
+                                </span>
                             </a>
-                        </motion.div>
-
-                        {/* Trust & Proof Strip */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                            className="pt-6 border-t border-white/5 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-zinc-400"
-                        >
+                            <Link href="/resume" className="link-underline inline-flex items-center gap-1.5 text-sm text-foreground">
+                                Read the résumé <ArrowUpRight size={14} />
+                            </Link>
                             <div className="flex items-center gap-2">
-                                <CheckCircle2 size={14} className="text-amber-400" />
-                                <span>10+ Microservices Architected</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <CheckCircle2 size={14} className="text-amber-400" />
-                                <span>5 Verified Certifications</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <CheckCircle2 size={14} className="text-amber-400" />
-                                <span>Event-Driven with Kafka</span>
+                                <a
+                                    href="https://github.com/ubinox-pi"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="GitHub profile"
+                                    className="grid h-10 w-10 place-items-center rounded-full border border-line-strong text-muted transition-colors duration-300 hover:border-foreground hover:text-foreground"
+                                >
+                                    <Github size={16} />
+                                </a>
+                                <a
+                                    href="https://www.linkedin.com/in/ramjee-prasad-6b26b4349"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="LinkedIn profile"
+                                    className="grid h-10 w-10 place-items-center rounded-full border border-line-strong text-muted transition-colors duration-300 hover:border-foreground hover:text-foreground"
+                                >
+                                    <Linkedin size={16} />
+                                </a>
                             </div>
                         </motion.div>
                     </div>
 
-                    {/* Right Column: Sleek Developer Code Card */}
+                    {/* Portrait */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.96 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.7, delay: 0.2 }}
-                        className="lg:col-span-5"
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1.2, delay: 0.5, ease: EASE }}
+                        className="lg:col-span-4"
                     >
-                        <div className="relative rounded-2xl bg-[#0c0d12]/95 backdrop-blur-2xl border border-white/10 shadow-2xl shadow-black/80 overflow-hidden ring-1 ring-white/5">
-                            {/* Window Header */}
-                            <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.08] bg-white/[0.02]">
-                                <div className="flex items-center gap-2.5">
-                                    <div className="p-1 rounded bg-amber-500/10 border border-amber-500/20 text-amber-400">
-                                        <FileCode size={13} />
-                                    </div>
-                                    <span className="font-mono text-xs text-zinc-200 font-medium">
-                                        ramjeeprasad.java
-                                    </span>
-                                    <span className="text-[11px] font-mono text-zinc-500 hidden sm:inline">
-                                        • Java 25 Record
-                                    </span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[10.5px] whitespace-nowrap">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                                        Available for Roles
-                                    </span>
-                                </div>
-                            </div>
-
-                            {/* Code Editor Body */}
-                            <div className="p-4 sm:p-5 font-mono text-xs leading-5 overflow-x-auto text-zinc-300 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-                                {profileCodeLines.map((line, idx) => (
-                                    <div
-                                        key={idx}
-                                        className="flex items-center group hover:bg-white/[0.02] -mx-2 px-2 py-0.5 rounded transition-colors"
-                                    >
-                                        <span className="w-6 text-right text-zinc-600 select-none mr-3 shrink-0 text-[11px] font-mono">
-                                            {String(idx + 1).padStart(2, "0")}
-                                        </span>
-                                        <div
-                                            className={`whitespace-nowrap ${
-                                                line.indent === 1
-                                                    ? "pl-4"
-                                                    : line.indent === 2
-                                                    ? "pl-8"
-                                                    : line.indent === 3
-                                                    ? "pl-12"
-                                                    : ""
-                                            }`}
-                                        >
-                                            {line.content}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-
-                            {/* Minimal Clean Card Footer */}
-                            <div className="px-4 py-2 border-t border-white/5 bg-white/[0.01] flex items-center justify-between text-[11px] font-mono text-zinc-500 select-none">
-                                <span className="text-zinc-400">Production-Grade Java Ecosystem</span>
-                                <span>UTF-8</span>
-                            </div>
-                        </div>
+                        <PortraitCard />
                     </motion.div>
                 </div>
+
+                {/* Stats */}
+                <motion.dl
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 1.1 }}
+                    className="mt-20 grid grid-cols-2 border-t border-line md:grid-cols-4"
+                >
+                    {stats.map((s, i) => (
+                        <div
+                            key={s.label}
+                            className={`py-6 pr-4 ${i % 2 === 1 ? "pl-4 md:pl-6" : ""} ${i > 1 ? "border-t border-line md:border-t-0" : ""} ${
+                                i > 0 ? "md:border-l md:border-line md:pl-6" : ""
+                            }`}
+                        >
+                            <dt className="sr-only">{s.label}</dt>
+                            <dd className="font-serif text-4xl text-foreground md:text-5xl">{s.value}</dd>
+                            <dd className="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-subtle">{s.label}</dd>
+                        </div>
+                    ))}
+                </motion.dl>
             </div>
+
+            {/* Marquee */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 1.3 }}
+                className="marquee-mask relative -mx-4 mt-4 overflow-hidden border-y border-line py-5 md:-mx-6"
+                aria-hidden="true"
+            >
+                <div className="animate-marquee flex w-max">
+                    {[0, 1].map((dup) => (
+                        <div key={dup} className="flex shrink-0 items-center">
+                            {stack.map((tech) => (
+                                <span key={`${dup}-${tech}`} className="flex items-center">
+                                    <span className="px-6 font-serif text-2xl italic text-muted md:text-3xl">{tech}</span>
+                                    <span className="text-accent">✦</span>
+                                </span>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+            </motion.div>
         </section>
     );
 }

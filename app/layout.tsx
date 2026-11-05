@@ -1,23 +1,35 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Hanken_Grotesk, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 import AmbientBackground from "./components/AmbientBackground";
+import SmoothScroll from "./components/ui/SmoothScroll";
 import JsonLd from "./components/JsonLd";
 import { Analytics } from "@vercel/analytics/next";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const hanken = Hanken_Grotesk({
+  variable: "--font-hanken",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const instrument = Instrument_Serif({
+  variable: "--font-instrument",
   subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const jetbrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#facc15",
+  themeColor: "#0f0d0b",
   width: "device-width",
   initialScale: 1,
 };
@@ -614,12 +626,13 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
+        className={`${hanken.variable} ${instrument.variable} ${jetbrains.variable} antialiased relative`}
         suppressHydrationWarning
       >
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>
+        <SmoothScroll />
         <AmbientBackground />
 
         <div className="relative z-10">

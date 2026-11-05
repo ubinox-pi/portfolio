@@ -12,7 +12,7 @@ import BackToTop from "./components/BackToTop";
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative selection:bg-amber-500/20 selection:text-amber-300" id="main-content">
+    <main className="min-h-screen relative" id="main-content">
       <Navbar />
       <Hero />
       <About />

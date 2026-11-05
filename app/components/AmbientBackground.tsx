@@ -1,48 +1,40 @@
 "use client";
 
+/**
+ * Quiet, warm backdrop: two slow-drifting blobs in Java orange & blue,
+ * a faint column grid, and film grain on top. Gives the glass surfaces
+ * something soft to blur without shouting.
+ */
 export default function AmbientBackground() {
     return (
         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-            {/* Top Warm Amber Ambient Glow */}
+            {/* Warm orange glow, top-right */}
             <div
-                className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full blur-[140px] opacity-25"
-                style={{
-                    background: "radial-gradient(ellipse at center, rgba(245, 158, 11, 0.45), rgba(217, 119, 6, 0.15), transparent 70%)",
-                }}
+                className="absolute -top-[18%] right-[-12%] h-[70vh] w-[70vw] max-w-[900px] rounded-full blur-[120px] opacity-[0.22] animate-drift"
+                style={{ background: "radial-gradient(circle at center, #e76f00 0%, rgba(231,111,0,0.25) 40%, transparent 70%)" }}
             />
 
-            {/* Mid Page Ambient Indigo Depth */}
+            {/* Cool Java-blue glow, left */}
             <div
-                className="absolute top-[40%] -left-[10%] w-[700px] h-[700px] rounded-full blur-[160px] opacity-15"
-                style={{
-                    background: "radial-gradient(circle, rgba(99, 102, 241, 0.3), transparent 70%)",
-                }}
+                className="absolute top-[35%] -left-[18%] h-[70vh] w-[60vw] max-w-[800px] rounded-full blur-[140px] opacity-[0.14] animate-drift-slow"
+                style={{ background: "radial-gradient(circle at center, #5382a1 0%, rgba(83,130,161,0.2) 45%, transparent 70%)" }}
             />
 
-            {/* Bottom Warm Amber Glow */}
-            <div
-                className="absolute top-[75%] -right-[10%] w-[800px] h-[800px] rounded-full blur-[160px] opacity-15"
-                style={{
-                    background: "radial-gradient(circle, rgba(245, 158, 11, 0.25), transparent 70%)",
-                }}
-            />
+            {/* Column guides — like a typesetter's grid */}
+            <div className="absolute inset-0 mx-auto hidden max-w-6xl px-6 md:block">
+                <div className="grid h-full grid-cols-4 border-x border-white/[0.03]">
+                    <div className="border-r border-white/[0.03]" />
+                    <div className="border-r border-white/[0.03]" />
+                    <div className="border-r border-white/[0.03]" />
+                    <div />
+                </div>
+            </div>
 
-            {/* Architectural Subtle Grid with Radial Fade Mask */}
-            <div
-                className="absolute inset-0 opacity-[0.14]"
-                style={{
-                    backgroundImage: `
-                        linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px)
-                    `,
-                    backgroundSize: "48px 48px",
-                    maskImage: "radial-gradient(ellipse 90% 80% at 50% 30%, black 40%, transparent 90%)",
-                    WebkitMaskImage: "radial-gradient(ellipse 90% 80% at 50% 30%, black 40%, transparent 90%)",
-                }}
-            />
+            {/* Vignette */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.55)_100%)]" />
 
-            {/* Very Subtle Noise Texture for Cinematic Depth */}
-            <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03]" />
+            {/* Grain */}
+            <div className="grain absolute inset-0" />
         </div>
     );
 }

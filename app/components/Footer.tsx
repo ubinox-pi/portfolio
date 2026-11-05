@@ -1,100 +1,125 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Linkedin, Mail, ArrowUpRight, Terminal } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
+
+const navLinks = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/#about" },
+    { label: "Stack", href: "/#skills" },
+    { label: "Now", href: "/#experience" },
+    { label: "Work", href: "/#projects" },
+    { label: "Credentials", href: "/#certifications" },
+    { label: "Writing", href: "/#blog" },
+    { label: "Contact", href: "/#contact" },
+];
+
+const articles = [
+    { label: "Résumé (ATS PDF)", href: "/resume" },
+    { label: "Project Reactor & Flux", href: "/blog/mono-flux-reactive-java" },
+    { label: "Git & GitHub Mastery", href: "/blog/git-github-guide" },
+    { label: "Maven vs Gradle", href: "/blog/maven-gradle-guide" },
+    { label: "Docker Production Guide", href: "/blog/docker-commands" },
+    { label: "Spring Boot REST", href: "/blog/spring-boot-rest-api" },
+];
+
+const socials = [
+    { label: "GitHub", href: "https://github.com/ubinox-pi", Icon: Github },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/ramjee-prasad-6b26b4349", Icon: Linkedin },
+    { label: "X (Twitter)", href: "https://x.com/ramjee__prasad" },
+    { label: "GeeksforGeeks", href: "https://www.geeksforgeeks.org/profile/ramjeeprasad" },
+    { label: "Email", href: "mailto:ramjeeprasad.dev@gmail.com", Icon: Mail },
+];
 
 export default function Footer() {
     return (
-        <footer className="bg-[#06070a] border-t border-white/10 py-14 px-4 md:px-6 relative">
-            <div className="max-w-6xl mx-auto">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-                    {/* Navigation */}
+        <footer className="border-t border-line bg-surface/40 px-4 py-16 md:px-6">
+            <div className="mx-auto max-w-6xl">
+                {/* Top section — big serif CTA */}
+                <div className="mb-16 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
                     <div>
-                        <h3 className="text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold mb-4">
-                            Index
-                        </h3>
-                        <ul className="space-y-2.5 text-xs font-mono">
-                            <li><Link href="/" className="text-zinc-400 hover:text-white transition-colors">Home</Link></li>
-                            <li><Link href="/#about" className="text-zinc-400 hover:text-white transition-colors">About</Link></li>
-                            <li><Link href="/#skills" className="text-zinc-400 hover:text-white transition-colors">Arsenal</Link></li>
-                            <li><Link href="/#experience" className="text-zinc-400 hover:text-white transition-colors">Experience</Link></li>
-                            <li><Link href="/#projects" className="text-zinc-400 hover:text-white transition-colors">Systems</Link></li>
-                            <li><Link href="/#certifications" className="text-zinc-400 hover:text-white transition-colors">Credentials</Link></li>
-                            <li><Link href="/#contact" className="text-zinc-400 hover:text-white transition-colors">Contact</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Resources */}
-                    <div>
-                        <h3 className="text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold mb-4">
-                            Technical Deep Dives
-                        </h3>
-                        <ul className="space-y-2.5 text-xs font-mono">
-                            <li><Link href="/resume" className="text-zinc-400 hover:text-white transition-colors">Resume (ATS PDF)</Link></li>
-                            <li><Link href="/blog/mono-flux-reactive-java" className="text-zinc-400 hover:text-white transition-colors">Project Reactor & Flux</Link></li>
-                            <li><Link href="/blog/git-github-guide" className="text-zinc-400 hover:text-white transition-colors">Git & GitHub Mastery</Link></li>
-                            <li><Link href="/blog/maven-gradle-guide" className="text-zinc-400 hover:text-white transition-colors">Maven vs Gradle Internals</Link></li>
-                            <li><Link href="/blog/docker-commands" className="text-zinc-400 hover:text-white transition-colors">Docker Production Guide</Link></li>
-                            <li><Link href="/blog/spring-boot-rest-api" className="text-zinc-400 hover:text-white transition-colors">Spring Boot REST Architecture</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Connect */}
-                    <div>
-                        <h3 className="text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold mb-4">
-                            Network
-                        </h3>
-                        <ul className="space-y-2.5 text-xs font-mono">
-                            <li>
-                                <a href="https://github.com/ubinox-pi" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white flex items-center gap-2 transition-colors">
-                                    <Github size={13} /> GitHub
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.linkedin.com/in/ramjee-prasad-6b26b4349" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white flex items-center gap-2 transition-colors">
-                                    <Linkedin size={13} /> LinkedIn
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://x.com/ramjee__prasad" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white flex items-center gap-2 transition-colors">
-                                    X (Twitter)
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.geeksforgeeks.org/profile/ramjeeprasad" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white flex items-center gap-2 transition-colors">
-                                    GeeksforGeeks
-                                </a>
-                            </li>
-                            <li>
-                                <a href="mailto:ramjeeprasad.dev@gmail.com" className="text-zinc-400 hover:text-white flex items-center gap-2 transition-colors">
-                                    <Mail size={13} /> Email Direct
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Architectural Note */}
-                    <div>
-                        <h3 className="text-xs font-mono uppercase tracking-widest text-amber-400 font-semibold mb-4">
-                            Systems Philosophy
-                        </h3>
-                        <p className="text-zinc-400 text-xs leading-relaxed mb-4">
-                            Dedicated to designing resilient, low-latency Java backend architectures, reactive pipelines, and clean modular microservices.
+                        <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-subtle">
+                            Let&rsquo;s work together
                         </p>
-                        <div className="flex items-center gap-2 text-[11px] font-mono text-zinc-500">
-                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                            Next.js 16 • Turbopack • Reactive Core
+                        <h2 className="mt-3 font-serif text-4xl text-foreground md:text-5xl">
+                            Got a project?{" "}
+                            <span className="serif-italic text-accent">Say hello.</span>
+                        </h2>
+                    </div>
+                    <a
+                        href="mailto:ramjeeprasad.dev@gmail.com"
+                        className="group inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 font-mono text-sm text-foreground transition-colors duration-300 hover:border-accent hover:text-accent"
+                    >
+                        ramjeeprasad.dev@gmail.com
+                        <ArrowUpRight size={14} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </a>
+                </div>
+
+                {/* Link columns */}
+                <div className="mb-14 grid grid-cols-2 gap-8 md:grid-cols-4">
+                    <div>
+                        <h3 className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-subtle">Index</h3>
+                        <ul className="space-y-2.5">
+                            {navLinks.map((l) => (
+                                <li key={l.href}>
+                                    <Link href={l.href} className="text-sm text-muted transition-colors duration-300 hover:text-foreground">
+                                        {l.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-subtle">Articles</h3>
+                        <ul className="space-y-2.5">
+                            {articles.map((l) => (
+                                <li key={l.href}>
+                                    <Link href={l.href} className="text-sm text-muted transition-colors duration-300 hover:text-foreground">
+                                        {l.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-subtle">Connect</h3>
+                        <ul className="space-y-2.5">
+                            {socials.map((s) => (
+                                <li key={s.href}>
+                                    <a
+                                        href={s.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 text-sm text-muted transition-colors duration-300 hover:text-foreground"
+                                    >
+                                        {s.Icon && <s.Icon size={13} />}
+                                        {s.label}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-subtle">Philosophy</h3>
+                        <p className="text-sm leading-relaxed text-muted">
+                            Designing resilient, low-latency Java backend architectures, reactive pipelines, and clean modular
+                            microservices.
+                        </p>
+                        <div className="mt-4 flex items-center gap-2 font-mono text-[10px] text-subtle">
+                            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                            Next.js 16 · Turbopack · Reactive Core
                         </div>
                     </div>
                 </div>
 
-                <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-500">
-                    <p>© {new Date().getFullYear()} Ramjee Prasad. All systems operational.</p>
-                    <p>
-                        <Link href="https://www.ramjeeprasad.online" className="hover:text-amber-400 transition-colors">
-                            ramjeeprasad.online
-                        </Link>
+                {/* Bottom bar */}
+                <div className="flex flex-col items-center justify-between gap-4 border-t border-line pt-8 sm:flex-row">
+                    <p className="font-mono text-[11px] text-subtle">
+                        © {new Date().getFullYear()} Ramjee Prasad. All rights reserved.
                     </p>
+                    <Link href="https://www.ramjeeprasad.online" className="font-mono text-[11px] text-subtle transition-colors hover:text-accent">
+                        ramjeeprasad.online
+                    </Link>
                 </div>
             </div>
         </footer>

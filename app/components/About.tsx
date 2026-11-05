@@ -1,126 +1,134 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { GraduationCap, Layers, Server, Database, Code2 } from "lucide-react";
+import { Reveal } from "./ui/Reveal";
+import SectionHeading from "./ui/SectionHeading";
+
+const focus = [
+    {
+        n: "i.",
+        title: "Reactive & async",
+        body: "Spring WebFlux, Netty event loops and Project Reactor — non-blocking pipelines that respect backpressure.",
+    },
+    {
+        n: "ii.",
+        title: "Microservices",
+        body: "Gateway routing, service discovery, JWT auth and Kafka event streams between independently deployable services.",
+    },
+    {
+        n: "iii.",
+        title: "Data architecture",
+        body: "Relational models in PostgreSQL, caching and locks in Redis, and graph queries in Neo4j when the data is a network.",
+    },
+];
+
+const education = [
+    {
+        years: "2023 — 2027",
+        title: "B.Tech, Computer Science & Engineering",
+        place: "Silicon Institute of Technology, Sambalpur · BPUT",
+        note: "CGPA 7.46 / 10 · expected",
+        current: true,
+    },
+    {
+        years: "2021 — 2023",
+        title: "Higher Secondary (XII), Science",
+        place: "Jamshedpur Co-operative College · JAC Board",
+        note: "",
+    },
+    {
+        years: "2009 — 2021",
+        title: "Secondary School (X)",
+        place: "Gayatri Shiksha Niketan High School · CBSE",
+        note: "",
+    },
+];
 
 export default function About() {
     return (
-        <section id="about" className="py-24 px-4 md:px-6 relative">
-            <div className="max-w-6xl mx-auto">
-                {/* Section Header */}
-                <div className="mb-12">
-                    <span className="text-xs font-mono font-semibold text-amber-400 tracking-wider uppercase bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">
-                        01 / About Me
-                    </span>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 tracking-tight">
-                        Engineering backends with precision & durability.
-                    </h2>
-                </div>
+        <section id="about" className="relative px-4 py-28 md:px-6 md:py-36">
+            <div className="mx-auto max-w-6xl">
+                <SectionHeading index="01" label="About" title={["A bit about me,", <span key="l2" className="serif-italic text-muted">and how I work.</span>]} />
 
-                <div className="grid lg:grid-cols-12 gap-8 items-start">
-                    {/* Left: Bio & Core Pillars */}
-                    <div className="lg:col-span-8 space-y-6 text-zinc-300 leading-relaxed text-base">
-                        <p>
-                            I'm <span className="text-white font-semibold">Ramjee Prasad</span>, a Computer Science undergraduate (2023–2027) based in Jamshedpur, India, with a focused passion for <span className="text-amber-300 font-medium">backend infrastructure</span> and <span className="text-amber-300 font-medium">distributed systems</span>.
-                        </p>
-                        <p>
-                            My foundation centers on the modern <span className="text-zinc-100 font-semibold">Java & Spring ecosystem</span> — crafting robust microservices, non-blocking APIs with <span className="text-white">Spring WebFlux</span>, and event-driven data pipelines with <span className="text-white">Apache Kafka</span>. I believe great backend engineering balances domain purity with practical operational resilience.
-                        </p>
-                        <p>
-                            Beyond enterprise web services, I enjoy building complex network software from scratch — including decentralized peer-to-peer file transfer protocols with custom cryptographic channels and onion routing relays.
-                        </p>
-
-                        {/* Engineering Focus Pillars */}
-                        <div className="grid sm:grid-cols-3 gap-3.5 pt-4">
-                            <div className="p-4 rounded-xl bg-[#0e1017]/70 backdrop-blur-md border border-white/5 hover:border-amber-500/30 transition-all duration-300">
-                                <Server className="text-amber-400 mb-2" size={20} />
-                                <h3 className="font-semibold text-white text-sm">Reactive & Async</h3>
-                                <p className="text-xs text-zinc-400 mt-1">Spring WebFlux, Netty event loops, and non-blocking backpressure.</p>
+                <div className="grid gap-16 lg:grid-cols-12 lg:gap-12">
+                    {/* Lead */}
+                    <div className="lg:col-span-7">
+                        <Reveal>
+                            <p className="font-serif text-[1.75rem] leading-[1.3] text-foreground md:text-[2.1rem]">
+                                I&rsquo;m a Computer Science undergraduate from Jamshedpur, drawn to the unglamorous half of
+                                software — the <span className="serif-italic text-accent">services, queues and databases</span>{" "}
+                                that quietly hold everything up.
+                            </p>
+                        </Reveal>
+                        <Reveal delay={0.1}>
+                            <div className="mt-10 grid gap-6 text-[15px] leading-relaxed text-muted md:grid-cols-2">
+                                <p>
+                                    Most of my work lives in the modern Java &amp; Spring ecosystem: microservices, non-blocking APIs
+                                    with WebFlux, and event-driven pipelines on Apache Kafka. Good backend engineering, to me, is
+                                    the balance between a clean domain and practical operational resilience.
+                                </p>
+                                <p>
+                                    Outside of web services I like building network software from scratch — including a
+                                    peer-to-peer file transfer protocol with its own encrypted channels, NAT traversal and onion
+                                    routed relays.
+                                </p>
                             </div>
-
-                            <div className="p-4 rounded-xl bg-[#0e1017]/70 backdrop-blur-md border border-white/5 hover:border-amber-500/30 transition-all duration-300">
-                                <Layers className="text-amber-400 mb-2" size={20} />
-                                <h3 className="font-semibold text-white text-sm">Microservices</h3>
-                                <p className="text-xs text-zinc-400 mt-1">Gateway routing, service discovery, JWT auth, and Kafka event streaming.</p>
-                            </div>
-
-                            <div className="p-4 rounded-xl bg-[#0e1017]/70 backdrop-blur-md border border-white/5 hover:border-amber-500/30 transition-all duration-300">
-                                <Database className="text-amber-400 mb-2" size={20} />
-                                <h3 className="font-semibold text-white text-sm">Data Architecture</h3>
-                                <p className="text-xs text-zinc-400 mt-1">PostgreSQL relational models, Redis caching, and Neo4j graph databases.</p>
-                            </div>
-                        </div>
-
-                        {/* Education Timeline */}
-                        <div className="mt-8 pt-6 border-t border-white/5">
-                            <div className="flex items-center gap-2 text-sm font-semibold text-white mb-4">
-                                <GraduationCap size={18} className="text-amber-400" />
-                                <span>Academic Background</span>
-                            </div>
-
-                            <div className="space-y-3">
-                                <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                                    <div>
-                                        <div className="font-semibold text-white text-sm">Bachelor of Technology (B.Tech) in Computer Science</div>
-                                        <div className="text-xs text-zinc-400">Silicon Institute of Technology, Sambalpur (BPUT)</div>
-                                    </div>
-                                    <div className="text-xs font-mono text-amber-400 sm:text-right">
-                                        <div>2023 – 2027 (Expected)</div>
-                                        <div className="text-zinc-500">CGPA: 7.46 / 10.0</div>
-                                    </div>
-                                </div>
-
-                                <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                                    <div>
-                                        <div className="font-semibold text-white text-sm">Higher Secondary (XII) — Science</div>
-                                        <div className="text-xs text-zinc-400">Jamshedpur Co-operative College (JAC Board)</div>
-                                    </div>
-                                    <div className="text-xs font-mono text-zinc-400 sm:text-right">
-                                        2021 – 2023
-                                    </div>
-                                </div>
-
-                                <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                                    <div>
-                                        <div className="font-semibold text-white text-sm">Secondary School (X)</div>
-                                        <div className="text-xs text-zinc-400">Gayatri Shiksha Niketan High School (CBSE)</div>
-                                    </div>
-                                    <div className="text-xs font-mono text-zinc-400 sm:text-right">
-                                        2009 – 2021
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </Reveal>
                     </div>
 
-                    {/* Right: Portrait Photo Card */}
-                    <div className="lg:col-span-4">
-                        <div className="relative rounded-2xl overflow-hidden p-2 bg-[#0e1017]/80 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/80 group">
-                            <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-zinc-950">
-                                <Image
-                                    src="/ramjee_passport.png"
-                                    alt="Ramjee Prasad - Backend Developer"
-                                    fill
-                                    priority
-                                    sizes="(max-width: 1024px) 100vw, 360px"
-                                    className="object-cover object-top filter grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#090a0f] via-transparent to-transparent opacity-80" />
-                                <div className="absolute bottom-4 left-4 right-4">
-                                    <div className="text-white font-semibold text-base">Ramjee Prasad</div>
-                                    <div className="text-xs text-amber-400 font-mono font-medium whitespace-nowrap mt-0.5">
-                                        Backend Developer • Java &amp; Spring
-                                    </div>
-                                </div>
-                            </div>
+                    {/* Focus list */}
+                    <div className="lg:col-span-5">
+                        <Reveal delay={0.1}>
+                            <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-subtle">What I focus on</p>
+                        </Reveal>
+                        <ul className="border-t border-line">
+                            {focus.map((f, i) => (
+                                <li
+                                    key={f.title}
+                                    className="group border-b border-line transition-colors duration-500 hover:bg-white/[0.015]"
+                                >
+                                    <Reveal delay={0.12 + i * 0.08} className="grid grid-cols-[2.5rem_1fr] gap-2 py-6">
+                                        <span className="font-serif text-lg italic text-accent">{f.n}</span>
+                                        <div>
+                                            <h3 className="text-lg font-medium text-foreground transition-transform duration-500 group-hover:translate-x-1">
+                                                {f.title}
+                                            </h3>
+                                            <p className="mt-1.5 text-sm leading-relaxed text-muted">{f.body}</p>
+                                        </div>
+                                    </Reveal>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
 
-                            <div className="p-3 text-center">
-                                <span className="text-[11px] font-mono text-zinc-400">
-                                    Jamshedpur, Jharkhand • Open to Relocation
-                                </span>
-                            </div>
+                {/* Education */}
+                <div className="mt-24">
+                    <Reveal>
+                        <div className="mb-6 flex items-baseline justify-between">
+                            <h3 className="font-serif text-3xl text-foreground md:text-4xl">Education</h3>
+                            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-subtle">Academic record</span>
                         </div>
+                    </Reveal>
+                    <div className="border-t border-line-strong">
+                        {education.map((e, i) => (
+                            <Reveal key={e.title} delay={i * 0.08} y={16}>
+                                <div className="group grid gap-2 border-b border-line py-6 md:grid-cols-12 md:items-baseline md:gap-6">
+                                    <span className="font-mono text-xs tabular-nums text-subtle md:col-span-2">{e.years}</span>
+                                    <div className="md:col-span-7">
+                                        <div className="flex items-center gap-3 text-lg text-foreground md:text-xl">
+                                            {e.title}
+                                            {e.current && (
+                                                <span className="rounded-full border border-accent/40 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-accent">
+                                                    Current
+                                                </span>
+                                            )}
+                                        </div>
+                                        <div className="mt-1 text-sm text-muted">{e.place}</div>
+                                    </div>
+                                    <span className="font-mono text-xs text-muted md:col-span-3 md:text-right">{e.note}</span>
+                                </div>
+                            </Reveal>
+                        ))}
                     </div>
                 </div>
             </div>
